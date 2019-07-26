@@ -4,7 +4,7 @@ using Ecommerce.Domain.Models;
 
 namespace Ecommerce.Repository.Interfaces
 {
-    public interface IRepository<T> : IDisposable where T : Entity
+    public interface IRepository<T>  where T : Entity
     {
         T Insert(T obj);
         bool Remove(T obj);

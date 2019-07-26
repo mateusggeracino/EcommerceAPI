@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace Ecommerce.Repository
 {
-    public class Repository<T> : IDisposable, IRepository<T> where T : Entity
+    public class Repository<T> : IRepository<T> where T : Entity
     {
         private readonly IConfiguration _config;
 
