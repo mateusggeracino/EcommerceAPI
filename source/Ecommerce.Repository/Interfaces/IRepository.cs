@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Dapper;
 using Ecommerce.Domain.Models;
 
 namespace Ecommerce.Repository.Interfaces
@@ -11,5 +12,6 @@ namespace Ecommerce.Repository.Interfaces
         List<T> GetAll();
         T Update(T obj);
         T GetById(int id);
+        List<T> ExecuteQuery(string query, DynamicParameters parameters);
     }
 }
