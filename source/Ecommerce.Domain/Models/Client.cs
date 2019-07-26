@@ -1,4 +1,6 @@
-﻿namespace Ecommerce.Domain.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Ecommerce.Domain.Models
 {
     public class Client : Entity
     {

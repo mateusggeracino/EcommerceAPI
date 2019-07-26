@@ -10,5 +10,6 @@ namespace Ecommerce.Repository.Interfaces
         bool Remove(T obj);
         List<T> GetAll();
         T Update(T obj);
+        T GetById(int id);
     }
 }

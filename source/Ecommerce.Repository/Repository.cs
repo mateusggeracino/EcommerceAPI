@@ -43,6 +43,11 @@ namespace Ecommerce.Repository
             return obj;
         }
 
+        public T GetById(int id)
+        {
+            return Conn.Get<T>(id);
+        }
+
         public void Dispose() => Conn.Dispose();
     }
 }
