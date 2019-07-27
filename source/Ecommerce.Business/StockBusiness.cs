@@ -48,7 +48,6 @@ namespace Ecommerce.Business
         {
             var stock = _stockRepository.GetByStoreProduct(shopping.CartStoreId, shopping.CartProductId);
 
-            stock.VirtualStock -= shopping.Quantity;
             stock.RealStock -= shopping.Quantity;
 
             _stockRepository.Update(stock);
