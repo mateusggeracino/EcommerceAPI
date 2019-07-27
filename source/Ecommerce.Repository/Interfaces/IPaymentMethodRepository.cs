@@ -5,8 +5,7 @@ using System.Text;
 
 namespace Ecommerce.Repository.Interfaces
 {
-    public interface IShoppingKartsRepository : IRepository<ShoppingCarts>
+    public interface IPaymentMethodRepository : IRepository<PaymentMethod>
     {
-        void InsertShoppingCarts(ShoppingCarts shoppingCarts);
     }
 }

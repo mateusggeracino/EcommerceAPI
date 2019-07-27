@@ -33,5 +33,10 @@ namespace Ecommerce.Services
         {
             return _stockBusiness.Update(map);
         }
+
+        public Stock GetByProduct(int storeId, int productId)
+        {
+            return _stockBusiness.GetByStoreProduct(storeId, productId);
+        }
     }
 }
