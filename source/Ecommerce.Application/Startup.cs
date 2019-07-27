@@ -55,6 +55,7 @@ namespace Ecommerce.Application
             services.AddTransient<IStockServices, StockServices>( );
             services.AddTransient<IClientServices, ClientServices>( );
             services.AddTransient<IPaymentMethodService, PaymentMethodService>( );
+            services.AddTransient<IShoppingCartServices, ShoppingCartServices>();
         }
 
         /// <summary>
@@ -66,7 +67,8 @@ namespace Ecommerce.Application
             services.AddSingleton<IStockRepository, StockRepository>( );
             services.AddSingleton<IPaymentMethodRepository, PaymentMethodRepository>( );
             services.AddSingleton<IRepository<Stock>, Repository<Stock>>();
-            services.AddTransient<IClientRepository, ClientRepository>();
+            services.AddSingleton<IShoppingKartsRepository, ShoppingKartsRepository>();
+            //services.AddTransient<IClientRepository, ClientRepository>();
         }
 
         /// <summary>
@@ -75,6 +77,9 @@ namespace Ecommerce.Application
         /// <param name="services"></param>
         public void DependencyInjectionBusiness( IServiceCollection services )
         {
+            services.AddTransient<IStockBusiness, StockBusiness>();
+            services.AddTransient<IClientBusiness, ClientBusiness>();
+            services.AddTransient< IShoppingCartsBusiness, ShoppingKartsBusiness>();
             services.AddTransient<IStockBusiness, StockBusiness>( );
             services.AddTransient<IClientBusiness, ClientBusiness>( );
             services.AddTransient<IPaymentMethodBusiness, PaymentMethodBusiness>( );
