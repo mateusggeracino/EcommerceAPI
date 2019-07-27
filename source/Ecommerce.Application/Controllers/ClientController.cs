@@ -43,9 +43,9 @@ namespace Ecommerce.Application.Controllers
 
         // PUT api/client/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Client value)
         {
-
+            _clientservices.ClientUpdate(value);
         }
 
     }

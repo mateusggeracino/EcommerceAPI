@@ -54,7 +54,12 @@ namespace Ecommerce.Business
 
         public IEnumerable<Client> GetAll()
         {
-            throw new NotImplementedException();
+            return _clientRepository.GetAll();
+        }
+
+        public Client GetById(int id)
+        {
+            return _clientRepository.GetById(id);
         }
     }
 }

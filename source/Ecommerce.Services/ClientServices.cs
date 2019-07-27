@@ -34,7 +34,7 @@ namespace Ecommerce.Services
 
         public Client ClientGetById(int id)
         {
-            return null; //_clienterepository.ExecuteQuery($"Select * From table where id = {id}");
+            return _clientBusiness.GetById(id);
         }
     }
 }
