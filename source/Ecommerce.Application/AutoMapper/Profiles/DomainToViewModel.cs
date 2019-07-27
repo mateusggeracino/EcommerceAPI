@@ -9,7 +9,7 @@ namespace Ecommerce.Application.AutoMapper.Profiles
         public DomainToViewModel( )
         {
             CreateMap<Stock, StockViewModel>( );
-            CreateMap<PaymentMethodViewModel, PaymentMethod>( );
+            CreateMap<PaymentMethod, PaymentMethodViewModel>( );
         }
     }
 }
