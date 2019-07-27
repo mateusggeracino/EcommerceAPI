@@ -23,9 +23,9 @@ namespace Ecommerce.Services
             return _stockBusiness.GetAll();
         }
 
-        public bool Remove(int id)
+        public bool Remove(int storeId, int productId)
         {
-            var stock = _stockBusiness.GetById(id);
+            var stock = _stockBusiness.GetByStoreProduct(storeId,productId);
             return _stockBusiness.Remove(stock);
         }
 

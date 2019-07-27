@@ -36,9 +36,10 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpDelete]
-        public ActionResult Remove(int id)
+        [Route("{productId:int}")]
+        public ActionResult Remove([FromHeader] int storeId, int productId)
         {
-            _stockServices.Remove(id);
+            _stockServices.Remove(storeId, productId);
             return Ok();
         }
 

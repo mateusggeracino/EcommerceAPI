@@ -37,5 +37,10 @@ namespace Ecommerce.Business
         {
             return _stockRepository.Update(stock);
         }
+
+        public Stock GetByStoreProduct(int storeId, int productId)
+        {
+            return _stockRepository.GetByStoreProduct(storeId, productId);
+        }
     }
 }

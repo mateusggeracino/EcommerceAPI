@@ -3,14 +3,12 @@ using System.Data.Common;
 
 namespace Ecommerce.Domain.Models
 {
-    [Table("Stock",Schema = "Products")]
+    [Table("Products.Stock", Schema = "Products")]
     public class Stock : Entity
     {
-        [Column("StockStoreId")]
-        public int StoreId { get; set; }
-        [Column("StockProductId")]
-        public int ProductId { get; set; }
-        public int RealStock { get; set; }
-        public int VirtualStock { get; set; }
+        public int StockStoreId { get; set; }
+        public int StockProductId { get; set; }
+        public decimal RealStock { get; set; }
+        public decimal VirtualStock { get; set; }
     }
 }
