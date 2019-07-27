@@ -10,5 +10,6 @@ namespace Ecommerce.Business.Interfaces
         Stock GetById(int id);
         bool Remove(Stock stock);
         Stock Update(Stock stock);
+        Stock GetByStoreProduct(int storeId, int productId);
     }
 }
