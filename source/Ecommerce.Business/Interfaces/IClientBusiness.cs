@@ -7,5 +7,7 @@ namespace Ecommerce.Business.Interfaces
     {
         void CheckClient(Client client);
         IEnumerable<Client> GetAll();
+
+        Client GetById(int id);
     }
 }

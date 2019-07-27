@@ -45,6 +45,7 @@ namespace Ecommerce.Application
             services.AddTransient<IStockServices, StockServices>( );
             services.AddTransient<IClientServices, ClientServices>( );
             services.AddTransient<IPaymentMethodService, PaymentMethodService>( );
+            services.AddTransient<ClientServices>();
         }
 
         public void DependencyInjectionRepository( IServiceCollection services )
@@ -52,6 +53,8 @@ namespace Ecommerce.Application
             services.AddSingleton<IStockRepository, StockRepository>( );
             services.AddSingleton<IPaymentMethodRepository, PaymentMethodRepository>( );
             //services.AddTransient<IClientRepository, ClientRepository>();
+            services.AddSingleton<IRepository<Stock>, Repository<Stock>>();
+            services.AddTransient<IClientRepository, ClientRepository>();
         }
 
         public void DependencyInjectionBusiness( IServiceCollection services )
