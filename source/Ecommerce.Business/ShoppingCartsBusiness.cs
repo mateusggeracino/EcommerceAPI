@@ -9,14 +9,29 @@ namespace Ecommerce.Business
 {
     public class ShoppingKartsBusiness : IShoppingCartsBusiness
     {
-        private IRepository<ShoppingCarts> _shoppingCarts;
-        public ShoppingKartsBusiness(IRepository<ShoppingCarts> shoppingKartsRepository)
+        private readonly IShoppingKartsRepository _shoppingCarts;
+        public ShoppingKartsBusiness(IShoppingKartsRepository shoppingCarts)
         {
-            _shoppingCarts = shoppingKartsRepository;
+            _shoppingCarts = shoppingCarts;
         }
         public IEnumerable<ShoppingCarts> List()
         {
-            throw new NotImplementedException();
+            return _shoppingCarts.GetAll();
+        }
+
+        public ShoppingCarts GetById(int id)
+        {
+            return _shoppingCarts.GetById(id);
+        }
+
+        public void InsertShoppingCarts(ShoppingCarts shoppingCarts)
+        {
+            _shoppingCarts.InsertShoppingCarts(shoppingCarts);
+        }
+
+        public void Update(ShoppingCarts shoppingCarts)
+        {
+            _shoppingCarts.Update(shoppingCarts);
         }
     }
 }

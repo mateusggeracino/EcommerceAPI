@@ -10,39 +10,41 @@ namespace Ecommerce.Application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ShoppingCartController : Controller
+    public class ShoppingCartsController : ControllerBase
     {
-        private readonly IShoppingCartServices _shoppingKartservices;
+        private readonly IShoppingCartServices _shoppingCartServices;
 
-        public ShoppingCartController(IShoppingCartServices shoppingKartservices)
+        public ShoppingCartsController(IShoppingCartServices shoppingCartservices)
         {
-            _shoppingKartservices = shoppingKartservices;
+            _shoppingCartServices = shoppingCartservices;
         }
 
         // GET api/values
         [HttpGet]
         public IEnumerable<ShoppingCarts> Get()
         {
-            return _shoppingKartservices.List();
+            return _shoppingCartServices.List();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public ShoppingCarts Get(int id)
         {
-            return "value";
+            return _shoppingCartServices.GetById(id);
         }
 
         // POST api/values
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] ShoppingCarts shoppingCarts)
         {
+             _shoppingCartServices.Insert(shoppingCarts);
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        public void Put([FromBody] ShoppingCarts shoppingCarts)
         {
+            _shoppingCartServices.Update(shoppingCarts);
         }
 
         // DELETE api/values/5

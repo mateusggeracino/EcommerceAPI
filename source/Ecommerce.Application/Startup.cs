@@ -44,11 +44,13 @@ namespace Ecommerce.Application
         {
             services.AddTransient<IStockServices, StockServices>();
             services.AddTransient<IClientServices, ClientServices>();
+            services.AddTransient<IShoppingCartServices, ShoppingCartServices>();
         }
 
         public void DependencyInjectionRepository(IServiceCollection services)
         {
             services.AddSingleton<IRepository<Stock>, Repository<Stock>>();
+            services.AddSingleton<IShoppingKartsRepository, ShoppingKartsRepository>();
             //services.AddTransient<IClientRepository, ClientRepository>();
         }
 
@@ -56,6 +58,7 @@ namespace Ecommerce.Application
         {
             services.AddTransient<IStockBusiness, StockBusiness>();
             services.AddTransient<IClientBusiness, ClientBusiness>();
+            services.AddTransient< IShoppingCartsBusiness, ShoppingKartsBusiness>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)

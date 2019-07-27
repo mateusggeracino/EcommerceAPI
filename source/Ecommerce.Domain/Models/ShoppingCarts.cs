@@ -5,22 +5,22 @@ using System.Text;
 
 namespace Ecommerce.Domain.Models
 {
-    [Table("Transactions.ShoppingCarts")]
+    [Table("Transactions.ShoppingCarts", Schema = "Transactions")]
     public class ShoppingCarts : Entity
     {
         [Column("CartCustomerId")]
-        public int CustomerId { get; set; }
+        public int CartCustomerId { get; set; }
         [Column("CartStoreId")]
-        public int StoreId { get; set; }
+        public int CartStoreId { get; set; }
         [Column("CartProductId")]
-        public int ProductId { get; set; }
+        public int CartProductId { get; set; }
         [Column("Quantity")]
-        public int Quantity { get; set; }
+        public decimal Quantity { get; set; }
         [Column("CartCreation")]
-        public DateTime Creation { get; set; }
+        public DateTime CartCreation { get; set; }
         [Column("CartExpiring")]
-        public DateTime Expiring { get; set; }
+        public DateTime CartExpiring { get; set; }
         [Column("CartStatus")]
-        public DateTime Status { get; set; }
+        public int CartStatus { get; set; }
     }
 }

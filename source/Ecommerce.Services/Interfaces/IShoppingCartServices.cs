@@ -8,5 +8,11 @@ namespace Ecommerce.Services.Interfaces
     public interface IShoppingCartServices
     {
         IEnumerable<ShoppingCarts> List();
+
+        ShoppingCarts GetById(int id);
+
+        void Insert(ShoppingCarts shoppingCarts);
+
+        void Update(ShoppingCarts shoppingCarts);
     }
 }

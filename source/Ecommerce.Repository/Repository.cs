@@ -15,7 +15,7 @@ namespace Ecommerce.Repository
     public class Repository<T> : IRepository<T> where T : Entity
     {
         private readonly IConfiguration _config;
-        private readonly ILogger<Repository<T>> _logger;
+        protected readonly ILogger<Repository<T>> _logger;
 
         public Repository(IConfiguration config, ILogger<Repository<T>> logger)
         {
