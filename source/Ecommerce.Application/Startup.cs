@@ -35,8 +35,6 @@ namespace Ecommerce.Application
             services.SwaggerServices();
         }
 
-        
-
         /// <summary>
         /// Método Configure startup. Usando MVC e Swagger
         /// </summary>

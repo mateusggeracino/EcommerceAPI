@@ -52,7 +52,7 @@ namespace Ecommerce.Tests.UnitTest.ControllerTest
             Assert.NotNull(response);
             Assert.IsType<OkObjectResult>(response.Result);
 
-            var httpObjResult = response.Result as OkObjectResult;
+            var httpObjResult = response.Result as BadRequestObjectResult;
 
             Assert.NotNull(httpObjResult);
             Assert.True(httpObjResult.StatusCode == 200);

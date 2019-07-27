@@ -56,7 +56,7 @@ namespace Ecommerce.Application.Controllers
                 return new StatusCodeResult(500);
             }
         }
-
+        
         [HttpDelete]
         [Route("{productId:int}")]
         public ActionResult Remove([FromHeader] int storeId, int productId)

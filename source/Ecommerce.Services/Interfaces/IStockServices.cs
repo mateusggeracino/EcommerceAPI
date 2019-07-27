@@ -10,5 +10,7 @@ namespace Ecommerce.Services.Interfaces
         bool Remove(int storeId, int productId);
         Stock Update(Stock map);
         Stock GetByProduct(int storeId, int productId);
+        Stock RemoveQuantityVirtual(ShoppingCarts shopping);
+        Stock RemoveQuantityRealVirtual(ShoppingCarts shopping);
     }
 }
