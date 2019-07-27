@@ -23,7 +23,7 @@ namespace Ecommerce.Application.Controllers
         public ActionResult<List<StockViewModel>> GetAll()
         {
             var stockList = _stockServices.GetAll();
-            return _mapper.Map<List<StockViewModel>>(stockList); ;
+            return _mapper.Map<List<StockViewModel>>(stockList);
         }
 
         [HttpPost]
