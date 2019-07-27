@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.Application.Controllers
 {
-    [Route("api/Client[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class ClientController : ControllerBase
     {
@@ -22,7 +22,7 @@ namespace Ecommerce.Application.Controllers
 
         // GET api/client
         [HttpGet]
-        public ActionResult <IEnumerable<Client>> GetAll()
+        public ActionResult <IEnumerable<Client>> GetAll()                                 
         {
             return _clientservices.ClientGetAll().ToList();
         }
@@ -45,6 +45,7 @@ namespace Ecommerce.Application.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Client value)
         {
+            value.Id = id;
             _clientservices.ClientUpdate(value);
         }
 

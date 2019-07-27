@@ -44,12 +44,13 @@ namespace Ecommerce.Application
         {
             services.AddTransient<IStockServices, StockServices>();
             services.AddTransient<IClientServices, ClientServices>();
+            services.AddTransient<ClientServices>();
         }
 
         public void DependencyInjectionRepository(IServiceCollection services)
         {
             services.AddSingleton<IRepository<Stock>, Repository<Stock>>();
-            //services.AddTransient<IClientRepository, ClientRepository>();
+            services.AddTransient<IClientRepository, ClientRepository>();
         }
 
         public void DependencyInjectionBusiness(IServiceCollection services)
