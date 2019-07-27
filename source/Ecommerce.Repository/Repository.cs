@@ -23,9 +23,9 @@ namespace Ecommerce.Repository
             _logger = logger;
         }
 
-        private IDbConnection Conn => new SqlConnection(_config.GetConnectionString("DefaultConnection"));
+        protected IDbConnection Conn => new SqlConnection(_config.GetConnectionString("DefaultConnection"));
 
-        public List<T> ExecuteQuery(string query, DynamicParameters parameters = null)
+        public virtual  List<T> ExecuteQuery(string query, DynamicParameters parameters = null)
         {
             try
             {
@@ -48,29 +48,29 @@ namespace Ecommerce.Repository
             }
         }
 
-        public T Insert(T obj)
+        public virtual T Insert(T obj)
         {
             Conn.Insert(obj);
             return obj;
         }
 
-        public bool Remove(T obj)
+        public virtual bool Remove(T obj)
         {
             return Conn.Delete(obj);
         }
 
-        public List<T> GetAll()
+        public virtual List<T> GetAll()
         {
             return Conn.GetAll<T>().ToList();
         }
 
-        public T Update(T obj)
+        public virtual  T Update(T obj)
         {
             Conn.Update(obj);
             return obj;
         }
 
-        public T GetById(int id)
+        public virtual T GetById(int id)
         {
             return Conn.Get<T>(id);
         }

@@ -1,22 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 namespace Ecommerce.Domain.Models
 {
-    [Table("customers")]
+    [Table("Users.Customers",Schema="Users")]
     public class Client : Entity
     {
-        [Column("customer_type")]
-        public string Type { get; set; }
-        [Column("customer_document")]
-        public string Document { get; set; }
-        [Column("customer_name")]
-        public string Name { get; set; }
-        [Column("customer_gender")]
-        public string Gender { get; set; }
-        [Column("customer_address")]
-        public string Address { get; set; }
-        [Column("customer_telephone")]
-        public string Telephone { get; set; }
-        [Column("customer_email")]
-        public string Email { get; set; }
+        public string CustomerType { get; set; }
+        public string CustomerDocument { get; set; }
+        public string CustomerName { get; set; }
+        public string CustomerGender { get; set; }
+        public string CustomerAddress { get; set; }
+        public string CustomerTelephone { get; set; }
+        public string CustomerEmail { get; set; }
     }
 }

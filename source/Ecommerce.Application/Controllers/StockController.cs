@@ -20,10 +20,18 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpGet]
+        [Route("{productId:int}")]
+        public ActionResult<StockViewModel> GetByProduct([FromHeader] int storeId, int productId)
+        {
+            var stockEntity = _stockServices.GetByProduct(storeId, productId);
+            return _mapper.Map<StockViewModel>(stockEntity);
+        }
+
+        [HttpGet]
         public ActionResult<List<StockViewModel>> GetAll()
         {
             var stockList = _stockServices.GetAll();
-            return _mapper.Map<List<StockViewModel>>(stockList); ;
+            return _mapper.Map<List<StockViewModel>>(stockList);
         }
 
         [HttpPost]
@@ -36,9 +44,10 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpDelete]
-        public ActionResult Remove(int id)
+        [Route("{productId:int}")]
+        public ActionResult Remove([FromHeader] int storeId, int productId)
         {
-            _stockServices.Remove(id);
+            _stockServices.Remove(storeId, productId);
             return Ok();
         }
 

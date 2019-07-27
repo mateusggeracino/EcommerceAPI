@@ -17,7 +17,6 @@ namespace Ecommerce.Business
             _clientRepository = clientRepository;
         }
 
-
         private void Insert(Client cliente)
         {
             _clientRepository.Insert(cliente);
@@ -43,18 +42,23 @@ namespace Ecommerce.Business
         /// <param name="client"></param>
         public void CheckParameter(Client client)
         {
-            ClientExeption.When(string.IsNullOrEmpty(client.Name), "Client Name is required");
-            ClientExeption.When(string.IsNullOrEmpty(client.Document), "Client Name is required");
-            ClientExeption.When(string.IsNullOrEmpty(client.Email), "Client Name is required");
-            ClientExeption.When(string.IsNullOrEmpty(client.Gender), "Client Name is required");
-            ClientExeption.When(string.IsNullOrEmpty(client.Address), "Client Name is required");
-            ClientExeption.When(string.IsNullOrEmpty(client.Type), "Client Name is required");
-            ClientExeption.When(string.IsNullOrEmpty(client.Telephone), "Client Name is required");
+            ClientExeption.When(string.IsNullOrEmpty(client.CustomerName), "Client Name is required");
+            ClientExeption.When(string.IsNullOrEmpty(client.CustomerDocument), "Client Name is required");
+            ClientExeption.When(string.IsNullOrEmpty(client.CustomerEmail), "Client Name is required");
+            ClientExeption.When(string.IsNullOrEmpty(client.CustomerGender), "Client Name is required");
+            ClientExeption.When(string.IsNullOrEmpty(client.CustomerAddress), "Client Name is required");
+            ClientExeption.When(string.IsNullOrEmpty(client.CustomerType), "Client Name is required");
+            ClientExeption.When(string.IsNullOrEmpty(client.CustomerTelephone), "Client Name is required");
         }
 
         public IEnumerable<Client> GetAll()
         {
-            throw new NotImplementedException();
+            return _clientRepository.GetAll();
+        }
+
+        public Client GetById(int id)
+        {
+            return _clientRepository.GetById(id);
         }
     }
 }
