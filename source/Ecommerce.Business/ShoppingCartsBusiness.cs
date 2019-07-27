@@ -7,31 +7,44 @@ using System.Text;
 
 namespace Ecommerce.Business
 {
-    public class ShoppingKartsBusiness : IShoppingCartsBusiness
+    public class ShoppingCartsBusiness : IShoppingCartsBusiness
     {
-        private readonly IShoppingKartsRepository _shoppingCarts;
-        public ShoppingKartsBusiness(IShoppingKartsRepository shoppingCarts)
+        private readonly IShoppingCartsRepository _shoppingCartsRepository;
+        private readonly IOrderRepository _orderRepository;
+        public ShoppingCartsBusiness(IShoppingCartsRepository shoppingCartsRepository, IOrderRepository orderRepository)
         {
-            _shoppingCarts = shoppingCarts;
+            _shoppingCartsRepository = shoppingCartsRepository;
+            _orderRepository = orderRepository;
         }
         public IEnumerable<ShoppingCarts> List()
         {
-            return _shoppingCarts.GetAll();
+            return _shoppingCartsRepository.GetAll();
         }
 
         public ShoppingCarts GetById(int id)
         {
-            return _shoppingCarts.GetById(id);
+            return _shoppingCartsRepository.GetById(id);
         }
 
         public void InsertShoppingCarts(ShoppingCarts shoppingCarts)
         {
-            _shoppingCarts.InsertShoppingCarts(shoppingCarts);
+            _shoppingCartsRepository.InsertShoppingCarts(shoppingCarts);
+        }
+
+        public void InsertOrder(ShoppingCarts shoppingCarts)
+        {
+            _orderRepository.Insert(new Order
+            {
+                OrderCartId = shoppingCarts.Id,
+                OrderCreation = DateTime.Now,
+                OrderExpiring = DateTime.Now.AddDays(7),
+                OrderStatus = 1
+            });
         }
 
         public void Update(ShoppingCarts shoppingCarts)
         {
-            _shoppingCarts.Update(shoppingCarts);
+            _shoppingCartsRepository.Update(shoppingCarts);
         }
     }
 }

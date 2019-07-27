@@ -67,7 +67,8 @@ namespace Ecommerce.Application
             services.AddSingleton<IStockRepository, StockRepository>( );
             services.AddSingleton<IPaymentMethodRepository, PaymentMethodRepository>( );
             services.AddSingleton<IRepository<Stock>, Repository<Stock>>();
-            services.AddSingleton<IShoppingKartsRepository, ShoppingKartsRepository>();
+            services.AddSingleton<IShoppingCartsRepository, ShoppingCartsRepository>();
+            services.AddSingleton<IOrderRepository, OrderRepository>();
             //services.AddTransient<IClientRepository, ClientRepository>();
         }
 
@@ -79,7 +80,7 @@ namespace Ecommerce.Application
         {
             services.AddTransient<IStockBusiness, StockBusiness>();
             services.AddTransient<IClientBusiness, ClientBusiness>();
-            services.AddTransient< IShoppingCartsBusiness, ShoppingKartsBusiness>();
+            services.AddTransient<IShoppingCartsBusiness, ShoppingCartsBusiness>();
             services.AddTransient<IStockBusiness, StockBusiness>( );
             services.AddTransient<IClientBusiness, ClientBusiness>( );
             services.AddTransient<IPaymentMethodBusiness, PaymentMethodBusiness>( );

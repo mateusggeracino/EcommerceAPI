@@ -33,5 +33,10 @@ namespace Ecommerce.Services
         {
             _shoppingCartsBusiness.Update(shoppingCarts);
         }
+
+        public void InsertOrder(ShoppingCarts shoppingCarts)
+        {
+            _shoppingCartsBusiness.InsertOrder(shoppingCarts);
+        }
     }
 }
