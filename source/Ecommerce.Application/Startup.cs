@@ -1,52 +1,62 @@
-ï»¿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Ecommerce.Application.AutoMapper;
+using Ecommerce.Application.Extensions;
+using Ecommerce.Business;
+using Ecommerce.Business.Interfaces;
+using Ecommerce.Domain.Models;
+using Ecommerce.Repository;
+using Ecommerce.Repository.Interfaces;
+using Ecommerce.Services;
+using Ecommerce.Services.Interfaces;
 using Ecommerce.Business;
 using Ecommerce.Business.Interfaces;
 using Ecommerce.Repository;
 using Ecommerce.Services;
 using Ecommerce.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Hosting;
 
 namespace Ecommerce.Application
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup( IConfiguration configuration )
         {
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// ConfigureServices AddMVc and Config swagger
+        /// </summary>
+        /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddSingleton<ProductRepository>()
-                    .AddSingleton<IProductBusiness, ProductBusiness>()
-                    .AddSingleton<IProductServices, ProductServices>();
-            services.AddSingleton<PriceRepository>()
-                    .AddSingleton<IPriceBusiness, PriceBusiness>()
-                    .AddSingleton<IPriceServices, PriceServices>();
+            services.DepencencyInjection();
+            services.SwaggerServices();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        
+
+        /// <summary>
+        /// Método Configure startup. Usando MVC e Swagger
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>
+        public void Configure( IApplicationBuilder app, IHostingEnvironment env )
         {
-            if (env.IsDevelopment())
+            if ( env.IsDevelopment( ) )
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage( );
             }
 
             app.UseMvc();
+            app.SwaggerApplication();
+            app.UseMvc( );
         }
     }
 }
