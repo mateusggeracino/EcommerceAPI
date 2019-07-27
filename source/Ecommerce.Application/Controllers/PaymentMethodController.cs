@@ -38,13 +38,13 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post( [FromBody] PaymentMethodViewModel paymentMethodViewModel )
+        public ActionResult<string> Post( [FromBody] PaymentMethodViewModel paymentMethodViewModel )
         {
             var paymentMethod = _mapper.Map<PaymentMethod>( paymentMethodViewModel );
 
             _paymentMethodService.Add( paymentMethod );
 
-            return Ok( );
+            return Ok( "success" );
         }
     }
 }
