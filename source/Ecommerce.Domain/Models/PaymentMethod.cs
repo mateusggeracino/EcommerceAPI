@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Ecommerce.Domain.Models
 {
-    [Table( "PaymentMethod" )]
+    [Table( "PaymentMethod", Schema = "Transactions" )]
     public class PaymentMethod : Entity
     {
         [Column( "PMType" )]
