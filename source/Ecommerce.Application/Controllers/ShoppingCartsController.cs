@@ -55,6 +55,7 @@ namespace Ecommerce.Application.Controllers
             _shoppingCartServices.InsertOrder(shoppingCarts);
             _shoppingCartServices.Update(shoppingCarts);
             Stock stock = _stockServices.GetByProduct(shoppingCarts.CartStoreId, shoppingCarts.CartProductId);
+            _stockServices.RemoveQuantityVirtual(shoppingCarts);
         }
 
         /// <summary>
@@ -62,6 +63,7 @@ namespace Ecommerce.Application.Controllers
         /// </summary>
         /// <param name="shoppingCarts"></param>
         [HttpPatch]
+        [Route("finalize-order")]
         public void FinalizeOrder([FromBody] ShoppingCarts shoppingCarts)
         {
 

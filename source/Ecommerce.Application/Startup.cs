@@ -49,7 +49,6 @@ namespace Ecommerce.Application
 
             app.UseMvc();
             app.SwaggerApplication();
-            app.UseMvc( );
         }
     }
 }
