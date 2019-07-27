@@ -1,29 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
 using Ecommerce.Repository.Interfaces;
 
 namespace Ecommerce.Business
 {
 
-    public class ClientBusiness
+    public class ClientBusiness : IClientBusiness
     {
-        private readonly IRepository<Client> _clienterepository;
+        private readonly IClientRepository _clientRepository;
 
-        public ClientBusiness(IRepository<Client> clienterepository)
+        public ClientBusiness(IClientRepository clientRepository)
         {
-            _clienterepository = clienterepository;
+            _clientRepository = clientRepository;
         }
+
 
         private void Insert(Client cliente)
         {
-            _clienterepository.Insert(cliente);
+            _clientRepository.Insert(cliente);
         }
 
         private void Update(Client cliente)
         {
-            _clienterepository.Update(cliente);
+            _clientRepository.Update(cliente);
         }
 
         public void CheckClient(Client client)
@@ -48,6 +50,11 @@ namespace Ecommerce.Business
             ClientExeption.When(string.IsNullOrEmpty(client.Address), "Client Name is required");
             ClientExeption.When(string.IsNullOrEmpty(client.Type), "Client Name is required");
             ClientExeption.When(string.IsNullOrEmpty(client.Telephone), "Client Name is required");
+        }
+
+        public IEnumerable<Client> GetAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

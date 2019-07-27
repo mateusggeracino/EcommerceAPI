@@ -1,6 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.Reflection.Metadata.Ecma335;
-
 namespace Ecommerce.Domain.Models
 {
     [Table("customers")]

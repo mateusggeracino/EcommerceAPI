@@ -2,35 +2,34 @@
 using System.Collections.Generic;
 using System.Text;
 using Ecommerce.Business;
+using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
 using Ecommerce.Repository.Interfaces;
+using Ecommerce.Services.Interfaces;
 
 namespace Ecommerce.Services
 {
-    public class ClientServices
+    public class ClientServices : IClientServices
     {
-        private readonly ClientBusiness _clientebusiness;
-        private readonly IRepository<Client> _clienterepository;
-
-        public ClientServices(ClientBusiness clientebusiness,IRepository<Client> clientrepository)
+        private readonly IClientBusiness _clientBusiness;
+        public ClientServices(IClientBusiness clientBusiness)
         {
-            _clientebusiness = clientebusiness;
-            _clienterepository = clientrepository;
+            _clientBusiness = clientBusiness;
         }
 
         public void ClientSave(Client client)
         {
-            _clientebusiness.CheckClient(client);
+            _clientBusiness.CheckClient(client);
         }
 
         public void ClientUpdate(Client client)
         {
-            _clientebusiness.CheckClient(client);
+            _clientBusiness.CheckClient(client);
         }
 
         public IEnumerable<Client> ClientGetAll()
         {
-            return _clienterepository.GetAll();
+            return _clientBusiness.GetAll();
         }
 
         public Client ClientGetById(int id)
