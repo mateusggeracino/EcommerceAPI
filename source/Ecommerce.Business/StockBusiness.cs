@@ -22,5 +22,20 @@ namespace Ecommerce.Business
         {
             return _stockRepository.GetAll();
         }
+
+        public Stock GetById(int id)
+        {
+            return _stockRepository.GetById(id);
+        }
+
+        public bool Remove(Stock stock)
+        {
+            return _stockRepository.Remove(stock);
+        }
+
+        public Stock Update(Stock stock)
+        {
+            return _stockRepository.Update(stock);
+        }
     }
 }
