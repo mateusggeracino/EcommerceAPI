@@ -16,56 +16,59 @@ namespace Ecommerce.Application
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup( IConfiguration configuration )
         {
             Configuration = configuration;
         }
 
         public IConfiguration Configuration { get; }
 
-        public void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices( IServiceCollection services )
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            DependencyInjection(services);
+            services.AddMvc( ).SetCompatibilityVersion( CompatibilityVersion.Version_2_2 );
+            DependencyInjection( services );
         }
 
-        public void DependencyInjection(IServiceCollection services)
+        public void DependencyInjection( IServiceCollection services )
         {
-            var mapperConfig = AutoMapperConfig.RegisterMappings();
-            services.AddSingleton(mapperConfig.CreateMapper());
+            var mapperConfig = AutoMapperConfig.RegisterMappings( );
+            services.AddSingleton( mapperConfig.CreateMapper( ) );
 
-            DependencyInjectionBusiness(services);
-            DependencyInjectionServices(services);
-            DependencyInjectionRepository(services);
-            services.BuildServiceProvider();
+            DependencyInjectionBusiness( services );
+            DependencyInjectionServices( services );
+            DependencyInjectionRepository( services );
+            services.BuildServiceProvider( );
         }
 
-        public void DependencyInjectionServices(IServiceCollection services)
+        public void DependencyInjectionServices( IServiceCollection services )
         {
-            services.AddTransient<IStockServices, StockServices>();
-            services.AddTransient<IClientServices, ClientServices>();
+            services.AddTransient<IStockServices, StockServices>( );
+            services.AddTransient<IClientServices, ClientServices>( );
+            services.AddTransient<IPaymentMethodService, PaymentMethodService>( );
         }
 
-        public void DependencyInjectionRepository(IServiceCollection services)
+        public void DependencyInjectionRepository( IServiceCollection services )
         {
-            services.AddSingleton<IStockRepository, StockRepository>();
+            services.AddSingleton<IStockRepository, StockRepository>( );
+            services.AddSingleton<IPaymentMethodRepository, PaymentMethodRepository>( );
             //services.AddTransient<IClientRepository, ClientRepository>();
         }
 
-        public void DependencyInjectionBusiness(IServiceCollection services)
+        public void DependencyInjectionBusiness( IServiceCollection services )
         {
-            services.AddTransient<IStockBusiness, StockBusiness>();
-            services.AddTransient<IClientBusiness, ClientBusiness>();
+            services.AddTransient<IStockBusiness, StockBusiness>( );
+            services.AddTransient<IClientBusiness, ClientBusiness>( );
+            services.AddTransient<IPaymentMethodBusiness, PaymentMethodBusiness>( );
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure( IApplicationBuilder app, IHostingEnvironment env )
         {
-            if (env.IsDevelopment())
+            if ( env.IsDevelopment( ) )
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage( );
             }
 
-            app.UseMvc();
+            app.UseMvc( );
         }
     }
 }
