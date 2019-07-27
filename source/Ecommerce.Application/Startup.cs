@@ -35,8 +35,6 @@ namespace Ecommerce.Application
             services.SwaggerServices();
         }
 
-        
-
         /// <summary>
         /// Método Configure startup. Usando MVC e Swagger
         /// </summary>
@@ -48,10 +46,9 @@ namespace Ecommerce.Application
             {
                 app.UseDeveloperExceptionPage( );
             }
-
+            
             app.UseMvc();
             app.SwaggerApplication();
-            app.UseMvc( );
         }
     }
 }
