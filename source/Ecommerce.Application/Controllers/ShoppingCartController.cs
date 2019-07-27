@@ -10,21 +10,20 @@ namespace Ecommerce.Application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ShoppingKartController : Controller
+    public class ShoppingCartController : Controller
     {
-        private readonly IShoppingKartServices _shoppingKartservices;
+        private readonly IShoppingCartServices _shoppingKartservices;
 
-        public ShoppingKartController(IShoppingKartServices shoppingKartservices)
+        public ShoppingCartController(IShoppingCartServices shoppingKartservices)
         {
             _shoppingKartservices = shoppingKartservices;
         }
 
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<ShoppingKarts>> Get()
+        public IEnumerable<ShoppingCarts> Get()
         {
-            //return _shoppingKartservices.List();
-            return null;
+            return _shoppingKartservices.List();
         }
 
         // GET api/values/5

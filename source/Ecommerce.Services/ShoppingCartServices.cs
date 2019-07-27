@@ -7,15 +7,15 @@ using System.Text;
 
 namespace Ecommerce.Services
 {
-    public class ShoppingkartServices : IShoppingKartServices
+    public class ShoppingCartServices : IShoppingCartServices
     {
-        private readonly IShoppingKartsBusiness _shoppingKartsBusiness;
+        private readonly IShoppingCartsBusiness _shoppingKartsBusiness;
 
-        public ShoppingkartServices(IShoppingKartsBusiness shoppingKartsBusiness)
+        public ShoppingCartServices(IShoppingCartsBusiness shoppingKartsBusiness)
         {
             _shoppingKartsBusiness = shoppingKartsBusiness;
         }
-        public IEnumerable<ShoppingKarts> List()
+        public IEnumerable<ShoppingCarts> List()
         {
             throw new NotImplementedException();
         }

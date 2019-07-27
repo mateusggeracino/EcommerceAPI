@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Ecommerce.Repository.Interfaces
 {
-    public interface IShoppingKartsRepository : IRepository<ShoppingKarts>
+    public interface IShoppingKartsRepository : IRepository<ShoppingCarts>
     {
     }
 }

@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Ecommerce.Business.Interfaces
 {
-    public interface IShoppingKartsBusiness
+    public interface IShoppingCartsBusiness
     {
-        IEnumerable<ShoppingKarts> List();
+        IEnumerable<ShoppingCarts> List();
     }
 }
