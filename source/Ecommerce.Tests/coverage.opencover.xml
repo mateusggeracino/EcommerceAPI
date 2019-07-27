@@ -1,25 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CoverageSession>
-  <Summary numSequencePoints="442" visitedSequencePoints="0" numBranchPoints="22" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="54" minCyclomaticComplexity="19" visitedClasses="0" numClasses="35" visitedMethods="0" numMethods="133" />
+  <Summary numSequencePoints="449" visitedSequencePoints="23" numBranchPoints="22" visitedBranchPoints="1" sequenceCoverage="5.12" branchCoverage="4.54" maxCyclomaticComplexity="54" minCyclomaticComplexity="19" visitedClasses="4" numClasses="35" visitedMethods="12" numMethods="133" />
   <Modules>
-    <Module hash="258830B2-9A27-4694-9C52-866A8E3C0054">
+    <Module hash="0156D224-C21A-46F5-A211-6AFDA123771F">
       <ModulePath>Ecommerce.Application.dll</ModulePath>
-      <ModuleTime>2019-07-27T05:58:00</ModuleTime>
+      <ModuleTime>2019-07-27T06:49:08</ModuleTime>
       <ModuleName>Ecommerce.Application</ModuleName>
       <Files>
-        <File uid="1" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Application\Program.cs" />
-        <File uid="2" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Application\Startup.cs" />
-        <File uid="3" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Application\ViewModels\PaymentMethodViewModel.cs" />
-        <File uid="4" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Application\ViewModels\StockViewModel.cs" />
-        <File uid="5" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Application\Extensions\SwaggerExtensions.cs" />
-        <File uid="6" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Application\Controllers\ClientController.cs" />
-        <File uid="7" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Application\Controllers\PaymentMethodController.cs" />
-        <File uid="8" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Application\Controllers\ShoppingKartController.cs" />
-        <File uid="9" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Application\Controllers\StockController.cs" />
-        <File uid="10" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Application\Controllers\ValuesController.cs" />
-        <File uid="11" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Application\AutoMapper\AutoMapperConfig.cs" />
-        <File uid="12" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Application\AutoMapper\Profiles\DomainToViewModel.cs" />
-        <File uid="13" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Application\AutoMapper\Profiles\ViewModelToDomain.cs" />
+        <File uid="1" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Application\Program.cs" />
+        <File uid="2" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Application\Startup.cs" />
+        <File uid="3" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Application\ViewModels\PaymentMethodViewModel.cs" />
+        <File uid="4" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Application\ViewModels\StockViewModel.cs" />
+        <File uid="5" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Application\Extensions\SwaggerExtensions.cs" />
+        <File uid="6" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Application\Controllers\ClientController.cs" />
+        <File uid="7" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Application\Controllers\PaymentMethodController.cs" />
+        <File uid="8" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Application\Controllers\ShoppingKartController.cs" />
+        <File uid="9" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Application\Controllers\StockController.cs" />
+        <File uid="10" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Application\Controllers\ValuesController.cs" />
+        <File uid="11" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Application\AutoMapper\AutoMapperConfig.cs" />
+        <File uid="12" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Application\AutoMapper\Profiles\DomainToViewModel.cs" />
+        <File uid="13" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Application\AutoMapper\Profiles\ViewModelToDomain.cs" />
       </Files>
       <Classes>
         <Class>
@@ -214,63 +214,63 @@
           </Methods>
         </Class>
         <Class>
-          <Summary numSequencePoints="5" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="5" />
+          <Summary numSequencePoints="5" visitedSequencePoints="5" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="5" numMethods="5" />
           <FullName>Ecommerce.Application.ViewModels.StockViewModel</FullName>
           <Methods>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Int32 Ecommerce.Application.ViewModels.StockViewModel::get_Id()</Name>
               <FileRef uid="4" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="5" ordinal="0" sl="5" sc="1" el="5" ec="2" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="1" uspid="5" ordinal="0" sl="5" sc="1" el="5" ec="2" bec="0" bev="0" fileid="4" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="5" ec="1" el="5" bec="0" bev="0" fileid="4" xmlns:p8="xsi" />
+              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="5" ec="1" el="5" bec="0" bev="0" fileid="4" xmlns:p8="xsi" />
             </Method>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Int32 Ecommerce.Application.ViewModels.StockViewModel::get_StockStoreId()</Name>
               <FileRef uid="4" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="6" ordinal="0" sl="6" sc="1" el="6" ec="2" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="1" uspid="6" ordinal="0" sl="6" sc="1" el="6" ec="2" bec="0" bev="0" fileid="4" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="1" offset="1" sc="0" sl="6" ec="1" el="6" bec="0" bev="0" fileid="4" xmlns:p8="xsi" />
+              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="1" offset="1" sc="0" sl="6" ec="1" el="6" bec="0" bev="0" fileid="4" xmlns:p8="xsi" />
             </Method>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Int32 Ecommerce.Application.ViewModels.StockViewModel::get_StockProductId()</Name>
               <FileRef uid="4" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="7" ordinal="0" sl="7" sc="1" el="7" ec="2" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="1" uspid="7" ordinal="0" sl="7" sc="1" el="7" ec="2" bec="0" bev="0" fileid="4" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="2" offset="2" sc="0" sl="7" ec="1" el="7" bec="0" bev="0" fileid="4" xmlns:p8="xsi" />
+              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="2" offset="2" sc="0" sl="7" ec="1" el="7" bec="0" bev="0" fileid="4" xmlns:p8="xsi" />
             </Method>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Int32 Ecommerce.Application.ViewModels.StockViewModel::get_RealStock()</Name>
               <FileRef uid="4" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="8" ordinal="0" sl="8" sc="1" el="8" ec="2" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="1" uspid="8" ordinal="0" sl="8" sc="1" el="8" ec="2" bec="0" bev="0" fileid="4" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="3" offset="3" sc="0" sl="8" ec="1" el="8" bec="0" bev="0" fileid="4" xmlns:p8="xsi" />
+              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="3" offset="3" sc="0" sl="8" ec="1" el="8" bec="0" bev="0" fileid="4" xmlns:p8="xsi" />
             </Method>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Int32 Ecommerce.Application.ViewModels.StockViewModel::get_VirtualStock()</Name>
               <FileRef uid="4" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="9" ordinal="0" sl="9" sc="1" el="9" ec="2" bec="0" bev="0" fileid="4" />
+                <SequencePoint vc="1" uspid="9" ordinal="0" sl="9" sc="1" el="9" ec="2" bec="0" bev="0" fileid="4" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="4" offset="4" sc="0" sl="9" ec="1" el="9" bec="0" bev="0" fileid="4" xmlns:p8="xsi" />
+              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="4" offset="4" sc="0" sl="9" ec="1" el="9" bec="0" bev="0" fileid="4" xmlns:p8="xsi" />
             </Method>
           </Methods>
         </Class>
@@ -558,7 +558,7 @@
           </Methods>
         </Class>
         <Class>
-          <Summary numSequencePoints="27" visitedSequencePoints="0" numBranchPoints="4" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="2" minCyclomaticComplexity="1" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="6" />
+          <Summary numSequencePoints="34" visitedSequencePoints="13" numBranchPoints="4" visitedBranchPoints="1" sequenceCoverage="38.23" branchCoverage="25" maxCyclomaticComplexity="2" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="2" numMethods="6" />
           <FullName>Ecommerce.Application.Controllers.StockController</FullName>
           <Methods>
             <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
@@ -567,13 +567,13 @@
               <Name>Microsoft.AspNetCore.Mvc.ActionResult`1&lt;Ecommerce.Application.ViewModels.StockViewModel&gt; Ecommerce.Application.Controllers.StockController::GetByProduct(System.Int32,System.Int32)</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="25" ordinal="0" sl="25" sc="1" el="25" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="26" ordinal="1" sl="26" sc="1" el="26" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="27" ordinal="2" sl="27" sc="1" el="27" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="28" ordinal="3" sl="28" sc="1" el="28" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="29" ordinal="0" sl="29" sc="1" el="29" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="30" ordinal="1" sl="30" sc="1" el="30" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="31" ordinal="2" sl="31" sc="1" el="31" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="32" ordinal="3" sl="32" sc="1" el="32" ec="2" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="25" ec="1" el="28" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
+              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="29" ec="1" el="32" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
             </Method>
             <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
@@ -581,31 +581,37 @@
               <Name>Microsoft.AspNetCore.Mvc.ActionResult`1&lt;System.Collections.Generic.List`1&lt;Ecommerce.Application.ViewModels.StockViewModel&gt;&gt; Ecommerce.Application.Controllers.StockController::GetAll()</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="32" ordinal="0" sl="32" sc="1" el="32" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="33" ordinal="1" sl="33" sc="1" el="33" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="34" ordinal="2" sl="34" sc="1" el="34" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="35" ordinal="3" sl="35" sc="1" el="35" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="36" ordinal="0" sl="36" sc="1" el="36" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="37" ordinal="1" sl="37" sc="1" el="37" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="38" ordinal="2" sl="38" sc="1" el="38" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="39" ordinal="3" sl="39" sc="1" el="39" ec="2" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="1" offset="1" sc="0" sl="32" ec="1" el="35" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
+              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="1" offset="1" sc="0" sl="36" ec="1" el="39" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
             </Method>
-            <Method cyclomaticComplexity="2" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="5" visitedSequencePoints="0" numBranchPoints="2" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+            <Method cyclomaticComplexity="2" nPathComplexity="0" sequenceCoverage="63.63" branchCoverage="50" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="11" visitedSequencePoints="7" numBranchPoints="2" visitedBranchPoints="1" sequenceCoverage="63.63" branchCoverage="50" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>Microsoft.AspNetCore.Mvc.ActionResult Ecommerce.Application.Controllers.StockController::Insert(Ecommerce.Application.ViewModels.StockViewModel)</Name>
+              <Name>Microsoft.AspNetCore.Mvc.ActionResult`1&lt;System.String&gt; Ecommerce.Application.Controllers.StockController::Insert(Ecommerce.Application.ViewModels.StockViewModel)</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="39" ordinal="0" sl="39" sc="1" el="39" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="40" ordinal="1" sl="40" sc="1" el="40" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="42" ordinal="2" sl="42" sc="1" el="42" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="43" ordinal="3" sl="43" sc="1" el="43" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="44" ordinal="4" sl="44" sc="1" el="44" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="43" ordinal="0" sl="43" sc="1" el="43" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="45" ordinal="1" sl="45" sc="1" el="45" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="46" ordinal="2" sl="46" sc="1" el="46" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="48" ordinal="3" sl="48" sc="1" el="48" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="50" ordinal="4" sl="50" sc="1" el="50" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="51" ordinal="5" sl="51" sc="1" el="51" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="53" ordinal="6" sl="53" sc="1" el="53" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="54" ordinal="7" sl="54" sc="1" el="54" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="55" ordinal="8" sl="55" sc="1" el="55" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="56" ordinal="9" sl="56" sc="1" el="56" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="58" ordinal="10" sl="58" sc="1" el="58" ec="2" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints>
-                <BranchPoint vc="0" uspid="40" ordinal="0" path="0" offset="17" offsetend="19" sl="40" fileid="9" />
-                <BranchPoint vc="0" uspid="40" ordinal="1" path="1" offset="17" offsetend="29" sl="40" fileid="9" />
+                <BranchPoint vc="0" uspid="48" ordinal="0" path="0" offset="40" offsetend="42" sl="48" fileid="9" />
+                <BranchPoint vc="1" uspid="48" ordinal="1" path="1" offset="40" offsetend="62" sl="48" fileid="9" />
               </BranchPoints>
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="2" offset="2" sc="0" sl="39" ec="1" el="44" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
+              <MethodPoint vc="7" uspid="0" p8:type="SequencePoint" ordinal="2" offset="2" sc="0" sl="43" ec="1" el="58" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
             </Method>
             <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
@@ -613,13 +619,13 @@
               <Name>Microsoft.AspNetCore.Mvc.ActionResult Ecommerce.Application.Controllers.StockController::Remove(System.Int32,System.Int32)</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="49" ordinal="0" sl="49" sc="1" el="49" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="50" ordinal="1" sl="50" sc="1" el="50" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="51" ordinal="2" sl="51" sc="1" el="51" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="52" ordinal="3" sl="52" sc="1" el="52" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="63" ordinal="0" sl="63" sc="1" el="63" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="64" ordinal="1" sl="64" sc="1" el="64" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="65" ordinal="2" sl="65" sc="1" el="65" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="66" ordinal="3" sl="66" sc="1" el="66" ec="2" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="3" offset="3" sc="0" sl="49" ec="1" el="52" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
+              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="3" offset="3" sc="0" sl="63" ec="1" el="66" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
             </Method>
             <Method cyclomaticComplexity="2" nPathComplexity="0" sequenceCoverage="0" branchCoverage="0" isConstructor="False" isGetter="False" isSetter="False" isStatic="True">
               <Summary numSequencePoints="5" visitedSequencePoints="0" numBranchPoints="2" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="2" minCyclomaticComplexity="2" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
@@ -627,32 +633,33 @@
               <Name>Microsoft.AspNetCore.Mvc.ActionResult Ecommerce.Application.Controllers.StockController::Update(Ecommerce.Application.ViewModels.StockViewModel)</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="56" ordinal="0" sl="56" sc="1" el="56" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="57" ordinal="1" sl="57" sc="1" el="57" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="58" ordinal="2" sl="58" sc="1" el="58" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="60" ordinal="3" sl="60" sc="1" el="60" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="61" ordinal="4" sl="61" sc="1" el="61" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="70" ordinal="0" sl="70" sc="1" el="70" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="71" ordinal="1" sl="71" sc="1" el="71" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="72" ordinal="2" sl="72" sc="1" el="72" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="74" ordinal="3" sl="74" sc="1" el="74" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="0" uspid="75" ordinal="4" sl="75" sc="1" el="75" ec="2" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints>
-                <BranchPoint vc="0" uspid="57" ordinal="0" path="0" offset="17" offsetend="19" sl="57" fileid="9" />
-                <BranchPoint vc="0" uspid="57" ordinal="1" path="1" offset="17" offsetend="29" sl="57" fileid="9" />
+                <BranchPoint vc="0" uspid="71" ordinal="0" path="0" offset="17" offsetend="19" sl="71" fileid="9" />
+                <BranchPoint vc="0" uspid="71" ordinal="1" path="1" offset="17" offsetend="29" sl="71" fileid="9" />
               </BranchPoints>
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="4" offset="4" sc="0" sl="56" ec="1" el="61" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
+              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="4" offset="4" sc="0" sl="70" ec="1" el="75" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
             </Method>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="5" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="True" isGetter="False" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="6" visitedSequencePoints="6" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
-              <Name>System.Void Ecommerce.Application.Controllers.StockController::.ctor(AutoMapper.IMapper,Ecommerce.Services.Interfaces.IStockServices)</Name>
+              <Name>System.Void Ecommerce.Application.Controllers.StockController::.ctor(AutoMapper.IMapper,Ecommerce.Services.Interfaces.IStockServices,Microsoft.Extensions.Logging.ILogger`1&lt;Ecommerce.Application.Controllers.StockController&gt;)</Name>
               <FileRef uid="9" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="16" ordinal="0" sl="16" sc="1" el="16" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="17" ordinal="1" sl="17" sc="1" el="17" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="18" ordinal="2" sl="18" sc="1" el="18" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="19" ordinal="3" sl="19" sc="1" el="19" ec="2" bec="0" bev="0" fileid="9" />
-                <SequencePoint vc="0" uspid="20" ordinal="4" sl="20" sc="1" el="20" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="19" ordinal="0" sl="19" sc="1" el="19" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="20" ordinal="1" sl="20" sc="1" el="20" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="21" ordinal="2" sl="21" sc="1" el="21" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="22" ordinal="3" sl="22" sc="1" el="22" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="23" ordinal="4" sl="23" sc="1" el="23" ec="2" bec="0" bev="0" fileid="9" />
+                <SequencePoint vc="1" uspid="24" ordinal="5" sl="24" sc="1" el="24" ec="2" bec="0" bev="0" fileid="9" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="5" offset="5" sc="0" sl="16" ec="1" el="20" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
+              <MethodPoint vc="6" uspid="0" p8:type="SequencePoint" ordinal="5" offset="5" sc="0" sl="19" ec="1" el="24" bec="0" bev="0" fileid="9" xmlns:p8="xsi" />
             </Method>
           </Methods>
         </Class>
@@ -794,16 +801,16 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="0EA4CA16-F8AE-4565-8B71-E3FDB17CA9CE">
+    <Module hash="9DC8A89D-2C83-42E4-863E-21B30C9A4D6E">
       <ModulePath>Ecommerce.Business.dll</ModulePath>
-      <ModuleTime>2019-07-27T05:58:00</ModuleTime>
+      <ModuleTime>2019-07-27T06:49:08</ModuleTime>
       <ModuleName>Ecommerce.Business</ModuleName>
       <Files>
-        <File uid="14" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Business\ClientBusiness.cs" />
-        <File uid="15" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Business\ClientExeption.cs" />
-        <File uid="16" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Business\PaymentMethodBusiness.cs" />
-        <File uid="17" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Business\ShoppingKartsBusiness.cs" />
-        <File uid="18" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Business\StockBusiness.cs" />
+        <File uid="14" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Business\ClientBusiness.cs" />
+        <File uid="15" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Business\ClientExeption.cs" />
+        <File uid="16" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Business\PaymentMethodBusiness.cs" />
+        <File uid="17" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Business\ShoppingKartsBusiness.cs" />
+        <File uid="18" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Business\StockBusiness.cs" />
       </Files>
       <Classes>
         <Class>
@@ -1170,18 +1177,18 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="40A69DA3-F6D3-4987-8816-C540DA2E2B6D">
+    <Module hash="987D5D67-222A-4269-BC4B-A33213E0E298">
       <ModulePath>Ecommerce.Domain.dll</ModulePath>
-      <ModuleTime>2019-07-27T05:58:00</ModuleTime>
+      <ModuleTime>2019-07-27T06:49:08</ModuleTime>
       <ModuleName>Ecommerce.Domain</ModuleName>
       <Files>
-        <File uid="19" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Domain\Models\Client.cs" />
-        <File uid="20" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Domain\Models\Entity.cs" />
-        <File uid="21" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Domain\Models\PaymentMethod.cs" />
-        <File uid="22" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Domain\Models\Product.cs" />
-        <File uid="23" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Domain\Models\ShoppingKarts.cs" />
-        <File uid="24" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Domain\Models\Stock.cs" />
-        <File uid="25" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Domain\Models\Store.cs" />
+        <File uid="19" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Domain\Models\Client.cs" />
+        <File uid="20" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Domain\Models\Entity.cs" />
+        <File uid="21" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Domain\Models\PaymentMethod.cs" />
+        <File uid="22" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Domain\Models\Product.cs" />
+        <File uid="23" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Domain\Models\ShoppingKarts.cs" />
+        <File uid="24" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Domain\Models\Stock.cs" />
+        <File uid="25" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Domain\Models\Store.cs" />
       </Files>
       <Classes>
         <Class>
@@ -1268,19 +1275,19 @@
           </Methods>
         </Class>
         <Class>
-          <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="1" />
+          <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="1" numMethods="1" />
           <FullName>Ecommerce.Domain.Models.Entity</FullName>
           <Methods>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Int32 Ecommerce.Domain.Models.Entity::get_Id()</Name>
               <FileRef uid="20" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="5" ordinal="0" sl="5" sc="1" el="5" ec="2" bec="0" bev="0" fileid="20" />
+                <SequencePoint vc="1" uspid="5" ordinal="0" sl="5" sc="1" el="5" ec="2" bec="0" bev="0" fileid="20" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="5" ec="1" el="5" bec="0" bev="0" fileid="20" xmlns:p8="xsi" />
+              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="5" ec="1" el="5" bec="0" bev="0" fileid="20" xmlns:p8="xsi" />
             </Method>
           </Methods>
         </Class>
@@ -1424,52 +1431,52 @@
           </Methods>
         </Class>
         <Class>
-          <Summary numSequencePoints="4" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="1" visitedMethods="0" numMethods="4" />
+          <Summary numSequencePoints="4" visitedSequencePoints="4" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="1" numClasses="1" visitedMethods="4" numMethods="4" />
           <FullName>Ecommerce.Domain.Models.Stock</FullName>
           <Methods>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Int32 Ecommerce.Domain.Models.Stock::get_StockStoreId()</Name>
               <FileRef uid="24" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="9" ordinal="0" sl="9" sc="1" el="9" ec="2" bec="0" bev="0" fileid="24" />
+                <SequencePoint vc="1" uspid="9" ordinal="0" sl="9" sc="1" el="9" ec="2" bec="0" bev="0" fileid="24" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="9" ec="1" el="9" bec="0" bev="0" fileid="24" xmlns:p8="xsi" />
+              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="0" offset="0" sc="0" sl="9" ec="1" el="9" bec="0" bev="0" fileid="24" xmlns:p8="xsi" />
             </Method>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Int32 Ecommerce.Domain.Models.Stock::get_StockProductId()</Name>
               <FileRef uid="24" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="10" ordinal="0" sl="10" sc="1" el="10" ec="2" bec="0" bev="0" fileid="24" />
+                <SequencePoint vc="1" uspid="10" ordinal="0" sl="10" sc="1" el="10" ec="2" bec="0" bev="0" fileid="24" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="1" offset="1" sc="0" sl="10" ec="1" el="10" bec="0" bev="0" fileid="24" xmlns:p8="xsi" />
+              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="1" offset="1" sc="0" sl="10" ec="1" el="10" bec="0" bev="0" fileid="24" xmlns:p8="xsi" />
             </Method>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Decimal Ecommerce.Domain.Models.Stock::get_RealStock()</Name>
               <FileRef uid="24" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="11" ordinal="0" sl="11" sc="1" el="11" ec="2" bec="0" bev="0" fileid="24" />
+                <SequencePoint vc="1" uspid="11" ordinal="0" sl="11" sc="1" el="11" ec="2" bec="0" bev="0" fileid="24" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="2" offset="2" sc="0" sl="11" ec="1" el="11" bec="0" bev="0" fileid="24" xmlns:p8="xsi" />
+              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="2" offset="2" sc="0" sl="11" ec="1" el="11" bec="0" bev="0" fileid="24" xmlns:p8="xsi" />
             </Method>
-            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="0" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
-              <Summary numSequencePoints="1" visitedSequencePoints="0" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="0" numMethods="1" />
+            <Method cyclomaticComplexity="1" nPathComplexity="0" sequenceCoverage="100" branchCoverage="100" isConstructor="False" isGetter="True" isSetter="False" isStatic="True">
+              <Summary numSequencePoints="1" visitedSequencePoints="1" numBranchPoints="0" visitedBranchPoints="0" sequenceCoverage="100" branchCoverage="100" maxCyclomaticComplexity="1" minCyclomaticComplexity="1" visitedClasses="0" numClasses="0" visitedMethods="1" numMethods="1" />
               <MetadataToken />
               <Name>System.Decimal Ecommerce.Domain.Models.Stock::get_VirtualStock()</Name>
               <FileRef uid="24" />
               <SequencePoints>
-                <SequencePoint vc="0" uspid="12" ordinal="0" sl="12" sc="1" el="12" ec="2" bec="0" bev="0" fileid="24" />
+                <SequencePoint vc="1" uspid="12" ordinal="0" sl="12" sc="1" el="12" ec="2" bec="0" bev="0" fileid="24" />
               </SequencePoints>
               <BranchPoints />
-              <MethodPoint vc="0" uspid="0" p8:type="SequencePoint" ordinal="3" offset="3" sc="0" sl="12" ec="1" el="12" bec="0" bev="0" fileid="24" xmlns:p8="xsi" />
+              <MethodPoint vc="1" uspid="0" p8:type="SequencePoint" ordinal="3" offset="3" sc="0" sl="12" ec="1" el="12" bec="0" bev="0" fileid="24" xmlns:p8="xsi" />
             </Method>
           </Methods>
         </Class>
@@ -1514,17 +1521,17 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="0CBCE35C-154C-4ED2-BDCB-DB245D586861">
+    <Module hash="7549C1E2-7C99-4CFC-8CE3-B4EF3CB48957">
       <ModulePath>Ecommerce.Repository.dll</ModulePath>
-      <ModuleTime>2019-07-27T05:58:00</ModuleTime>
+      <ModuleTime>2019-07-27T06:49:08</ModuleTime>
       <ModuleName>Ecommerce.Repository</ModuleName>
       <Files>
-        <File uid="26" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Repository\ClientRepository.cs" />
-        <File uid="27" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Repository\PaymentMethodRepository.cs" />
-        <File uid="28" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Repository\Repository.cs" />
-        <File uid="29" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Repository\ShoppingKartsRepository.cs" />
-        <File uid="30" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Repository\StockRepository.cs" />
-        <File uid="31" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Repository\StoreRepository.cs" />
+        <File uid="26" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Repository\ClientRepository.cs" />
+        <File uid="27" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Repository\PaymentMethodRepository.cs" />
+        <File uid="28" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Repository\Repository.cs" />
+        <File uid="29" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Repository\ShoppingKartsRepository.cs" />
+        <File uid="30" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Repository\StockRepository.cs" />
+        <File uid="31" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Repository\StoreRepository.cs" />
       </Files>
       <Classes>
         <Class>
@@ -1806,15 +1813,15 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="8CEFCCC3-81EC-45B5-A622-014682AC5F33">
+    <Module hash="C73204CB-E5FA-4629-BF06-F2E8EE52FF4D">
       <ModulePath>Ecommerce.Services.dll</ModulePath>
-      <ModuleTime>2019-07-27T05:58:00</ModuleTime>
+      <ModuleTime>2019-07-27T06:49:08</ModuleTime>
       <ModuleName>Ecommerce.Services</ModuleName>
       <Files>
-        <File uid="32" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Services\ClientServices.cs" />
-        <File uid="33" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Services\PaymentMethodService.cs" />
-        <File uid="34" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Services\ShoppingkartServices.cs" />
-        <File uid="35" fullPath="C:\Users\Luuca\Documents\Projetos\programme.net\git\EcommerceAPI\source\Ecommerce.Services\StockServices.cs" />
+        <File uid="32" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Services\ClientServices.cs" />
+        <File uid="33" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Services\PaymentMethodService.cs" />
+        <File uid="34" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Services\ShoppingkartServices.cs" />
+        <File uid="35" fullPath="C:\repository\git\EcommerceAPI\source\Ecommerce.Services\StockServices.cs" />
       </Files>
       <Classes>
         <Class>
