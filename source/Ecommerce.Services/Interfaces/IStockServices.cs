@@ -11,6 +11,6 @@ namespace Ecommerce.Services.Interfaces
         Stock Update(Stock map);
         Stock GetByProduct(int storeId, int productId);
         Stock RemoveQuantityVirtual(ShoppingCarts shopping);
-        Stock RemoveQuantityRealVirtual(ShoppingCarts shopping);
+        Stock RemoveQuantityReal(ShoppingCarts shopping);
     }
 }

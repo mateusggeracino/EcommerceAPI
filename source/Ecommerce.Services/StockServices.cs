@@ -44,9 +44,9 @@ namespace Ecommerce.Services
             return _stockBusiness.RemoveQuantityVirtual(shopping);
         }
 
-        public Stock RemoveQuantityRealVirtual(ShoppingCarts shopping)
+        public Stock RemoveQuantityReal(ShoppingCarts shopping)
         {
-            return _stockBusiness.RemoveQuantityRealVirtual(shopping);
+            return _stockBusiness.RemoveQuantityReal(shopping);
         }
     }
 }

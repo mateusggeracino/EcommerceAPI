@@ -44,7 +44,7 @@ namespace Ecommerce.Business
             return _stockRepository.GetByStoreProduct(storeId, productId);
         }
 
-        public Stock RemoveQuantityRealVirtual(ShoppingCarts shopping)
+        public Stock RemoveQuantityReal(ShoppingCarts shopping)
         {
             var stock = _stockRepository.GetByStoreProduct(shopping.CartStoreId, shopping.CartProductId);
 
