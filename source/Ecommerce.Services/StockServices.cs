@@ -22,5 +22,16 @@ namespace Ecommerce.Services
         {
             return _stockBusiness.GetAll();
         }
+
+        public bool Remove(int id)
+        {
+            var stock = _stockBusiness.GetById(id);
+            return _stockBusiness.Remove(stock);
+        }
+
+        public Stock Update(Stock map)
+        {
+            return _stockBusiness.Update(map);
+        }
     }
 }
