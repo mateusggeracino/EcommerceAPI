@@ -10,12 +10,6 @@
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Ecommerce.Application.Startup.DependencyInjection(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            Injeção de dependencia
-            </summary>
-            <param name="services"></param>
-        </member>
         <member name="M:Ecommerce.Application.Startup.DependencyInjectionServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Injeção de dependencia services

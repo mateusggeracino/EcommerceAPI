@@ -1,4 +1,3 @@
-using System.IO;
 using Ecommerce.Application.AutoMapper;
 using Ecommerce.Application.Extensions;
 using Ecommerce.Business;
@@ -13,14 +12,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.PlatformAbstractions;
-using Swashbuckle.AspNetCore.Swagger;
 
 namespace Ecommerce.Application
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup( IConfiguration configuration )
         {
             Configuration = configuration;
         }
@@ -38,30 +35,26 @@ namespace Ecommerce.Application
             services.SwaggerServices();
         }
 
-        /// <summary>
-        /// Injeção de dependencia
-        /// </summary>
-        /// <param name="services"></param>
-        public void DependencyInjection(IServiceCollection services)
+        public void DependencyInjection( IServiceCollection services )
         {
-            var mapperConfig = AutoMapperConfig.RegisterMappings();
-            services.AddSingleton(mapperConfig.CreateMapper());
+            var mapperConfig = AutoMapperConfig.RegisterMappings( );
+            services.AddSingleton( mapperConfig.CreateMapper( ) );
 
-            DependencyInjectionBusiness(services);
-            DependencyInjectionServices(services);
-            DependencyInjectionRepository(services);
-            services.BuildServiceProvider();
+            DependencyInjectionBusiness( services );
+            DependencyInjectionServices( services );
+            DependencyInjectionRepository( services );
+            services.BuildServiceProvider( );
         }
 
         /// <summary>
         /// Injeção de dependencia services
         /// </summary>
         /// <param name="services"></param>
-        public void DependencyInjectionServices(IServiceCollection services)
+        public void DependencyInjectionServices( IServiceCollection services )
         {
-            services.AddTransient<IStockServices, StockServices>();
-            services.AddTransient<IClientServices, ClientServices>();
-            services.AddTransient<ClientServices>();
+            services.AddTransient<IStockServices, StockServices>( );
+            services.AddTransient<IClientServices, ClientServices>( );
+            services.AddTransient<IPaymentMethodService, PaymentMethodService>( );
         }
 
         /// <summary>
@@ -70,6 +63,8 @@ namespace Ecommerce.Application
         /// <param name="services"></param>
         public void DependencyInjectionRepository(IServiceCollection services)
         {
+            services.AddSingleton<IStockRepository, StockRepository>( );
+            services.AddSingleton<IPaymentMethodRepository, PaymentMethodRepository>( );
             services.AddSingleton<IRepository<Stock>, Repository<Stock>>();
             services.AddTransient<IClientRepository, ClientRepository>();
         }
@@ -78,10 +73,11 @@ namespace Ecommerce.Application
         /// Injeção de dependencia Business
         /// </summary>
         /// <param name="services"></param>
-        public void DependencyInjectionBusiness(IServiceCollection services)
+        public void DependencyInjectionBusiness( IServiceCollection services )
         {
-            services.AddTransient<IStockBusiness, StockBusiness>();
-            services.AddTransient<IClientBusiness, ClientBusiness>();
+            services.AddTransient<IStockBusiness, StockBusiness>( );
+            services.AddTransient<IClientBusiness, ClientBusiness>( );
+            services.AddTransient<IPaymentMethodBusiness, PaymentMethodBusiness>( );
         }
 
         /// <summary>
@@ -89,15 +85,16 @@ namespace Ecommerce.Application
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure( IApplicationBuilder app, IHostingEnvironment env )
         {
-            if (env.IsDevelopment())
+            if ( env.IsDevelopment( ) )
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage( );
             }
 
             app.UseMvc();
             app.SwaggerApplication();
+            app.UseMvc( );
         }
     }
 }
