@@ -11,7 +11,7 @@ namespace Ecommerce.Tests.UnitTest.ControllerTest
         [Fact( DisplayName = "Insert payment method" )]
         public void InsertPaymentMethod( )
         {
-
+            
         }
     }
 }
