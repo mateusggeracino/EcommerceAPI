@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Ecommerce.Domain.Models;
 using Ecommerce.Repository.Interfaces;
 using Microsoft.Extensions.Logging;

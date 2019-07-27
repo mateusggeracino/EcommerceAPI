@@ -1,14 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper.Configuration;
+using Ecommerce.Application.AutoMapper;
+using Ecommerce.Business;
+using Ecommerce.Business.Interfaces;
+using Ecommerce.Domain.Models;
+using Ecommerce.Repository;
+using Ecommerce.Repository.Interfaces;
+using Ecommerce.Services;
+using Ecommerce.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Hosting;
 
 namespace Ecommerce.Application
 {
@@ -21,13 +23,39 @@ namespace Ecommerce.Application
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            DependencyInjection(services);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void DependencyInjection(IServiceCollection services)
+        {
+            var mapper = AutoMapperConfig.RegisterMappings();
+            services.AddSingleton(mapper);
+            DependencyInjectionBusiness(services);
+            DependencyInjectionServices(services);
+            DependencyInjectionRepository(services);
+        }
+
+        public void DependencyInjectionServices(IServiceCollection services)
+        {
+            services.AddTransient<IStockServices, StockServices>();
+            services.AddTransient<IClientServices, ClientServices>();
+        }
+
+        public void DependencyInjectionRepository(IServiceCollection services)
+        {
+            services.AddSingleton<IRepository<Stock>, Repository<Stock>>();
+            //services.AddTransient<IClientRepository, ClientRepository>();
+        }
+
+        public void DependencyInjectionBusiness(IServiceCollection services)
+        {
+            services.AddTransient<IStockBusiness, StockBusiness>();
+            services.AddTransient<IClientBusiness, ClientBusiness>();
+        }
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())

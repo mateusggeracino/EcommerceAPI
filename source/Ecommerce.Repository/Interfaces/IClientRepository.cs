@@ -2,7 +2,8 @@
 
 namespace Ecommerce.Repository.Interfaces
 {
-    public interface IStoreRepository : IRepository<Store>
+    public interface IClientRepository : IRepository<Client>
     {
+        
     }
 }
