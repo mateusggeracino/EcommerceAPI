@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Ecommerce.Domain.Models
 {
-    [Table( "Store")]
+    [Table( "Store", Schema = "Users")]
     public class Store : Entity
     {
         [Column("store_name")]
