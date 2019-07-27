@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.PlatformAbstractions;
@@ -6,6 +7,7 @@ using Swashbuckle.AspNetCore.Swagger;
 
 namespace Ecommerce.Application.Extensions
 {
+    [ExcludeFromCodeCoverage]
     public static class SwaggerExtensions
     {
         public static void SwaggerServices(this IServiceCollection services)
