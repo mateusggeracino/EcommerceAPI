@@ -7,5 +7,7 @@ namespace Ecommerce.Services.Interfaces
     {
         Stock Insert(Stock stock);
         List<Stock> GetAll();
+        bool Remove(int storeId, int productId);
+        Stock Update(Stock map);
     }
 }

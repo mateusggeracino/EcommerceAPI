@@ -1,4 +1,3 @@
-using AutoMapper.Configuration;
 using Ecommerce.Application.AutoMapper;
 using Ecommerce.Business;
 using Ecommerce.Business.Interfaces;
@@ -9,6 +8,7 @@ using Ecommerce.Services;
 using Ecommerce.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -25,17 +25,19 @@ namespace Ecommerce.Application
 
         public void ConfigureServices(IServiceCollection services)
         {
-            DependencyInjection(services);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            DependencyInjection(services);
         }
 
         public void DependencyInjection(IServiceCollection services)
         {
-            var mapper = AutoMapperConfig.RegisterMappings();
-            services.AddSingleton(mapper);
+            var mapperConfig = AutoMapperConfig.RegisterMappings();
+            services.AddSingleton(mapperConfig.CreateMapper());
+
             DependencyInjectionBusiness(services);
             DependencyInjectionServices(services);
             DependencyInjectionRepository(services);
+            services.BuildServiceProvider();
         }
 
         public void DependencyInjectionServices(IServiceCollection services)
@@ -46,7 +48,7 @@ namespace Ecommerce.Application
 
         public void DependencyInjectionRepository(IServiceCollection services)
         {
-            services.AddSingleton<IRepository<Stock>, Repository<Stock>>();
+            services.AddSingleton<IStockRepository, StockRepository>();
             //services.AddTransient<IClientRepository, ClientRepository>();
         }
 
