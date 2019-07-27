@@ -20,6 +20,14 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpGet]
+        [Route("{productId:int}")]
+        public ActionResult<StockViewModel> GetByProduct([FromHeader] int storeId, int productId)
+        {
+            var stockEntity = _stockServices.GetByProduct(storeId, productId);
+            return _mapper.Map<StockViewModel>(stockEntity);
+        }
+
+        [HttpGet]
         public ActionResult<List<StockViewModel>> GetAll()
         {
             var stockList = _stockServices.GetAll();

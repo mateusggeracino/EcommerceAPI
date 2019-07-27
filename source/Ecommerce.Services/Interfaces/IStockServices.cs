@@ -9,5 +9,6 @@ namespace Ecommerce.Services.Interfaces
         List<Stock> GetAll();
         bool Remove(int storeId, int productId);
         Stock Update(Stock map);
+        Stock GetByProduct(int storeId, int productId);
     }
 }

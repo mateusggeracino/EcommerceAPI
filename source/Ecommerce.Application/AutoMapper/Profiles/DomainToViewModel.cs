@@ -6,9 +6,10 @@ namespace Ecommerce.Application.AutoMapper.Profiles
 {
     public class DomainToViewModel : Profile
     {
-        public DomainToViewModel()
+        public DomainToViewModel( )
         {
-            CreateMap<Stock, StockViewModel>();
+            CreateMap<Stock, StockViewModel>( );
+            CreateMap<PaymentMethodViewModel, PaymentMethod>( );
         }
     }
 }
