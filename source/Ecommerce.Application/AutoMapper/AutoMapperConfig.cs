@@ -7,10 +7,10 @@ namespace Ecommerce.Application.AutoMapper
     {
         public static MapperConfiguration RegisterMappings()
         {
-            return new MapperConfiguration(ps =>
+            return new MapperConfiguration(x =>
             {
-                ps.AddProfile(new DomainToViewModel());
-                ps.AddProfile(new ViewModelToDomain());
+                x.AddProfile(new DomainToViewModel());
+                x.AddProfile(new ViewModelToDomain());
             });
         }
     }

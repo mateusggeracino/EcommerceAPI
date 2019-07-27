@@ -1,3 +1,4 @@
+using AutoMapper;
 using AutoMapper.Configuration;
 using Ecommerce.Application.AutoMapper;
 using Ecommerce.Business;
@@ -31,11 +32,13 @@ namespace Ecommerce.Application
 
         public void DependencyInjection(IServiceCollection services)
         {
-            var mapper = AutoMapperConfig.RegisterMappings();
-            services.AddSingleton(mapper);
+            var mapperConfig = AutoMapperConfig.RegisterMappings();
+            services.AddSingleton(mapperConfig.CreateMapper());
+
             DependencyInjectionBusiness(services);
             DependencyInjectionServices(services);
             DependencyInjectionRepository(services);
+            services.BuildServiceProvider();
         }
 
         public void DependencyInjectionServices(IServiceCollection services)
