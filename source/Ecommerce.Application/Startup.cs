@@ -31,59 +31,11 @@ namespace Ecommerce.Application
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            DependencyInjection(services);
+            services.DepencencyInjection();
             services.SwaggerServices();
         }
 
-        public void DependencyInjection( IServiceCollection services )
-        {
-            var mapperConfig = AutoMapperConfig.RegisterMappings( );
-            services.AddSingleton( mapperConfig.CreateMapper( ) );
-
-            DependencyInjectionBusiness( services );
-            DependencyInjectionServices( services );
-            DependencyInjectionRepository( services );
-            services.BuildServiceProvider( );
-        }
-
-        /// <summary>
-        /// Injeção de dependencia services
-        /// </summary>
-        /// <param name="services"></param>
-        public void DependencyInjectionServices( IServiceCollection services )
-        {
-            services.AddTransient<IStockServices, StockServices>( );
-            services.AddTransient<IClientServices, ClientServices>( );
-            services.AddTransient<IPaymentMethodService, PaymentMethodService>( );
-            services.AddTransient<IShoppingCartServices, ShoppingCartServices>();
-        }
-
-        /// <summary>
-        /// Injeção de dependencia Repository
-        /// </summary>
-        /// <param name="services"></param>
-        public void DependencyInjectionRepository(IServiceCollection services)
-        {
-            services.AddSingleton<IStockRepository, StockRepository>( );
-            services.AddSingleton<IPaymentMethodRepository, PaymentMethodRepository>( );
-            services.AddSingleton<IRepository<Stock>, Repository<Stock>>();
-            services.AddSingleton<IShoppingKartsRepository, ShoppingKartsRepository>();
-            //services.AddTransient<IClientRepository, ClientRepository>();
-        }
-
-        /// <summary>
-        /// Injeção de dependencia Business
-        /// </summary>
-        /// <param name="services"></param>
-        public void DependencyInjectionBusiness( IServiceCollection services )
-        {
-            services.AddTransient<IStockBusiness, StockBusiness>();
-            services.AddTransient<IClientBusiness, ClientBusiness>();
-            services.AddTransient< IShoppingCartsBusiness, ShoppingKartsBusiness>();
-            services.AddTransient<IStockBusiness, StockBusiness>( );
-            services.AddTransient<IClientBusiness, ClientBusiness>( );
-            services.AddTransient<IPaymentMethodBusiness, PaymentMethodBusiness>( );
-        }
+        
 
         /// <summary>
         /// Método Configure startup. Usando MVC e Swagger
