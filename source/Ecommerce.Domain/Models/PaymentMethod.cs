@@ -5,12 +5,12 @@ using System.Text;
 
 namespace Ecommerce.Domain.Models
 {
-    [Table( "PaymentMethod", Schema = "Transactions" )]
+    [Table( "Transactions.PaymentMethods", Schema = "Transactions" )]
     public class PaymentMethod : Entity
     {
         [Column( "PMType" )]
         public string Type { get; set; }
-        [Column( "PMSuplierId" )]
+        [Column( "PMSupplierId" )]
         public int SupplierId { get; set; }
     }
 }
