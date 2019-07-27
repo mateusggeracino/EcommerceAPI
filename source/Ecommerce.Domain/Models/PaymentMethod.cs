@@ -8,9 +8,9 @@ namespace Ecommerce.Domain.Models
     [Table( "Transactions.PaymentMethods", Schema = "Transactions" )]
     public class PaymentMethod : Entity
     {
-        [Column( "PMType" )]
+        [Column( "Type" )]
         public string Type { get; set; }
-        [Column( "PMSupplierId" )]
+        [Column( "SupplierId" )]
         public int SupplierId { get; set; }
     }
 }
