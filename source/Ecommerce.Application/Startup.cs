@@ -1,5 +1,3 @@
-using AutoMapper;
-using AutoMapper.Configuration;
 using Ecommerce.Application.AutoMapper;
 using Ecommerce.Business;
 using Ecommerce.Business.Interfaces;
@@ -10,6 +8,7 @@ using Ecommerce.Services;
 using Ecommerce.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
@@ -26,8 +25,8 @@ namespace Ecommerce.Application
 
         public void ConfigureServices(IServiceCollection services)
         {
-            DependencyInjection(services);
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            DependencyInjection(services);
         }
 
         public void DependencyInjection(IServiceCollection services)
