@@ -48,7 +48,7 @@ namespace Ecommerce.Application
 
         public void DependencyInjectionRepository(IServiceCollection services)
         {
-            services.AddSingleton<IRepository<Stock>, Repository<Stock>>();
+            services.AddSingleton<IStockRepository, StockRepository>();
             //services.AddTransient<IClientRepository, ClientRepository>();
         }
 
