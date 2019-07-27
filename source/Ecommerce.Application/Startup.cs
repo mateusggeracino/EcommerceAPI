@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Ecommerce.Business;
+using Ecommerce.Business.Interfaces;
+using Ecommerce.Repository;
+using Ecommerce.Services;
+using Ecommerce.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +30,12 @@ namespace Ecommerce.Application
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddSingleton<ProductRepository>()
+                    .AddSingleton<IProductBusiness, ProductBusiness>()
+                    .AddSingleton<IProductServices, ProductServices>();
+            services.AddSingleton<PriceRepository>()
+                    .AddSingleton<IPriceBusiness, PriceBusiness>()
+                    .AddSingleton<IPriceServices, PriceServices>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
