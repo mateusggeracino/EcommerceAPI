@@ -13,10 +13,12 @@ namespace Ecommerce.Application.Controllers
     public class ShoppingCartsController : ControllerBase
     {
         private readonly IShoppingCartServices _shoppingCartServices;
+        private readonly IStockServices _stockServices;
 
-        public ShoppingCartsController(IShoppingCartServices shoppingCartservices)
+        public ShoppingCartsController(IShoppingCartServices shoppingCartservices, IStockServices stockServices)
         {
             _shoppingCartServices = shoppingCartservices;
+            _stockServices = stockServices;
         }
 
         [HttpGet]
@@ -43,12 +45,30 @@ namespace Ecommerce.Application.Controllers
             _shoppingCartServices.Update(shoppingCarts);
         }
 
+        /// <summary>
+        /// Finalizar Carrinho de Compras
+        /// </summary>
+        /// <param name="shoppingCarts"></param>
         [HttpPatch]
-        public void FinalizeShoppingCarts([FromBody] ShoppingCarts shoppingCarts)
+        public void Patch([FromBody] ShoppingCarts shoppingCarts)
         {
-
+            Order order = _shoppingCartServices.InsertOrder(shoppingCarts);
+            // id order - vira status do carrinho
+            shoppingCarts.CartStatus = order.Id;
             _shoppingCartServices.Update(shoppingCarts);
+            Stock stock = _stockServices.GetByProduct(shoppingCarts.CartStoreId, shoppingCarts.CartProductId);
+            _stockServices.RemoveQuantityVirtual(shoppingCarts);
+        }
 
+        /// <summary>
+        /// Finalizar Pedido
+        /// </summary>
+        /// <param name="shoppingCarts"></param>
+        [HttpPatch]
+        [Route("finalize-order")]
+        public void FinalizeOrder([FromBody] ShoppingCarts shoppingCarts)
+        {
+            //_shoppingCartServices.InsertPayment();
         }
     }
 }

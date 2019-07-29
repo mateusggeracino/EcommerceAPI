@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Ecommerce.Domain.Models
 {
+    [Table("Transactions.Orders", Schema = "Transactions")]
     public class Order : Entity
     {
         public int OrderCartId { get; set; }

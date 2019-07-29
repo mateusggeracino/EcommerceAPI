@@ -22,7 +22,10 @@ namespace Ecommerce.Application.Controllers
             _mapper = mapper;
             _paymentMethodService = paymentMethodService;
         }
-
+        /// <summary>
+        /// Get All Payment Methods
+        /// </summary>
+        /// <returns>List payment methods</returns>
         [HttpGet]
         public ActionResult<List<PaymentMethodViewModel>> Get( )
         {
@@ -45,6 +48,24 @@ namespace Ecommerce.Application.Controllers
             _paymentMethodService.Add( paymentMethod );
 
             return Ok( "success" );
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult<string> Put([FromRoute] int id, [FromBody] PaymentMethodViewModel paymentMethodViewModel )
+        {
+            var paymentMethod = _mapper.Map<PaymentMethod>( paymentMethodViewModel );
+
+            _paymentMethodService.Update( paymentMethod );
+
+            return Ok( "Sucess" );
+        }
+
+        [HttpPut("{id}")]
+        public ActionResult<string> Delete([FromRoute] int id )
+        {
+            _paymentMethodService.Delete( id );
+
+            return Ok( "Sucess" );
         }
     }
 }
