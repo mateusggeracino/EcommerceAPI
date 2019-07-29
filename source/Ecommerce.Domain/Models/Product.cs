@@ -1,8 +1,14 @@
-﻿namespace Ecommerce.Domain.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Ecommerce.Domain.Models
 {
-    public class Product
+    [Table("Products.Products",Schema ="Products")]
+    public class Product : Entity
     {
-        public string Name { get; set; }
-        public string Type { get; set; }
+        public string ProductType { get; set; }
+        public string ProductDescription { get; set; }
+        public string Brand { get; set; }
+        public string Specs { get; set; }
+        public bool ProductStatus { get; set; }
     }
 }
