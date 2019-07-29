@@ -52,7 +52,9 @@ namespace Ecommerce.Application.Controllers
         [HttpPatch]
         public void Patch([FromBody] ShoppingCarts shoppingCarts)
         {
-            _shoppingCartServices.InsertOrder(shoppingCarts);
+            Order order = _shoppingCartServices.InsertOrder(shoppingCarts);
+            // id order - vira status do carrinho
+            shoppingCarts.CartStatus = order.Id;
             _shoppingCartServices.Update(shoppingCarts);
             Stock stock = _stockServices.GetByProduct(shoppingCarts.CartStoreId, shoppingCarts.CartProductId);
             _stockServices.RemoveQuantityVirtual(shoppingCarts);
@@ -66,7 +68,7 @@ namespace Ecommerce.Application.Controllers
         [Route("finalize-order")]
         public void FinalizeOrder([FromBody] ShoppingCarts shoppingCarts)
         {
-
+            //_shoppingCartServices.InsertPayment();
         }
     }
 }

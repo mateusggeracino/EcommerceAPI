@@ -31,9 +31,9 @@ namespace Ecommerce.Business
             _shoppingCartsRepository.InsertShoppingCarts(shoppingCarts);
         }
 
-        public void InsertOrder(ShoppingCarts shoppingCarts)
+        public Order InsertOrder(ShoppingCarts shoppingCarts)
         {
-            _orderRepository.Insert(new Order
+            return _orderRepository.Insert(new Order
             {
                 OrderCartId = shoppingCarts.Id,
                 OrderCreation = DateTime.Now,

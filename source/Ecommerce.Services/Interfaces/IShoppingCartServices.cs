@@ -15,6 +15,6 @@ namespace Ecommerce.Services.Interfaces
 
         void Update(ShoppingCarts shoppingCarts);
 
-        void InsertOrder(ShoppingCarts shoppingCarts);
+        Order InsertOrder(ShoppingCarts shoppingCarts);
     }
 }
