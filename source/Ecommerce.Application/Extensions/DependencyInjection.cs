@@ -45,6 +45,7 @@ namespace Ecommerce.Application.Extensions
             services.AddSingleton<IPaymentMethodRepository, PaymentMethodRepository>();
             services.AddSingleton<IShoppingCartsRepository, ShoppingCartsRepository>();
             services.AddSingleton<IOrderRepository, OrderRepository>();
+            services.AddSingleton<IClientRepository, ClientRepository>();
         }
 
         /// <summary>
