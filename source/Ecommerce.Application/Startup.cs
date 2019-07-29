@@ -1,12 +1,4 @@
-using Ecommerce.Application.AutoMapper;
 using Ecommerce.Application.Extensions;
-using Ecommerce.Business;
-using Ecommerce.Business.Interfaces;
-using Ecommerce.Domain.Models;
-using Ecommerce.Repository;
-using Ecommerce.Repository.Interfaces;
-using Ecommerce.Services;
-using Ecommerce.Services.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;

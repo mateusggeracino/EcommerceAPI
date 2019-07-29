@@ -27,15 +27,32 @@ namespace Ecommerce.Application.Controllers
         [Route("{productId:int}")]
         public ActionResult<StockViewModel> GetByProduct([FromHeader] int storeId, int productId)
         {
-            var stockEntity = _stockServices.GetByProduct(storeId, productId);
-            return _mapper.Map<StockViewModel>(stockEntity);
+            try
+            {
+                var stockEntity = _stockServices.GetByProduct(storeId, productId);
+                return Ok(_mapper.Map<StockViewModel>(stockEntity));
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, exception.Message);
+                return new StatusCodeResult(500);
+            }
         }
 
         [HttpGet]
         public ActionResult<List<StockViewModel>> GetAll()
         {
-            var stockList = _stockServices.GetAll();
-            return _mapper.Map<List<StockViewModel>>(stockList);
+            try
+            {
+                _logger.LogInformation("Received post request");
+                var stockList = _stockServices.GetAll();
+                return Ok(_mapper.Map<List<StockViewModel>>(stockList));
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, exception.Message);
+                return new StatusCodeResult(500);
+            }
         }
 
         [HttpPost]
@@ -61,17 +78,32 @@ namespace Ecommerce.Application.Controllers
         [Route("{productId:int}")]
         public ActionResult Remove([FromHeader] int storeId, int productId)
         {
-            _stockServices.Remove(storeId, productId);
-            return Ok();
+            try
+            {
+                _logger.LogInformation("Received post request");
+                _stockServices.Remove(storeId, productId);
+                return Ok("success");
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, exception.Message);
+                return new StatusCodeResult(500);
+            }
         }
 
         [HttpPut]
         public ActionResult Update([FromBody] StockViewModel stock)
         {
-            if (!ModelState.IsValid) return BadRequest(stock);
-            _stockServices.Update(_mapper.Map<Stock>(stock));
-
-            return Ok();
+            try
+            {
+                if (!ModelState.IsValid) return BadRequest(stock);
+                _stockServices.Update(_mapper.Map<Stock>(stock));
+                return Ok("success");
+            }catch(Exception exception)
+            {
+                _logger.LogError(exception, exception.Message);
+                return new StatusCodeResult(500);
+            }
         }
     }
 }
