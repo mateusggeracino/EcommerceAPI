@@ -59,19 +59,17 @@ namespace Ecommerce.Business
 
         }
 
-        private void UpdadeStock(int orderId)
+        private void UpdadeStock(int order)
         {
-            var orders = _shoppingCartsRepository.GetByOrder(orderId);
-
-            foreach(var order in orders)
-            {
-                var stockProduct = _stockRepository.GetByStoreProduct(order.CartStoreId, order.CartProductId);
-
-                stockProduct.RealStock -= order.Quantity;
-
-                _stockRepository.Update(stockProduct);
-            }
-            
+            var Query = "update Products.Stock " +
+                "set RealStock = a.RealStock - b.Quantity " +
+                "from " +
+                    "Products.Stock A " +
+                "inner join " +
+                    "Transactions.ShoppingCarts B on A.Id = B.CartProductId " +
+                "where " +
+                "   b.CartStatus = {ID}";
+            // Atualiza tabela Products.Stock
         }
     }
 }
