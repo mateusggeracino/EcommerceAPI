@@ -37,5 +37,14 @@ namespace Ecommerce.Repository
                 throw;
             }
         }
+
+        public List<ShoppingCarts> GetByOrder(int orderId)
+        {
+            var query = "SELECT * FROM Transactions.ShoppingCarts WHERE CartStatus = @orderId";
+            var parameters = new DynamicParameters();
+            parameters.Add("@orderId", orderId);
+
+            return ExecuteQuery(query, parameters);
+        }
     }
 }

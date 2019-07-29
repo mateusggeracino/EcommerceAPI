@@ -29,10 +29,15 @@ namespace Ecommerce.Repository
 
         public void UpdadeStock(int obj)
         {
-            
-            
+            var query = "update Products.Stock " +
+                        "set RealStock = a.RealStock - b.Quantity " +
+                        "from " +
+                        "Products.Stock A " +
+                        "inner join " +
+                        "Transactions.ShoppingCarts B on A.Id = B.CartProductId " +
+                        "where " +
+                        "   b.CartStatus = @";
+
         }
-
-
     }
 }
