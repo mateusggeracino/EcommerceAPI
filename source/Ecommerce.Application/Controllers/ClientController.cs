@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Ecommerce.Domain.Models;
 using Ecommerce.Services;
+using Ecommerce.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,9 +14,9 @@ namespace Ecommerce.Application.Controllers
     [ApiController]
     public class ClientController : ControllerBase
     {
-        private readonly ClientServices _clientservices;
+        private readonly IClientServices _clientservices;
 
-        public ClientController(ClientServices clientservices)
+        public ClientController(IClientServices clientservices)
         {
             _clientservices = clientservices;
         }
