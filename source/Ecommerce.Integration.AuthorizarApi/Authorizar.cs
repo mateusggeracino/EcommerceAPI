@@ -1,16 +1,19 @@
-﻿using Newtonsoft.Json;
+﻿using System;
+using Newtonsoft.Json;
 using RestSharp;
+using Microsoft.Extensions.Configuration;
+using Ecommerce.Integration.AuthorizarApi.Interface;
 
 namespace Ecommerce.Integration.AuthorizarApi
 {
-    public class Authorizar
+    public class Authorizar : IAuthorizar
     {
         public string Operation { get; set; }
-        private readonly RestClient _restClient;
 
-        public Authorizar( string urlBase )
+        private readonly RestClient _restClient;
+        public Authorizar( IConfiguration config )
         {
-            _restClient = new RestClient( urlBase );
+            _restClient = new RestClient( config.GetSection( "Authorizar" ).GetSection( "UrlBase" ).Value );
         }
 
         public IRestResponse Send( object obj )

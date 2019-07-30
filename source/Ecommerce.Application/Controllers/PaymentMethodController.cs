@@ -30,7 +30,7 @@ namespace Ecommerce.Application.Controllers
         [HttpGet]
         public ActionResult<List<PaymentMethodViewModel>> Get( )
         {
-            Class1.teste( );
+            
             var paymentMethods = _paymentMethodService.GetAll( );
             return _mapper.Map<List<PaymentMethodViewModel>>( paymentMethods );
         }

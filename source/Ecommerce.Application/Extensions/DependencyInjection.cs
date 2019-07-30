@@ -10,6 +10,7 @@ using Ecommerce.Services;
 using Ecommerce.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
+
 namespace Ecommerce.Application.Extensions
 {
     public static class DependencyInjection
@@ -19,11 +20,11 @@ namespace Ecommerce.Application.Extensions
             var mapperConfig = AutoMapperConfig.RegisterMappings( );
             services.AddSingleton( mapperConfig.CreateMapper( ) );
 
+            services.AddTransient<IAuthorizar, Authorizar>( );
+
             DependencyInjectionBusiness( services );
             DependencyInjectionServices( services );
             DependencyInjectionRepository( services );
-
-            //services.AddTransient<IAuthorizar, Authorizar>(  );
 
             services.BuildServiceProvider( );
         }
