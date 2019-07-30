@@ -2,6 +2,8 @@
 using Ecommerce.Business;
 using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
+using Ecommerce.Integration.AuthorizarApi;
+using Ecommerce.Integration.AuthorizarApi.Interface;
 using Ecommerce.Repository;
 using Ecommerce.Repository.Interfaces;
 using Ecommerce.Services;
@@ -20,6 +22,9 @@ namespace Ecommerce.Application.Extensions
             DependencyInjectionBusiness( services );
             DependencyInjectionServices( services );
             DependencyInjectionRepository( services );
+
+            //services.AddTransient<IAuthorizar, Authorizar>(  );
+
             services.BuildServiceProvider( );
         }
 
