@@ -68,12 +68,12 @@ namespace Ecommerce.Application.Controllers
         /// Finalizar Pedido
         /// </summary>
         /// <param name="shoppingCarts"></param>
-        [HttpPatch]
-        [Route("finalize-order")]
-        public void FinalizeOrder([FromBody] ShoppingCarts shoppingCarts)
-        {
-            //_shoppingCartServices.InsertPayment();
-            // return cardStatus do carrinho
-        }
+        //[HttpPatch]
+        //[Route("finalize-order")]
+        //public void FinalizeOrder([FromBody] )
+        //{
+        //    _shoppingCartServices.InsertPayment();
+        //     return cardStatus do carrinho
+        //}
     }
 }

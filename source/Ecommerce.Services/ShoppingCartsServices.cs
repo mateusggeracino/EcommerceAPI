@@ -10,10 +10,12 @@ namespace Ecommerce.Services
     public class ShoppingCartsServices : IShoppingCartServices
     {
         private readonly IShoppingCartsBusiness _shoppingCartsBusiness;
+        private readonly IPaymentMethodBusiness _paymentAuthorizeBusiness;
 
-        public ShoppingCartsServices(IShoppingCartsBusiness shoppingCartsBusiness)
+        public ShoppingCartsServices(IShoppingCartsBusiness shoppingCartsBusiness, IPaymentMethodBusiness paymentAuthorizeBusiness)
         {
             _shoppingCartsBusiness = shoppingCartsBusiness;
+            _paymentAuthorizeBusiness = paymentAuthorizeBusiness;
         }
         public List<ShoppingCarts> List()
         {
@@ -41,5 +43,10 @@ namespace Ecommerce.Services
         {
             return _shoppingCartsBusiness.InsertOrder(shoppingCarts);
         }
+
+        //public int InsertPayment()
+        //{
+        //    return _paymentAuthorizeBusiness.
+        //}
     }
 }
