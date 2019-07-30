@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Ecommerce.Application.ViewModels;
 using Ecommerce.Domain.Models;
+using Ecommerce.Integration.AuthorizarApi;
 using Ecommerce.Services.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -29,6 +30,7 @@ namespace Ecommerce.Application.Controllers
         [HttpGet]
         public ActionResult<List<PaymentMethodViewModel>> Get( )
         {
+            Class1.teste( );
             var paymentMethods = _paymentMethodService.GetAll( );
             return _mapper.Map<List<PaymentMethodViewModel>>( paymentMethods );
         }
