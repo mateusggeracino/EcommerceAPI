@@ -2,13 +2,12 @@
 using Ecommerce.Domain.Models;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using System;
 using System.Collections.Generic;
-using System.Text;
+using Ecommerce.Repository.Interfaces;
 
 namespace Ecommerce.Repository
 {
-    public class PriceRepository : Repository<Price>
+    public class PriceRepository : Repository<Price>, IPriceRepository
     {
         public PriceRepository(IConfiguration config, ILogger<Repository<Price>> logger) : base(config, logger)
         {
@@ -19,7 +18,7 @@ namespace Ecommerce.Repository
             return GetAll();
         }
 
-        public List<Price> ExecuteQuery(int storeid, int productid)
+        public List<Price> GetPriceByProductId(int storeid, int productid)
         {
             var query = "select StoreId, ProductId, Promotion, RegularPrice,PromotionalPrice,PriceGroup" +
                         "from Products.Price where StoreId = @StoreId and ProductId = @ProductID";
