@@ -11,8 +11,8 @@ namespace Ecommerce.Business
     {
         private readonly IPaymentAuthorizeRepository _ipaymentrepository;
         private readonly IStockRepository _stockRepository;
-        private readonly IShoppingKartsRepository _shoppingCartsRepository;
-        public PaymentAuthorizeBusiness(IPaymentAuthorizeRepository ipaymentrepository, IStockRepository stockRepository, IShoppingKartsRepository shoppingCartsRepository)
+        private readonly IShoppingCartsRepository _shoppingCartsRepository;
+        public PaymentAuthorizeBusiness(IPaymentAuthorizeRepository ipaymentrepository, IStockRepository stockRepository, IShoppingCartsRepository shoppingCartsRepository)
         {
             _ipaymentrepository = ipaymentrepository;
             _stockRepository = stockRepository;
