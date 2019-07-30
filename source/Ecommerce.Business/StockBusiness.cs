@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
 using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
+using Ecommerce.Domain.Validations;
 using Ecommerce.Repository.Interfaces;
 
 namespace Ecommerce.Business
@@ -16,6 +16,10 @@ namespace Ecommerce.Business
 
         public Stock Insert(Stock stock)
         {
+            var stockValidation = new StockValidation();
+            var result = stockValidation.IsValid(stock);
+            if (!result) return stock;
+
             return _stockRepository.Insert(stock);
         }
 

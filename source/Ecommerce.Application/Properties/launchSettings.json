@@ -8,5 +8,11 @@
       "ASPNETCORE_ENVIRONMENT": "Development"
     },
     "applicationUrl": "http://localhost:4000/"
+  },
+  "profiles": {
+    "Ecommerce.Application": {
+      "commandName": "Project",
+      "launchUrl": "swagger"
+    }
   }
 }
