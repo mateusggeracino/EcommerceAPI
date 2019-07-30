@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
 using Ecommerce.Domain.Validations;
@@ -17,8 +18,9 @@ namespace Ecommerce.Business
         public Stock Insert(Stock stock)
         {
             var stockValidation = new StockValidation();
-            var result = stockValidation.IsValid(stock);
-            if (!result) return stock;
+            stock.ValidationResult = stockValidation.Validate(stock);
+
+            if (stock.ValidationResult.Errors.Any()) return stock;
 
             return _stockRepository.Insert(stock);
         }

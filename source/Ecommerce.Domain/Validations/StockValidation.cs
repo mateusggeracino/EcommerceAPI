@@ -5,15 +5,13 @@ namespace Ecommerce.Domain.Validations
 {
     public class StockValidation : AbstractValidator<Stock>
     {
-        public bool IsValid(Stock stock)
+        public StockValidation()
         {
             RuleFor(x => x.RealStock)
-                .NotEmpty().WithMessage("RealStock is empty");
+                .LessThan(0).WithMessage("RealStock less than 0");
 
             RuleFor(x => x.VirtualStock)
-                .NotEmpty().WithMessage("VirtualStock is empty");
-
-            return Validate(stock).IsValid;
+                .LessThan(0).WithMessage("VirtualStock  less than 0");
         }
     }
 }
