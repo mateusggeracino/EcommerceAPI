@@ -7,6 +7,6 @@ namespace Ecommerce.Integration.AuthorizarApi.Interface
 {
     public interface IAuthorizar
     {
-        IRestResponse Send( object obj );
+        IRestResponse Send( string endPoint, object obj );
     }
 }

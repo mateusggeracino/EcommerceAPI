@@ -16,9 +16,9 @@ namespace Ecommerce.Integration.AuthorizarApi
             _restClient = new RestClient( config.GetSection( "Authorizar" ).GetSection( "UrlBase" ).Value );
         }
 
-        public IRestResponse Send( object obj )
+        public IRestResponse Send( string endPoint, object obj )
         {
-            RestRequest request = new RestRequest( "CreditCardTransaction", Method.POST );
+            RestRequest request = new RestRequest( endPoint, Method.POST );
 
             request.RequestFormat = DataFormat.Json;
 
