@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 namespace Ecommerce.Domain.Models
 {
-    [Table("Users.Customers",Schema="Users")]
+    [Table( "Users.Customers", Schema = "Users" )]
     public class Client : Entity
     {
         public string CustomerType { get; set; }

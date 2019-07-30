@@ -9,9 +9,9 @@ using System.Text;
 
 namespace Ecommerce.Repository
 {
-    public class ShoppingKartsRepository : Repository<ShoppingCarts> , IShoppingKartsRepository
+    public class ShoppingCartsRepository : Repository<ShoppingCarts> , IShoppingCartsRepository
     {
-        public ShoppingKartsRepository(IConfiguration config, ILogger<Repository<ShoppingCarts>> logger) : base(config, logger)
+        public ShoppingCartsRepository(IConfiguration config, ILogger<Repository<ShoppingCarts>> logger) : base(config, logger)
         {
         }
 

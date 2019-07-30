@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
 using Ecommerce.Repository.Interfaces;
@@ -41,6 +42,26 @@ namespace Ecommerce.Business
         public Stock GetByStoreProduct(int storeId, int productId)
         {
             return _stockRepository.GetByStoreProduct(storeId, productId);
+        }
+
+        public Stock RemoveQuantityReal(ShoppingCarts shopping)
+        {
+            var stock = _stockRepository.GetByStoreProduct(shopping.CartStoreId, shopping.CartProductId);
+
+            stock.RealStock -= shopping.Quantity;
+
+            _stockRepository.Update(stock);
+            return stock;
+        }
+
+        public Stock RemoveQuantityVirtual(ShoppingCarts shopping)
+        {
+            var stock = _stockRepository.GetByStoreProduct(shopping.CartStoreId, shopping.CartProductId);
+
+            stock.VirtualStock -= shopping.Quantity;
+
+            _stockRepository.Update(stock);
+            return stock;
         }
     }
 }

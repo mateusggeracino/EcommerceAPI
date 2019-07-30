@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Ecommerce.Repository.Interfaces
 {
-    public interface IShoppingKartsRepository : IRepository<ShoppingCarts>
+    public interface IShoppingCartsRepository : IRepository<ShoppingCarts>
     {
         void InsertShoppingCarts(ShoppingCarts shoppingCarts);
         List<ShoppingCarts> GetByOrder(int order);

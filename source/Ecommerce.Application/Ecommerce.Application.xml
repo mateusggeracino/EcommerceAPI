@@ -4,27 +4,27 @@
         <name>Ecommerce.Application</name>
     </assembly>
     <members>
-        <member name="M:Ecommerce.Application.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            ConfigureServices AddMVc and Config swagger
-            </summary>
-            <param name="services"></param>
-        </member>
-        <member name="M:Ecommerce.Application.Startup.DependencyInjectionServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Ecommerce.Application.Extensions.DependencyInjection.DependencyInjectionServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Injeção de dependencia services
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Ecommerce.Application.Startup.DependencyInjectionRepository(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Ecommerce.Application.Extensions.DependencyInjection.DependencyInjectionRepository(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Injeção de dependencia Repository
             </summary>
             <param name="services"></param>
         </member>
-        <member name="M:Ecommerce.Application.Startup.DependencyInjectionBusiness(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+        <member name="M:Ecommerce.Application.Extensions.DependencyInjection.DependencyInjectionBusiness(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Injeção de dependencia Business
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:Ecommerce.Application.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            ConfigureServices AddMVc and Config swagger
             </summary>
             <param name="services"></param>
         </member>
