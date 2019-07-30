@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
+using Ecommerce.Application.ViewModels;
 using Ecommerce.Domain.Models;
 using Ecommerce.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -12,14 +12,17 @@ namespace Ecommerce.Application.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductController : BaseController
     {
         private readonly IProductServices _productServices;
         private readonly ILogger<ProductController> _logger;
-        public ProductController(IProductServices productServices, ILogger<ProductController> logger)
+        private readonly IMapper _mapper;
+
+        public ProductController(IProductServices productServices, ILogger<ProductController> logger, IMapper mapper)
         {
             _productServices = productServices;
             _logger = logger;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -57,20 +60,17 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult<bool> Post([FromBody] Product product)
+        public ActionResult<string> Post([FromBody] ProductViewModel product)
         {
             try
             {
                 _logger.LogInformation("Received post request");
 
-                if (ModelState.IsValid)
-                {
-                    return _productServices.Insert(product);
-                }
-                else
-                {
-                    return BadRequest(ModelState);
-                }
+                if (!ModelState.IsValid) return BadRequest(product);
+                var result = _productServices.Insert(_mapper.Map<Product>(product));
+                if (result.ValidationResult.Errors.Any()) return AddValidationErrors(result.ValidationResult.Errors);
+
+                return Ok("success");
             }
             catch (Exception exception)
             {

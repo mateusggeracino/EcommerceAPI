@@ -8,11 +8,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.Application.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class BaseController : ControllerBase
     {
-        public ActionResult<string> Errors(IList<ValidationFailure> validationErrors)
+        protected ActionResult<string> AddValidationErrors(IList<ValidationFailure> validationErrors)
         {
             var listErrors = new List<string>();
             foreach (var error in validationErrors)

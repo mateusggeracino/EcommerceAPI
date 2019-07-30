@@ -4,6 +4,7 @@ using Ecommerce.Business.Interfaces;
 using Ecommerce.Repository;
 using Ecommerce.Services;
 using Ecommerce.Services.Interfaces;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -14,7 +15,7 @@ namespace Ecommerce.Application
 {
     public class Startup
     {
-        public Startup( IConfiguration configuration )
+        public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
@@ -37,13 +38,13 @@ namespace Ecommerce.Application
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
-        public void Configure( IApplicationBuilder app, IHostingEnvironment env )
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if ( env.IsDevelopment( ) )
+            if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage( );
+                app.UseDeveloperExceptionPage();
             }
-            
+
             app.UseMvc();
             app.SwaggerApplication();
         }

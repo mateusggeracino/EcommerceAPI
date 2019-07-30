@@ -26,9 +26,9 @@ namespace Ecommerce.Business
             return _shoppingCartsRepository.GetById(id);
         }
 
-        public void InsertShoppingCarts(ShoppingCarts shoppingCarts)
+        public ShoppingCarts InsertShoppingCarts(ShoppingCarts shoppingCarts)
         {
-            _shoppingCartsRepository.InsertShoppingCarts(shoppingCarts);
+            return _shoppingCartsRepository.Insert(shoppingCarts);
         }
 
         public Order InsertOrder(ShoppingCarts shoppingCarts)

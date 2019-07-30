@@ -7,6 +7,11 @@ using Moq;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Castle.Core.Logging;
+using Ecommerce.Application.ViewModels;
+using Ecommerce.Tests.Config;
+using GenFu;
+using Microsoft.Extensions.Logging;
 using Xunit;
 
 namespace Ecommerce.Tests
@@ -17,20 +22,12 @@ namespace Ecommerce.Tests
         public void ControllerTest()
         {
             var services = new Mock<IClientServices>();
-            var controller = new ClientController(services.Object);
-            var client = new Client
-            {
-                CustomerAddress = "Rua",
-                CustomerEmail = "Email",
-                CustomerDocument = "123",
-                CustomerGender = "12",
-                CustomerName = "123",
-                CustomerTelephone = "432",
-                CustomerType = "A",
-                Id = 0
-            };
+            var logger = new Mock<ILogger<ClientController>>();
+            var controller = new ClientController(services.Object, AutoMapperConfigTest.GetInstance(), logger.Object);
 
-            services.Setup(x => x.Save(It.IsAny<Client>()));
+            var client = A.New<ClientViewModel>();
+
+            services.Setup(x => x.Insert(It.IsAny<Client>()));
 
             var result = controller.Post(client);
 

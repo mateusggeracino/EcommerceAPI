@@ -43,9 +43,7 @@ namespace Ecommerce.Application.Extensions
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json",
                     "Ecommerce Do Not Know");
-                // custom url
-                c.RoutePrefix = "docs";
-            } );
+            });
         }
     }
 }
