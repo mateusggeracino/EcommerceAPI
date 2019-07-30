@@ -25,29 +25,31 @@ namespace Ecommerce.Application.Controllers
         [HttpGet]
         public ActionResult <IEnumerable<Client>> GetAll()                                 
         {
-            return _clientservices.ClientGetAll().ToList();
+            return _clientservices.GetAll().ToList();
         }
 
         // GET api/client/5
         [HttpGet("{id}")]
         public ActionResult<Client> Get(int id)
         {
-            return _clientservices.ClientGetById(id);
+            return _clientservices.GetById(id);
         }
 
         // POST api/client
         [HttpPost]
-        public void Post([FromBody] Client value)
+        public ActionResult<String> Post([FromBody] Client value)
         {
-            _clientservices.ClientSave(value);
+            _clientservices.Save(value);
+            return Ok();
         }
 
         // PUT api/client/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Client value)
+        public ActionResult<String> Put(int id, [FromBody] Client value)
         {
             value.Id = id;
-            _clientservices.ClientUpdate(value);
+            _clientservices.Update(value);
+            return Ok();
         }
 
     }

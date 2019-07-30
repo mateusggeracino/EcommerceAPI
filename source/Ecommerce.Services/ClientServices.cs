@@ -17,22 +17,22 @@ namespace Ecommerce.Services
             _clientBusiness = clientBusiness;
         }
 
-        public void ClientSave(Client client)
+        public void Save(Client client)
         {
             _clientBusiness.CheckClient(client);
         }
 
-        public void ClientUpdate(Client client)
+        public void Update(Client client)
         {
             _clientBusiness.CheckClient(client);
         }
 
-        public IEnumerable<Client> ClientGetAll()
+        public IEnumerable<Client> GetAll()
         {
             return _clientBusiness.GetAll();
         }
 
-        public Client ClientGetById(int id)
+        public Client GetById(int id)
         {
             return _clientBusiness.GetById(id);
         }
