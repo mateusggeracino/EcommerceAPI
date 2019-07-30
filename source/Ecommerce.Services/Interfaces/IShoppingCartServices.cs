@@ -7,13 +7,13 @@ namespace Ecommerce.Services.Interfaces
 {
     public interface IShoppingCartServices
     {
-        IEnumerable<ShoppingCarts> List();
+        List<ShoppingCarts> List();
 
         ShoppingCarts GetById(int id);
 
-        void Insert(ShoppingCarts shoppingCarts);
+        string Insert(ShoppingCarts shoppingCarts);
 
-        void Update(ShoppingCarts shoppingCarts);
+        string Update(ShoppingCarts shoppingCarts);
 
         Order InsertOrder(ShoppingCarts shoppingCarts);
     }

@@ -7,15 +7,15 @@ using System.Text;
 
 namespace Ecommerce.Services
 {
-    public class ShoppingCartServices : IShoppingCartServices
+    public class ShoppingCartsServices : IShoppingCartServices
     {
         private readonly IShoppingCartsBusiness _shoppingCartsBusiness;
 
-        public ShoppingCartServices(IShoppingCartsBusiness shoppingCartsBusiness)
+        public ShoppingCartsServices(IShoppingCartsBusiness shoppingCartsBusiness)
         {
             _shoppingCartsBusiness = shoppingCartsBusiness;
         }
-        public IEnumerable<ShoppingCarts> List()
+        public List<ShoppingCarts> List()
         {
            return  _shoppingCartsBusiness.List();
         }
@@ -25,13 +25,16 @@ namespace Ecommerce.Services
             return _shoppingCartsBusiness.GetById(id);
         }
 
-        public void Insert(ShoppingCarts shoppingCarts)
+        public string Insert(ShoppingCarts shoppingCarts)
         {
             _shoppingCartsBusiness.InsertShoppingCarts(shoppingCarts);
+            return ("sucess");
+
         }
-        public void Update(ShoppingCarts shoppingCarts)
+        public string Update(ShoppingCarts shoppingCarts)
         {
             _shoppingCartsBusiness.Update(shoppingCarts);
+            return ("sucess");
         }
 
         public Order InsertOrder(ShoppingCarts shoppingCarts)

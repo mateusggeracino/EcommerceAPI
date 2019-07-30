@@ -16,7 +16,7 @@ namespace Ecommerce.Business
             _shoppingCartsRepository = shoppingCartsRepository;
             _orderRepository = orderRepository;
         }
-        public IEnumerable<ShoppingCarts> List()
+        public List<ShoppingCarts> List()
         {
             return _shoppingCartsRepository.GetAll();
         }

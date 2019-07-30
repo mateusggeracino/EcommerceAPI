@@ -22,27 +22,31 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<ShoppingCarts> Get()
+        public ActionResult<string> Get()
         {
-            return _shoppingCartServices.List();
+            _shoppingCartServices.List();
+            return Ok("success");
         }
 
         [HttpGet("{id}")]
-        public ShoppingCarts Get(int id)
+        public ActionResult<ShoppingCarts> Get(int id)
         {
-            return _shoppingCartServices.GetById(id);
+             _shoppingCartServices.GetById(id);
+            return Ok("success");
         }
 
         [HttpPost]
-        public void Post([FromBody] ShoppingCarts shoppingCarts)
+        public ActionResult<string> Post([FromBody] ShoppingCarts shoppingCarts)
         {
              _shoppingCartServices.Insert(shoppingCarts);
+            return Ok("success");
         }
 
         [HttpPut]
-        public void Put([FromBody] ShoppingCarts shoppingCarts)
+        public ActionResult<string> Put([FromBody] ShoppingCarts shoppingCarts)
         {
             _shoppingCartServices.Update(shoppingCarts);
+            return Ok("success");
         }
 
         /// <summary>
@@ -69,6 +73,7 @@ namespace Ecommerce.Application.Controllers
         public void FinalizeOrder([FromBody] ShoppingCarts shoppingCarts)
         {
             //_shoppingCartServices.InsertPayment();
+            // return cardStatus do carrinho
         }
     }
 }

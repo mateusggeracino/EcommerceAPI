@@ -32,7 +32,7 @@ namespace Ecommerce.Application.Extensions
             services.AddTransient<IStockServices, StockServices>();
             services.AddTransient<IClientServices, ClientServices>();
             services.AddTransient<IPaymentMethodService, PaymentMethodService>();
-            services.AddTransient<IShoppingCartServices, ShoppingCartServices>();
+            services.AddTransient<IShoppingCartServices, ShoppingCartsServices>();
         }
 
         /// <summary>

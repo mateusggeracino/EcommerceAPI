@@ -7,7 +7,7 @@ namespace Ecommerce.Business.Interfaces
 {
     public interface IShoppingCartsBusiness
     {
-        IEnumerable<ShoppingCarts> List();
+        List<ShoppingCarts> List();
         ShoppingCarts GetById(int id);
         void InsertShoppingCarts(ShoppingCarts shoppingCarts);
 
