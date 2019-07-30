@@ -30,15 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="IntegrationTest\" />
-    <Folder Include="UnitTest\BusinessTest\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\Ecommerce.Application\Ecommerce.Application.csproj" />
-    <ProjectReference Include="..\Ecommerce.Business\Ecommerce.Business.csproj" />
-    <ProjectReference Include="..\Ecommerce.Domain\Ecommerce.Domain.csproj" />
-    <ProjectReference Include="..\Ecommerce.Repository\Ecommerce.Repository.csproj" />
     <ProjectReference Include="..\Ecommerce.Services\Ecommerce.Services.csproj" />
   </ItemGroup>
 

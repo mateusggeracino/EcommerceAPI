@@ -1,0 +1,19 @@
+{
+  "Ecommerce.Application": {
+    "commandName": "Project",
+    "commandLineArgs": "--urls http://+:5000",
+    "launchBrowser": true,
+    "launchUrl": "docs",
+    "environmentVariables": {
+      "ASPNETCORE_ENVIRONMENT": "Development"
+    },
+    "applicationUrl": "http://localhost:5000/"
+  },
+  "profiles": {
+    "Ecommerce.Application": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "docs"
+    }
+  }
+}

@@ -4,6 +4,24 @@
         <name>Ecommerce.Application</name>
     </assembly>
     <members>
+        <member name="M:Ecommerce.Application.Controllers.PaymentMethodController.Get">
+            <summary>
+            Get All Payment Methods
+            </summary>
+            <returns>List payment methods</returns>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.ShoppingCartsController.Patch(Ecommerce.Domain.Models.ShoppingCarts)">
+            <summary>
+            Finalizar Carrinho de Compras
+            </summary>
+            <param name="shoppingCarts"></param>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.ShoppingCartsController.FinalizeOrder(Ecommerce.Domain.Models.ShoppingCarts)">
+            <summary>
+            Finalizar Pedido
+            </summary>
+            <param name="shoppingCarts"></param>
+        </member>
         <member name="M:Ecommerce.Application.Extensions.DependencyInjection.DependencyInjectionServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Injeção de dependencia services
