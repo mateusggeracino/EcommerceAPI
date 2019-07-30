@@ -12,54 +12,57 @@ namespace Ecommerce.Application.Extensions
 {
     public static class DependencyInjection
     {
-        public static void DepencencyInjection(this IServiceCollection services)
+        public static void DepencencyInjection( this IServiceCollection services )
         {
-            var mapperConfig = AutoMapperConfig.RegisterMappings();
-            services.AddSingleton(mapperConfig.CreateMapper());
+            var mapperConfig = AutoMapperConfig.RegisterMappings( );
+            services.AddSingleton( mapperConfig.CreateMapper( ) );
 
-            DependencyInjectionBusiness(services);
-            DependencyInjectionServices(services);
-            DependencyInjectionRepository(services);
-            services.BuildServiceProvider();
+            DependencyInjectionBusiness( services );
+            DependencyInjectionServices( services );
+            DependencyInjectionRepository( services );
+            services.BuildServiceProvider( );
         }
 
         /// <summary>
         /// Injeção de dependencia services
         /// </summary>
         /// <param name="services"></param>
-        public static void DependencyInjectionServices(IServiceCollection services)
+        public static void DependencyInjectionServices( IServiceCollection services )
         {
-            services.AddTransient<IStockServices, StockServices>();
-            services.AddTransient<IClientServices, ClientServices>();
-            services.AddTransient<IPaymentMethodService, PaymentMethodService>();
-            services.AddTransient<IShoppingCartServices, ShoppingCartServices>();
+            services.AddTransient<IStockServices, StockServices>( );
+            services.AddTransient<IClientServices, ClientServices>( );
+            services.AddTransient<IPaymentMethodService, PaymentMethodService>( );
+            services.AddTransient<IShoppingCartServices, ShoppingCartServices>( );
+            services.AddTransient<IProductServices, ProductServices>( );
         }
 
         /// <summary>
         /// Injeção de dependencia Repository
         /// </summary>
         /// <param name="services"></param>
-        public static void DependencyInjectionRepository(IServiceCollection services)
+        public static void DependencyInjectionRepository( IServiceCollection services )
         {
-            services.AddSingleton<IStockRepository, StockRepository>();
-            services.AddSingleton<IPaymentMethodRepository, PaymentMethodRepository>();
-            services.AddSingleton<IShoppingCartsRepository, ShoppingCartsRepository>();
-            services.AddSingleton<IOrderRepository, OrderRepository>();
-            services.AddSingleton<IClientRepository, ClientRepository>();
+            services.AddSingleton<IStockRepository, StockRepository>( );
+            services.AddSingleton<IPaymentMethodRepository, PaymentMethodRepository>( );
+            services.AddSingleton<IShoppingCartsRepository, ShoppingCartsRepository>( );
+            services.AddSingleton<IOrderRepository, OrderRepository>( );
+            services.AddSingleton<IClientRepository, ClientRepository>( );
+            services.AddSingleton<IProductRepository, ProductRepository>( );
         }
 
         /// <summary>
         /// Injeção de dependencia Business
         /// </summary>
         /// <param name="services"></param>
-        public static void DependencyInjectionBusiness(IServiceCollection services)
+        public static void DependencyInjectionBusiness( IServiceCollection services )
         {
-            services.AddTransient<IStockBusiness, StockBusiness>();
-            services.AddTransient<IClientBusiness, ClientBusiness>();
-            services.AddTransient<IShoppingCartsBusiness, ShoppingCartsBusiness>();
-            services.AddTransient<IStockBusiness, StockBusiness>();
-            services.AddTransient<IClientBusiness, ClientBusiness>();
-            services.AddTransient<IPaymentMethodBusiness, PaymentMethodBusiness>();
+            services.AddTransient<IStockBusiness, StockBusiness>( );
+            services.AddTransient<IClientBusiness, ClientBusiness>( );
+            services.AddTransient<IShoppingCartsBusiness, ShoppingCartsBusiness>( );
+            services.AddTransient<IStockBusiness, StockBusiness>( );
+            services.AddTransient<IClientBusiness, ClientBusiness>( );
+            services.AddTransient<IPaymentMethodBusiness, PaymentMethodBusiness>( );
+            services.AddTransient<IProductBusiness, ProductBusiness>( );
         }
 
     }
