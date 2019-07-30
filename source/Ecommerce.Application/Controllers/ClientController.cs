@@ -66,7 +66,7 @@ namespace Ecommerce.Application.Controllers
 
                 return Ok("success");
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new StatusCodeResult(500);
             }

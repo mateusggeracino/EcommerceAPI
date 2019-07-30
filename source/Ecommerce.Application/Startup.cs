@@ -1,10 +1,4 @@
 using Ecommerce.Application.Extensions;
-using Ecommerce.Business;
-using Ecommerce.Business.Interfaces;
-using Ecommerce.Repository;
-using Ecommerce.Services;
-using Ecommerce.Services.Interfaces;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
