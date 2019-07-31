@@ -1,9 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Ecommerce.Domain.Models
+﻿namespace Ecommerce.Application.ViewModels
 {
-    [Table("Products.Products", Schema = "Products")]
-    public class Product : Entity
+    public class ProductViewModel
     {
         public string ProductType { get; set; }
         public string ProductDescription { get; set; }

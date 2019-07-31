@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Ecommerce.Integration.AuthorizarApi\Ecommerce.Integration.AuthorizarApi.csproj" />
     <ProjectReference Include="..\Ecommerce.Repository\Ecommerce.Repository.csproj" />
     <ProjectReference Include="..\Ecommerce.Services\Ecommerce.Services.csproj" />
   </ItemGroup>

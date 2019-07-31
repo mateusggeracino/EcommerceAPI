@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Ecommerce.Application.ViewModels;
 using Ecommerce.Domain.Models;
 using Ecommerce.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -14,12 +16,13 @@ namespace Ecommerce.Application.Controllers
     {
         private readonly IShoppingCartServices _shoppingCartServices;
         private readonly IStockServices _stockServices;
-        
+        private readonly IMapper _mapper;
 
-        public ShoppingCartsController(IShoppingCartServices shoppingCartservices, IStockServices stockServices)
+        public ShoppingCartsController(IShoppingCartServices shoppingCartservices, IStockServices stockServices, IMapper mapper)
         {
             _shoppingCartServices = shoppingCartservices;
             _stockServices = stockServices;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -37,10 +40,13 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Post([FromBody] ShoppingCarts shoppingCarts)
+        public ActionResult<string> Post([FromBody] ShoppingCartsViewModel shoppingCartsViewModel)
         {
-             _shoppingCartServices.Insert(shoppingCarts);
-            return Ok("success");
+             var shoppingCarts = _shoppingCartServices
+                 .Insert(_mapper.Map<ShoppingCarts>(shoppingCartsViewModel));
+
+            //if(shoppingCarts.)
+            return null;
         }
 
         [HttpPut]

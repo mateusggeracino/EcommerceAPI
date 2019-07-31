@@ -25,7 +25,7 @@ namespace Ecommerce.Repository
 
         protected IDbConnection Conn => new SqlConnection(_config.GetConnectionString("DefaultConnection"));
 
-        public virtual  List<T> ExecuteQuery(string query, DynamicParameters parameters = null)
+        public virtual List<T> ExecuteQuery(string query, DynamicParameters parameters = null)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace Ecommerce.Repository
             return Conn.GetAll<T>().ToList();
         }
 
-        public virtual  T Update(T obj)
+        public virtual T Update(T obj)
         {
             Conn.Update(obj);
             return obj;

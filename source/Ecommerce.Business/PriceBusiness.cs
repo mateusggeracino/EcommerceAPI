@@ -17,7 +17,8 @@ namespace Ecommerce.Business
         }
         public List<Price> ExecuteQuery(int storeid, int productid)
         {
-            return _priceRepository.ExecuteQuery(storeid, productid);
+            var x = _priceRepository.ExecuteQuery(storeid, productid);
+            return x;
         }
 
         public Price Insert(Price price)

@@ -2,11 +2,14 @@
 using Ecommerce.Business;
 using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
+using Ecommerce.Integration.AuthorizarApi;
+using Ecommerce.Integration.AuthorizarApi.Interface;
 using Ecommerce.Repository;
 using Ecommerce.Repository.Interfaces;
 using Ecommerce.Services;
 using Ecommerce.Services.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
+
 
 namespace Ecommerce.Application.Extensions
 {
@@ -17,9 +20,12 @@ namespace Ecommerce.Application.Extensions
             var mapperConfig = AutoMapperConfig.RegisterMappings( );
             services.AddSingleton( mapperConfig.CreateMapper( ) );
 
+            services.AddTransient<IAuthorizar, Authorizar>( );
+
             DependencyInjectionBusiness( services );
             DependencyInjectionServices( services );
             DependencyInjectionRepository( services );
+
             services.BuildServiceProvider( );
         }
 
@@ -34,7 +40,8 @@ namespace Ecommerce.Application.Extensions
             services.AddTransient<IPaymentMethodService, PaymentMethodService>( );
             services.AddTransient<IShoppingCartServices, ShoppingCartsServices>( );
             services.AddTransient<IProductServices, ProductServices>( );
-            services.AddTransient<IPaymentServices, PaymentServices>();
+            services.AddTransient<IPriceServices, PriceServices>( );
+            //services.AddTransient<IPaymentServices, PaymentServices>();
         }
 
         /// <summary>
@@ -44,11 +51,14 @@ namespace Ecommerce.Application.Extensions
         public static void DependencyInjectionRepository( IServiceCollection services )
         {
             services.AddSingleton<IStockRepository, StockRepository>( );
+            services.AddSingleton<IStoreRepository, StoreRepository>( );
             services.AddSingleton<IPaymentMethodRepository, PaymentMethodRepository>( );
             services.AddSingleton<IShoppingCartsRepository, ShoppingCartsRepository>( );
             services.AddSingleton<IOrderRepository, OrderRepository>( );
             services.AddSingleton<IClientRepository, ClientRepository>( );
             services.AddSingleton<IProductRepository, ProductRepository>( );
+            services.AddSingleton<IPaymentAuthorizeRepository, PaymentAuthorizeRepository>();
+            services.AddSingleton<IPriceRepository, PriceRepository>();
             services.AddSingleton<IPaymentRepository, PaymentRepository>();
         }
 
@@ -61,10 +71,11 @@ namespace Ecommerce.Application.Extensions
             services.AddTransient<IStockBusiness, StockBusiness>( );
             services.AddTransient<IClientBusiness, ClientBusiness>( );
             services.AddTransient<IShoppingCartsBusiness, ShoppingCartsBusiness>( );
-            services.AddTransient<IStockBusiness, StockBusiness>( );
             services.AddTransient<IClientBusiness, ClientBusiness>( );
             services.AddTransient<IPaymentMethodBusiness, PaymentMethodBusiness>( );
             services.AddTransient<IProductBusiness, ProductBusiness>( );
+            services.AddTransient<IPaymentAuthorizeBusiness, PaymentAuthorizeBusiness>( );
+            services.AddTransient<IPriceBusiness, PriceBusiness>( );
             services.AddTransient<IPaymentBusiness, PaymentBusiness>();
         }
 

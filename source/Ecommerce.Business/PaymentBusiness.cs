@@ -1,6 +1,9 @@
 ﻿using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
+using Ecommerce.Integration.AuthorizarApi.Interface;
+using Ecommerce.Integration.AuthorizarApi.Model;
 using Ecommerce.Repository.Interfaces;
+using RestSharp;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,11 +13,12 @@ namespace Ecommerce.Business
     public class PaymentBusiness : IPaymentBusiness
     {
         private readonly IPaymentRepository _paymentRepository;
+        private readonly IAuthorizar _authorizar;
 
-
-        public PaymentBusiness(IPaymentRepository paymentRepository)
+        public PaymentBusiness(IPaymentRepository paymentRepository, IAuthorizar authorizar)
         {
             _paymentRepository = paymentRepository;
+            _authorizar = authorizar;
         }
 
         public Payment Insert(int orderId, int paymentId)
@@ -27,14 +31,11 @@ namespace Ecommerce.Business
             }); 
         }
 
-        void IPaymentBusiness.Insert(int orderId, int PayMTId)
-        {
-            throw new NotImplementedException();
-        }
+        //public IRestResponse Api()
+        //{
 
-        public void Insert()
-        {
-
-        }
+        //    IRestResponse iRestResponse = _authorizar.Send("CreditCardTransaction",new CreditCardTransaction());
+            
+        //}
     }
 }

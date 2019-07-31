@@ -1,9 +1,5 @@
 ﻿using Ecommerce.Domain.Models;
 using Ecommerce.Repository.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Dapper;
 using Dapper.Contrib.Extensions;
 using Microsoft.Extensions.Configuration;
 using System.Data;
@@ -11,7 +7,7 @@ using System.Data.SqlClient;
 
 namespace Ecommerce.Repository
 {
-    public class PaymentAuthorizeRepository<T> : IPaymentAuthorizeRepository
+    public class PaymentAuthorizeRepository : IPaymentAuthorizeRepository
     {
         private readonly IConfiguration _config;
 
@@ -27,7 +23,7 @@ namespace Ecommerce.Repository
             return Conn.Get<vw_PaymentOrther>(orther);
         }
 
-        public void UpdadeStock(int obj)
+        public void UpdateStock(int obj)
         {
             var query = "update Products.Stock " +
                         "set RealStock = a.RealStock - b.Quantity " +

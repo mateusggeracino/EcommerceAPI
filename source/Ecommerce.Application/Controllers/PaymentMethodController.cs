@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AutoMapper;
 using Ecommerce.Application.ViewModels;
 using Ecommerce.Domain.Models;
 using Ecommerce.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.Application.Controllers
@@ -29,6 +25,7 @@ namespace Ecommerce.Application.Controllers
         [HttpGet]
         public ActionResult<List<PaymentMethodViewModel>> Get( )
         {
+            
             var paymentMethods = _paymentMethodService.GetAll( );
             return _mapper.Map<List<PaymentMethodViewModel>>( paymentMethods );
         }
@@ -50,17 +47,19 @@ namespace Ecommerce.Application.Controllers
             return Ok( "success" );
         }
 
-        [HttpDelete("{id}")]
+        [HttpPut("{id}")]
         public ActionResult<string> Put([FromRoute] int id, [FromBody] PaymentMethodViewModel paymentMethodViewModel )
         {
             var paymentMethod = _mapper.Map<PaymentMethod>( paymentMethodViewModel );
+
+            paymentMethod.Id = id;
 
             _paymentMethodService.Update( paymentMethod );
 
             return Ok( "Sucess" );
         }
 
-        [HttpPut("{id}")]
+        [HttpDelete("{id}")]
         public ActionResult<string> Delete([FromRoute] int id )
         {
             _paymentMethodService.Delete( id );

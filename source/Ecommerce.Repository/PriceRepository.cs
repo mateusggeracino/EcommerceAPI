@@ -1,5 +1,6 @@
 ﻿using Dapper;
 using Ecommerce.Domain.Models;
+using Ecommerce.Repository.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System;
@@ -8,7 +9,7 @@ using System.Text;
 
 namespace Ecommerce.Repository
 {
-    public class PriceRepository : Repository<Price>
+    public class PriceRepository : Repository<Price>, IPriceRepository
     {
         public PriceRepository(IConfiguration config, ILogger<Repository<Price>> logger) : base(config, logger)
         {
@@ -21,8 +22,10 @@ namespace Ecommerce.Repository
 
         public List<Price> ExecuteQuery(int storeid, int productid)
         {
-            var query = "select StoreId, ProductId, Promotion, RegularPrice,PromotionalPrice,PriceGroup" +
-                        "from Products.Price where StoreId = @StoreId and ProductId = @ProductID";
+            var query = $"select Id,PriceStoreId, PriceProductId, Promotion, RegularPrice," +
+                        $"PromotionalPrice,PriceGroup " +
+                        $"from Products.Prices where PriceStoreId = @StoreId " +
+                        $"and PriceProductId = @ProductID";
             var parameters = new DynamicParameters();
             parameters.Add("@StoreId", storeid);
             parameters.Add("@ProductId", productid);
