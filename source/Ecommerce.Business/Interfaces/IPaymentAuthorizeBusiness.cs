@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Ecommerce.Business.Interfaces
 {
-    public interface IPaymentAuthorize
+    public interface IPaymentAuthorizeBusiness
     {
 
     }

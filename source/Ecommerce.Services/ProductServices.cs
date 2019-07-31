@@ -15,7 +15,7 @@ namespace Ecommerce.Services
             _productBusiness = productbusiness;
         }
 
-        public bool Insert(Product product)
+        public Product Insert(Product product)
         {
             return _productBusiness.Insert(product);
         }

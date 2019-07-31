@@ -9,7 +9,7 @@ namespace Ecommerce.Business.Interfaces
     {
         IEnumerable<ShoppingCarts> List();
         ShoppingCarts GetById(int id);
-        void InsertShoppingCarts(ShoppingCarts shoppingCarts);
+        ShoppingCarts InsertShoppingCarts(ShoppingCarts shoppingCarts);
 
         void Update(ShoppingCarts shoppingCarts);
 

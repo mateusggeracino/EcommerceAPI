@@ -25,9 +25,9 @@ namespace Ecommerce.Services
             return _shoppingCartsBusiness.GetById(id);
         }
 
-        public void Insert(ShoppingCarts shoppingCarts)
+        public ShoppingCarts Insert(ShoppingCarts shoppingCarts)
         {
-            _shoppingCartsBusiness.InsertShoppingCarts(shoppingCarts);
+            return _shoppingCartsBusiness.InsertShoppingCarts(shoppingCarts);
         }
         public void Update(ShoppingCarts shoppingCarts)
         {

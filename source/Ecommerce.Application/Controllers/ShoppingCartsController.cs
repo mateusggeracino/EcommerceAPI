@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using Ecommerce.Application.ViewModels;
 using Ecommerce.Domain.Models;
 using Ecommerce.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -14,11 +16,13 @@ namespace Ecommerce.Application.Controllers
     {
         private readonly IShoppingCartServices _shoppingCartServices;
         private readonly IStockServices _stockServices;
+        private readonly IMapper _mapper;
 
-        public ShoppingCartsController(IShoppingCartServices shoppingCartservices, IStockServices stockServices)
+        public ShoppingCartsController(IShoppingCartServices shoppingCartservices, IStockServices stockServices, IMapper mapper)
         {
             _shoppingCartServices = shoppingCartservices;
             _stockServices = stockServices;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -34,9 +38,13 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpPost]
-        public void Post([FromBody] ShoppingCarts shoppingCarts)
+        public ActionResult<string> Post([FromBody] ShoppingCartsViewModel shoppingCartsViewModel)
         {
-             _shoppingCartServices.Insert(shoppingCarts);
+             var shoppingCarts = _shoppingCartServices
+                 .Insert(_mapper.Map<ShoppingCarts>(shoppingCartsViewModel));
+
+            //if(shoppingCarts.)
+            return null;
         }
 
         [HttpPut]
@@ -52,11 +60,11 @@ namespace Ecommerce.Application.Controllers
         [HttpPatch]
         public void Patch([FromBody] ShoppingCarts shoppingCarts)
         {
-            Order order = _shoppingCartServices.InsertOrder(shoppingCarts);
+            var order = _shoppingCartServices.InsertOrder(shoppingCarts);
             // id order - vira status do carrinho
             shoppingCarts.CartStatus = order.Id;
             _shoppingCartServices.Update(shoppingCarts);
-            Stock stock = _stockServices.GetByProduct(shoppingCarts.CartStoreId, shoppingCarts.CartProductId);
+            var stock = _stockServices.GetByProduct(shoppingCarts.CartStoreId, shoppingCarts.CartProductId);
             _stockServices.RemoveQuantityVirtual(shoppingCarts);
         }
 

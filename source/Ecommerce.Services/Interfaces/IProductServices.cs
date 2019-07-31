@@ -7,7 +7,7 @@ namespace Ecommerce.Services.Interfaces
 {
     public interface IProductServices
     {
-        bool Insert(Product product);
+        Product Insert(Product product);
 
         List<Product> ExecuteQueryId(string query);
 

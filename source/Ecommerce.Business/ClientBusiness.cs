@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
+using Ecommerce.Domain.Validations;
 using Ecommerce.Repository.Interfaces;
 
 namespace Ecommerce.Business
@@ -17,38 +19,19 @@ namespace Ecommerce.Business
             _clientRepository = clientRepository;
         }
 
-        private void Insert(Client cliente)
+        public Client Insert(Client client)
         {
-            _clientRepository.Insert(cliente);
+            var clientValidation = new ClientValidation();
+            client.ValidationResult = clientValidation.Validate(client);
+
+            if (client.ValidationResult.Errors.Any()) return client;
+
+            return _clientRepository.Insert(client);
         }
 
-        private void Update(Client cliente)
+        public Client Update(Client cliente)
         {
-            _clientRepository.Update(cliente);
-        }
-
-        public void CheckClient(Client client)
-        {
-            CheckParameter(client);
-
-            if (client.Id > 0) { Update(client); }
-            else { Insert(client); }
-
-        }
-
-        /// <summary>
-        /// Verifica a os valores de Cliente
-        /// </summary>
-        /// <param name="client"></param>
-        public void CheckParameter(Client client)
-        {
-            ClientExeption.When(string.IsNullOrEmpty(client.CustomerName), "Client Name is required");
-            ClientExeption.When(string.IsNullOrEmpty(client.CustomerDocument), "Client Name is required");
-            ClientExeption.When(string.IsNullOrEmpty(client.CustomerEmail), "Client Name is required");
-            ClientExeption.When(string.IsNullOrEmpty(client.CustomerGender), "Client Name is required");
-            ClientExeption.When(string.IsNullOrEmpty(client.CustomerAddress), "Client Name is required");
-            ClientExeption.When(string.IsNullOrEmpty(client.CustomerType), "Client Name is required");
-            ClientExeption.When(string.IsNullOrEmpty(client.CustomerTelephone), "Client Name is required");
+            return _clientRepository.Update(cliente);
         }
 
         public IEnumerable<Client> GetAll()

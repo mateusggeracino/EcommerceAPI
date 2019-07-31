@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Ecommerce.Business
 {
-    public class PaymentAuthorizeBusiness 
+    public class PaymentAuthorizeBusiness  : IPaymentAuthorizeBusiness
     {
         private readonly IPaymentAuthorizeRepository _ipaymentrepository;
         private readonly IStockRepository _stockRepository;

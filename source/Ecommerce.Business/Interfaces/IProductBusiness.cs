@@ -8,7 +8,7 @@ namespace Ecommerce.Business.Interfaces
 {
     public interface IProductBusiness
     {
-        bool Insert(Product product);
+        Product Insert(Product product);
 
         List<Product> ExecuteQueryId(string query);
 

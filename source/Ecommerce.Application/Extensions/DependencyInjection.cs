@@ -40,6 +40,7 @@ namespace Ecommerce.Application.Extensions
             services.AddTransient<IPaymentMethodService, PaymentMethodService>( );
             services.AddTransient<IShoppingCartServices, ShoppingCartServices>( );
             services.AddTransient<IProductServices, ProductServices>( );
+            services.AddTransient<IPriceServices, PriceServices>( );
         }
 
         /// <summary>
@@ -49,11 +50,14 @@ namespace Ecommerce.Application.Extensions
         public static void DependencyInjectionRepository( IServiceCollection services )
         {
             services.AddSingleton<IStockRepository, StockRepository>( );
+            services.AddSingleton<IStoreRepository, StoreRepository>( );
             services.AddSingleton<IPaymentMethodRepository, PaymentMethodRepository>( );
             services.AddSingleton<IShoppingCartsRepository, ShoppingCartsRepository>( );
             services.AddSingleton<IOrderRepository, OrderRepository>( );
             services.AddSingleton<IClientRepository, ClientRepository>( );
             services.AddSingleton<IProductRepository, ProductRepository>( );
+            services.AddSingleton<IPaymentAuthorizeRepository, PaymentAuthorizeRepository>();
+            services.AddSingleton<IPriceRepository, PriceRepository>();
         }
 
         /// <summary>
@@ -65,10 +69,11 @@ namespace Ecommerce.Application.Extensions
             services.AddTransient<IStockBusiness, StockBusiness>( );
             services.AddTransient<IClientBusiness, ClientBusiness>( );
             services.AddTransient<IShoppingCartsBusiness, ShoppingCartsBusiness>( );
-            services.AddTransient<IStockBusiness, StockBusiness>( );
             services.AddTransient<IClientBusiness, ClientBusiness>( );
             services.AddTransient<IPaymentMethodBusiness, PaymentMethodBusiness>( );
             services.AddTransient<IProductBusiness, ProductBusiness>( );
+            services.AddTransient<IPaymentAuthorizeBusiness, PaymentAuthorizeBusiness>( );
+            services.AddTransient<IPriceBusiness, PriceBusiness>( );
         }
 
     }

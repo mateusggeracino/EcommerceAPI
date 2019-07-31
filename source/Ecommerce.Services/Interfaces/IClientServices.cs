@@ -5,9 +5,9 @@ namespace Ecommerce.Services.Interfaces
 {
     public interface IClientServices
     {
-        void Save(Client client);
+        Client Insert(Client client);
 
-        void Update(Client client);
+        Client Update(Client client);
 
         IEnumerable<Client> GetAll();
 

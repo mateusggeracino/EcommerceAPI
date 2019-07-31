@@ -5,23 +5,29 @@ using Ecommerce.Repository;
 using Ecommerce.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using Ecommerce.Domain.Validations;
 
 namespace Ecommerce.Business
 {
     public class ProductBusiness : IProductBusiness
     {
-        IProductRepository _productRepository;
+        private readonly IProductRepository _productRepository;
 
         public ProductBusiness(IProductRepository productRepository)
         {
             _productRepository = productRepository;
         }
 
-        public bool Insert(Product product)
+        public Product Insert(Product product)
         {
-            _productRepository.Insert(product);
-            return true;
+            var productValidation = new ProductValidation();
+            product.ValidationResult = productValidation.Validate(product);
+
+            if (product.ValidationResult.Errors.Any()) return product;
+
+            return _productRepository.Insert(product);
         }
 
         public List<Product> ExecuteQueryId(string value)
