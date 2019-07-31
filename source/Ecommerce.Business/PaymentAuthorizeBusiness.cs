@@ -1,59 +1,76 @@
-﻿using Ecommerce.Business.Interfaces;
+﻿using System.Net;
+using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
+using Ecommerce.Integration.AuthorizarApi.Domain.Models.Request;
 using Ecommerce.Repository.Interfaces;
 
 namespace Ecommerce.Business
 {
-    public class PaymentAuthorizeBusiness  : IPaymentAuthorizeBusiness
+    public class PaymentAuthorizeBusiness : IPaymentAuthorizeBusiness
     {
-        private readonly IPaymentAuthorizeRepository _ipaymentrepository;
+        private readonly IPaymentAuthorizeRepository _paymentRepository;
         private readonly IStockRepository _stockRepository;
         private readonly IShoppingCartsRepository _shoppingCartsRepository;
-        public PaymentAuthorizeBusiness(IPaymentAuthorizeRepository ipaymentrepository, IStockRepository stockRepository, IShoppingCartsRepository shoppingCartsRepository)
+        private readonly IOrderRepository _orderRepository;
+
+        public PaymentAuthorizeBusiness(IPaymentAuthorizeRepository paymentRepository, IStockRepository stockRepository, IShoppingCartsRepository shoppingCartsRepository, IOrderRepository orderRepository)
         {
-            _ipaymentrepository = ipaymentrepository;
+            _paymentRepository = paymentRepository;
             _stockRepository = stockRepository;
             _shoppingCartsRepository = shoppingCartsRepository;
+            _orderRepository = orderRepository;
         }
 
         public bool FinalyPaymant(int order)
         {
-            var payment = _ipaymentrepository.GetByPayment(order);
+            var payment = _paymentRepository.GetByPayment(order);
             if (payment != null)
             {
                 //Verica a aprovação do pagamento em Result
                 var result = AuthorizePayment(payment);
 
-                
+                switch (result)
+                {
+                    case HttpStatusCode.OK:
+                        {
+                            UpdateStatusOrder(order, 3);
+                            UpdadeStock(order);
+                            break;
+                        }
+                     
+                }
+
+                //if(result.)
                 // Pagamento aprovado Atualizar Status da Order para 3 e Stock
-                UpdateStatysorder(order, 3);
-                UpdadeStock(order);
+
 
 
                 // Pagamento reprovado  Atualiza Status da Orther para 2
-                UpdateStatysorder(order, 2);
+
 
 
                 return true;
             }
-            
+
             else
             {
                 return false;
-            }           
+            }
         }
-        private string AuthorizePayment(vw_PaymentOrther order)
+        private HttpStatusCode AuthorizePayment(vw_PaymentOrder order)
         {
+            //var creditCard = new CreditCardRequest();
+            //var restResponse = _authorizarPayment.Send(order.EndPointName, creditCard);
 
-            //Verify the authorizePayment and return status
-
-            return "";
+            //return restResponse.StatusCode;
+            return HttpStatusCode.Accepted;
         }
 
-        private void UpdateStatysorder(int order, int status)
+        private void UpdateStatusOrder(int orderId, int status)
         {
-            // Atualizar Tabela Transactions.Orders
-
+            var order = _orderRepository.GetById(orderId);
+            order.OrderStatus = status;
+            _orderRepository.Update(order);
         }
 
         private void UpdadeStock(int orderId)
