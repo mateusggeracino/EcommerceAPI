@@ -9,5 +9,6 @@ namespace Ecommerce.Application.ViewModels
     {
         public string Type { get; set; }
         public int SupplierId { get; set; }
+        public string EndPointName { get; set; }
     }
 }

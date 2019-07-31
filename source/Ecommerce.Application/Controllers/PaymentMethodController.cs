@@ -47,17 +47,19 @@ namespace Ecommerce.Application.Controllers
             return Ok( "success" );
         }
 
-        [HttpDelete("{id}")]
+        [HttpPut("{id}")]
         public ActionResult<string> Put([FromRoute] int id, [FromBody] PaymentMethodViewModel paymentMethodViewModel )
         {
             var paymentMethod = _mapper.Map<PaymentMethod>( paymentMethodViewModel );
+
+            paymentMethod.Id = id;
 
             _paymentMethodService.Update( paymentMethod );
 
             return Ok( "Sucess" );
         }
 
-        [HttpPut("{id}")]
+        [HttpDelete("{id}")]
         public ActionResult<string> Delete([FromRoute] int id )
         {
             _paymentMethodService.Delete( id );

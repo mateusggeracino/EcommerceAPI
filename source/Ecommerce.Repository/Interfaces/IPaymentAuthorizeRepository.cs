@@ -9,6 +9,6 @@ namespace Ecommerce.Repository.Interfaces
     {
         vw_PaymentOrther GetByPayment(int orther);
 
-        void UpdadeStock(int other);
+        void UpdateStock(int other);
     }
 }

@@ -12,5 +12,7 @@ namespace Ecommerce.Domain.Models
         public string Type { get; set; }
         [Column( "SupplierId" )]
         public int SupplierId { get; set; }
+        [Column( "EndPointName" )]
+        public string EndPointName { get; set; }
     }
 }
