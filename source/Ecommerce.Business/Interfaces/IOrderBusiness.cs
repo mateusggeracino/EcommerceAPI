@@ -5,8 +5,8 @@ using System.Text;
 
 namespace Ecommerce.Business.Interfaces
 {
-    public interface IPaymentBusiness
+    public interface IOrderBusiness
     {
-        Payment Insert(Payment payment);
+        Order Insert(ShoppingCarts shoppingCartsView);
     }
 }
