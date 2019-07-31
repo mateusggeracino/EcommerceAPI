@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AutoMapper;
 using Ecommerce.Application.ViewModels;
 using Ecommerce.Domain.Models;
-using Ecommerce.Integration.AuthorizarApi;
 using Ecommerce.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce.Application.Controllers
