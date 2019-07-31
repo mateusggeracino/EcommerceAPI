@@ -15,5 +15,7 @@ namespace Ecommerce.Domain.Models
         public DateTime CartCreation { get; set; }
         public DateTime CartExpiring { get; set; }
         public int CartStatus { get; set; }
+
+        public Decimal? CartUnitPrice { get; set; }
     }
 }

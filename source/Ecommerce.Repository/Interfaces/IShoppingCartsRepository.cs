@@ -9,5 +9,7 @@ namespace Ecommerce.Repository.Interfaces
     {
         void InsertShoppingCarts(ShoppingCarts shoppingCarts);
         List<ShoppingCarts> GetByOrder(int order);
+
+        List<ShoppingCarts> GetViewShoppingCarts(int shoppingCartId);
     }
 }

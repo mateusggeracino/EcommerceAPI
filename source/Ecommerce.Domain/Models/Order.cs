@@ -12,5 +12,8 @@ namespace Ecommerce.Domain.Models
         public DateTime OrderCreation { get; set; }
         public DateTime OrderExpiring { get; set; }
         public int OrderStatus { get; set; }
+
+        public Decimal OrderTotalValue { get; set; }
+
     }
 }

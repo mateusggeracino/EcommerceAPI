@@ -10,16 +10,14 @@ namespace Ecommerce.Services
     public class ShoppingCartsServices : IShoppingCartServices
     {
         private readonly IShoppingCartsBusiness _shoppingCartsBusiness;
-        private readonly IPaymentMethodBusiness _paymentAuthorizeBusiness;
 
-        public ShoppingCartsServices(IShoppingCartsBusiness shoppingCartsBusiness, IPaymentMethodBusiness paymentAuthorizeBusiness)
+        public ShoppingCartsServices(IShoppingCartsBusiness shoppingCartsBusiness)
         {
             _shoppingCartsBusiness = shoppingCartsBusiness;
-            _paymentAuthorizeBusiness = paymentAuthorizeBusiness;
         }
         public List<ShoppingCarts> List()
         {
-           return  _shoppingCartsBusiness.List();
+            return _shoppingCartsBusiness.List();
         }
 
         public ShoppingCarts GetById(int id)
@@ -39,14 +37,14 @@ namespace Ecommerce.Services
             return ("sucess");
         }
 
-        public Order InsertOrder(ShoppingCarts shoppingCarts)
+        public Order InsertOrder(ShoppingCarts shoppingCarts, ShoppingCarts shoppingCartsView)
         {
-            return _shoppingCartsBusiness.InsertOrder(shoppingCarts);
+            return _shoppingCartsBusiness.InsertOrder(shoppingCarts, shoppingCartsView);
         }
 
-        //public int InsertPayment()
-        //{
-        //    return _paymentAuthorizeBusiness.
-        //}
+        public List<ShoppingCarts> GetViewShoppingCarts(int shoppingCartId)
+        {
+            return _shoppingCartsBusiness.GetViewShoppingCart(shoppingCartId);
+        }
     }
 }

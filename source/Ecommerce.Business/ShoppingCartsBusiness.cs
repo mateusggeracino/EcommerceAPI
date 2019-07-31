@@ -1,5 +1,6 @@
 ﻿using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
+using Ecommerce.Repository;
 using Ecommerce.Repository.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -31,20 +32,26 @@ namespace Ecommerce.Business
             _shoppingCartsRepository.InsertShoppingCarts(shoppingCarts);
         }
 
-        public Order InsertOrder(ShoppingCarts shoppingCarts)
+        public Order InsertOrder(ShoppingCarts shoppingCarts, ShoppingCarts shoppingCartsView)
         {
             return _orderRepository.Insert(new Order
             {
                 OrderCartId = shoppingCarts.Id,
                 OrderCreation = DateTime.Now,
                 OrderExpiring = DateTime.Now.AddDays(7),
-                OrderStatus = 1
-            });
+                OrderStatus = 1,
+                OrderTotalValue = shoppingCarts.Quantity * (shoppingCartsView.CartUnitPrice.HasValue ? shoppingCartsView.CartUnitPrice.Value : shoppingCarts.Quantity)
+            }); ;
         }
 
         public void Update(ShoppingCarts shoppingCarts)
         {
             _shoppingCartsRepository.Update(shoppingCarts);
+        }
+
+        public List<ShoppingCarts> GetViewShoppingCart(int shoppingCartId)
+        {
+            return _shoppingCartsRepository.GetViewShoppingCarts(shoppingCartId);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Ecommerce.Application.Controllers
     {
         private readonly IShoppingCartServices _shoppingCartServices;
         private readonly IStockServices _stockServices;
+        
 
         public ShoppingCartsController(IShoppingCartServices shoppingCartservices, IStockServices stockServices)
         {
@@ -56,24 +57,18 @@ namespace Ecommerce.Application.Controllers
         [HttpPatch]
         public void Patch([FromBody] ShoppingCarts shoppingCarts)
         {
-            Order order = _shoppingCartServices.InsertOrder(shoppingCarts);
-            // id order - vira status do carrinho
-            shoppingCarts.CartStatus = order.Id;
-            _shoppingCartServices.Update(shoppingCarts);
-            Stock stock = _stockServices.GetByProduct(shoppingCarts.CartStoreId, shoppingCarts.CartProductId);
-            _stockServices.RemoveQuantityVirtual(shoppingCarts);
-        }
+            List<ShoppingCarts> shoppingCartsList = _shoppingCartServices.GetViewShoppingCarts(shoppingCarts.Id);
+            ShoppingCarts shoppingCartView = shoppingCartsList.Where(x => x.Id == shoppingCarts.Id).FirstOrDefault();
 
-        /// <summary>
-        /// Finalizar Pedido
-        /// </summary>
-        /// <param name="shoppingCarts"></param>
-        //[HttpPatch]
-        //[Route("finalize-order")]
-        //public void FinalizeOrder([FromBody] )
-        //{
-        //    _shoppingCartServices.InsertPayment();
-        //     return cardStatus do carrinho
-        //}
+            Order order = _shoppingCartServices.InsertOrder(shoppingCarts, shoppingCartView);
+
+            // ** problema aqui **
+            //shoppingCarts.CartStatus = order.Id;
+            //shoppingCarts.CartUnitPrice = shoppingCartsList.Where(x => x.Id == shoppingCarts.Id && x.CartProductId == shoppingCarts.CartProductId).FirstOrDefault().CartUnitPrice;
+            //_shoppingCartServices.Update(shoppingCarts);
+
+            //Stock stock = _stockServices.GetByProduct(shoppingCarts.CartStoreId, shoppingCarts.CartProductId);
+            //_stockServices.RemoveQuantityVirtual(shoppingCarts);
+        }
     }
 }

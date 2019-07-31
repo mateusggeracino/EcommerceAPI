@@ -46,5 +46,15 @@ namespace Ecommerce.Repository
 
             return ExecuteQuery(query, parameters);
         }
+
+        public List<ShoppingCarts> GetViewShoppingCarts(int shoppingCartId)
+        {
+            var query = "SELECT *FROM Transactions.vw_ShoppingCart" +
+                "        WHERE id = @shoppingCartId";
+            var parameters = new DynamicParameters();
+            parameters.Add("@shoppingCartId", shoppingCartId);
+
+            return ExecuteQuery(query, parameters);
+        }
     }
 }
