@@ -34,42 +34,42 @@ namespace Ecommerce.Business
 
                 switch (result)
                 {
-                    case HttpStatusCode.OK:
+                    case "0":
                         {
                             UpdateStatusOrder(order, 3);
                             UpdadeStock(order);
                             break;
                         }
-                     
+                    case "1":
+                        {
+                            UpdateStatusOrder(order, 3);
+                            break;
+                        }
                 }
-
-                //if(result.)
-                // Pagamento aprovado Atualizar Status da Order para 3 e Stock
-
-
-
-                // Pagamento reprovado  Atualiza Status da Orther para 2
-
-
 
                 return true;
             }
-
             else
             {
                 return false;
             }
         }
-        private HttpStatusCode AuthorizePayment(vw_PaymentOrder order)
+        private string AuthorizePayment(vw_PaymentOrder order)
         {
-            var integration = new Integration<CreditCardResponse>();
-            var result = integration.Post(EndPoint.CreditCardTransation, new CreditCardRequest());
-
-            //var creditCard = new CreditCardRequest();
-            //var restResponse = _authorizarPayment.Send(order.EndPointName, creditCard);
-
-            //return restResponse.StatusCode;
-            return HttpStatusCode.Accepted;
+            string finaly;
+            if(order.EndPointName == "CreditCardTransaction")
+            {
+                var integration = new Integration<CreditCardResponse>();
+                var result = integration.Post(order.EndPointName, new CreditCardRequest());
+                finaly = result.CreditCardTransaction.CreditCard.Status.ToString();
+            }
+            else
+            {
+                var integration = new Integration<CreditCardResponse>();
+                var result = integration.Post(order.EndPointName, new CreditCardRequest());
+                finaly = result.CreditCardTransaction.CreditCard.Status.ToString();
+            }
+            return finaly;
         }
 
         private void UpdateStatusOrder(int orderId, int status)
