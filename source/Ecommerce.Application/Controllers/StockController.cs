@@ -9,6 +9,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Ecommerce.Application.Controllers
 {
+    /// <summary>
+    /// Api responsável por oferecer métodos de estoque
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class StockController : ControllerBase
@@ -23,6 +26,12 @@ namespace Ecommerce.Application.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Get product by storeId and productId
+        /// </summary>
+        /// <param name="storeId"></param>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         [HttpGet]
         [Route("{productId:int}")]
         public ActionResult<StockViewModel> GetByProduct([FromHeader] int storeId, int productId)
@@ -39,6 +48,10 @@ namespace Ecommerce.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Get all products
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public ActionResult<List<StockViewModel>> GetAll()
         {
@@ -55,6 +68,11 @@ namespace Ecommerce.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Insert a new stock
+        /// </summary>
+        /// <param name="stock"></param>
+        /// <returns></returns>
         [HttpPost]
         public ActionResult<string> Insert([FromBody] StockViewModel stock )
         {
@@ -74,6 +92,12 @@ namespace Ecommerce.Application.Controllers
             }
         }
         
+        /// <summary>
+        /// Remove a stock by storeId and productId
+        /// </summary>
+        /// <param name="storeId"></param>
+        /// <param name="productId"></param>
+        /// <returns></returns>
         [HttpDelete]
         [Route("{productId:int}")]
         public ActionResult Remove([FromHeader] int storeId, int productId)
@@ -91,6 +115,11 @@ namespace Ecommerce.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Update stock
+        /// </summary>
+        /// <param name="stock"></param>
+        /// <returns></returns>
         [HttpPut]
         public ActionResult Update([FromBody] StockViewModel stock)
         {

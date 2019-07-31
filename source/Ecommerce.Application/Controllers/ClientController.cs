@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using AutoMapper;
 using Ecommerce.Application.ViewModels;
 using Ecommerce.Domain.Models;
-using Ecommerce.Services;
 using Ecommerce.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -50,7 +47,7 @@ namespace Ecommerce.Application.Controllers
         public ActionResult<ClientViewModel> Get(int id)
         {
             var client = _mapper.Map<ClientViewModel>(_clientservices.GetById(id));
-            return client;
+            return Ok(client);
         }
 
         // POST api/client
@@ -80,6 +77,5 @@ namespace Ecommerce.Application.Controllers
             _clientservices.Update(value);
             return Ok();
         }
-
     }
 }

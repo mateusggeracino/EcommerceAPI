@@ -36,14 +36,9 @@ namespace Ecommerce.Application.Controllers
             {
                 _logger.LogInformation("Received post request");
 
-                if (ModelState.IsValid)
-                {
-                    return _priceServices.Insert(price);
-                }
-                else
-                {
-                    return BadRequest(ModelState);
-                }
+                if (!ModelState.IsValid) return BadRequest(price);
+
+                return _priceServices.Insert(price);
             }
             catch (Exception exception)
             {
