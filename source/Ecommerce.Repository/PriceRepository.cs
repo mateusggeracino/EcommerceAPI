@@ -1,9 +1,11 @@
 ﻿using Dapper;
 using Ecommerce.Domain.Models;
+using Ecommerce.Repository.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
-using Ecommerce.Repository.Interfaces;
+using System.Text;
 
 namespace Ecommerce.Repository
 {
@@ -18,10 +20,12 @@ namespace Ecommerce.Repository
             return GetAll();
         }
 
-        public List<Price> GetPriceByProductId(int storeid, int productid)
+        public List<Price> ExecuteQuery(int storeid, int productid)
         {
-            var query = "select StoreId, ProductId, Promotion, RegularPrice,PromotionalPrice,PriceGroup" +
-                        "from Products.Price where StoreId = @StoreId and ProductId = @ProductID";
+            var query = $"select Id,PriceStoreId, PriceProductId, Promotion, RegularPrice," +
+                        $"PromotionalPrice,PriceGroup " +
+                        $"from Products.Prices where PriceStoreId = @StoreId " +
+                        $"and PriceProductId = @ProductID";
             var parameters = new DynamicParameters();
             parameters.Add("@StoreId", storeid);
             parameters.Add("@ProductId", productid);

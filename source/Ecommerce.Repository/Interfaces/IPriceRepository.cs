@@ -7,6 +7,6 @@ namespace Ecommerce.Repository.Interfaces
 {
     public interface IPriceRepository : IRepository<Price>
     {
-        List<Price> GetPriceByProductId(int storeid, int productid);
+        List<Price> ExecuteQuery(int storeid, int productid);
     }
 }

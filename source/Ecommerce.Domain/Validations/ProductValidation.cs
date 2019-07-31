@@ -15,12 +15,12 @@ namespace Ecommerce.Domain.Validations
                 .MaximumLength(100).WithMessage("ProductDescription max 100 characters");
 
             RuleFor(x => x.ProductStatus)
-                .NotEmpty().WithMessage("Status is required");
+                .NotNull().WithMessage("Status is required");
 
             RuleFor(x => x.ProductType)
                 .MaximumLength(20).WithMessage("Type max 20 characters");
 
-            RuleFor(x => x.Specs)
+            RuleFor(x => x.ProductSpecs)
                 .NotEmpty().WithMessage("Specs is required")
                 .MaximumLength(50).WithMessage("Specs max 50 characters");
         }

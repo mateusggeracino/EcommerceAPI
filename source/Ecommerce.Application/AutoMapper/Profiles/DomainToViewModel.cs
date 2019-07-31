@@ -11,6 +11,7 @@ namespace Ecommerce.Application.AutoMapper.Profiles
             CreateMap<Stock, StockViewModel>( );
             CreateMap<PaymentMethod, PaymentMethodViewModel>( );
             CreateMap<Client, ClientViewModel>( );
+            CreateMap<Product, ProductViewModel>( );
         }
     }
 }
