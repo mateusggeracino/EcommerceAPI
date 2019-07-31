@@ -11,13 +11,19 @@ Pode-se setar um flag de promoção, alterando-se assim o valor promocional, sem
 
 # Shopping Cart
 
-O carrinho de compras deve ser criado com uma data de criação e uma data de expiração e devem ser criados com status inicial 1.
-No campo status do carrinho temos:
-0 - Cancelado/Expirado
-1 - Ativo
-x - Número do pedido relacionado ao carrinho (preenchido quando da criação de um pedido).
-Ao finalizar um carrinho (exceto por expiração), será criado um pedido de compras.
-O preço unitário fechado para cada produto deve ser salvo no repositório de dados.
+O carrinho de compras deve ser criado com uma data de criação e uma data de expiração e devem ser criados com status inicial 1.  
+No campo status do carrinho temos:  
+
+0 - Cancelado/Expirado  
+
+1 - Ativo  
+
+x - Número do pedido relacionado ao carrinho (preenchido quando da criação de um pedido).  
+
+Ao finalizar um carrinho (exceto por expiração), será criado um pedido de compras.  
+
+O preço unitário fechado para cada produto deve ser salvo no repositório de dados.  
+
 
 # Order
 
