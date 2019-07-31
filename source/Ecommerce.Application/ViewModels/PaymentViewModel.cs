@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace Ecommerce.Domain.Models
+namespace Ecommerce.Application.ViewModels
 {
-    public class Payment : Entity
+    public class PaymentViewModel
     {
         public int OrderId { get; set; }
         public int PayPMId { get; set; }

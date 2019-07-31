@@ -32,15 +32,15 @@ namespace Ecommerce.Business
             return _shoppingCartsRepository.Insert(shoppingCarts);
         }
 
-        public Order InsertOrder(ShoppingCarts shoppingCarts, ShoppingCarts shoppingCartsView)
+        public Order InsertOrder(ShoppingCarts shoppingCartsView)
         {
             return _orderRepository.Insert(new Order
             {
-                OrderCartId = shoppingCarts.Id,
+                OrderCartId = shoppingCartsView.Id,
                 OrderCreation = DateTime.Now,
                 OrderExpiring = DateTime.Now.AddDays(7),
                 OrderStatus = 1,
-                OrderTotalValue = shoppingCarts.Quantity * (shoppingCartsView.CartUnitPrice.HasValue ? shoppingCartsView.CartUnitPrice.Value : shoppingCarts.Quantity)
+                OrderTotalValue = shoppingCartsView.Quantity * (shoppingCartsView.CartUnitPrice.HasValue ? shoppingCartsView.CartUnitPrice.Value : shoppingCartsView.Quantity)
             }); ;
         }
 
