@@ -7,7 +7,7 @@ namespace Ecommerce.Repository.Interfaces
 {
     public interface IPaymentAuthorizeRepository
     {
-        vw_PaymentOrther GetByPayment(int orther);
+        vw_PaymentOrder GetByPayment(int orther);
 
         void UpdateStock(int other);
     }

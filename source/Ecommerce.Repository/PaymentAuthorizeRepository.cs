@@ -18,9 +18,9 @@ namespace Ecommerce.Repository
 
         protected IDbConnection Conn => new SqlConnection(_config.GetConnectionString("DefaultConnection"));
 
-        public vw_PaymentOrther GetByPayment(int orther)
+        public vw_PaymentOrder GetByPayment(int orther)
         {
-            return Conn.Get<vw_PaymentOrther>(orther);
+            return Conn.Get<vw_PaymentOrder>(orther);
         }
 
         public void UpdateStock(int obj)
