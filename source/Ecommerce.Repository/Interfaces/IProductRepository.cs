@@ -7,10 +7,8 @@ namespace Ecommerce.Repository.Interfaces
 {
     public interface IProductRepository : IRepository<Product>
     {
-        List<Product> ExecuteQueryId(string value);
+        List<Product> GetByDescription(string value);
 
-        List<Product> ExecuteQueryDescription(string value);
-
-        List<Product> ExecuteQueryBrand(string value);
+        List<Product> GetByBrand(string value);
     }
 }

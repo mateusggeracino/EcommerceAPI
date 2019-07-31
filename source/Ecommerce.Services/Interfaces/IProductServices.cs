@@ -9,11 +9,11 @@ namespace Ecommerce.Services.Interfaces
     {
         Product Insert(Product product);
 
-        List<Product> ExecuteQueryId(string query);
+        Product GetById(int id);
 
-        List<Product> ExecuteQueryDescription(string query);
+        List<Product> GetByDescription(string description);
 
-        List<Product> ExecuteQueryBrand(string query);
+        List<Product> GetByBrand(string brand);
 
         List<Product> GetAll();
 

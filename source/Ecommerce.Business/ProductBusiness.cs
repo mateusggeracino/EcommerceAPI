@@ -30,19 +30,19 @@ namespace Ecommerce.Business
             return _productRepository.Insert(product);
         }
 
-        public List<Product> ExecuteQueryId(string value)
+        public Product GetById(int id)
         {
-            return _productRepository.ExecuteQueryId(value);
+            return _productRepository.GetById(id);
         }
 
-        public List<Product> ExecuteQueryDescription(string value)
+        public List<Product> GetByDescription(string description)
         {
-            return _productRepository.ExecuteQueryDescription(value);
+            return _productRepository.GetByDescription(description);
         }
 
-        public List<Product> ExecuteQueryBrand(string value)
+        public List<Product> GetByBrand(string brand)
         {
-            return _productRepository.ExecuteQueryBrand(value);
+            return _productRepository.GetByBrand(brand);
         }
 
         public List<Product> GetAll()
