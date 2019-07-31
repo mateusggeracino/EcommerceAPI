@@ -22,6 +22,47 @@
             </summary>
             <param name="shoppingCarts"></param>
         </member>
+        <member name="T:Ecommerce.Application.Controllers.StockController">
+            <summary>
+            Api responsável por oferecer métodos de estoque
+            </summary>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.StockController.GetByProduct(System.Int32,System.Int32)">
+            <summary>
+            Get product by storeId and productId
+            </summary>
+            <param name="storeId"></param>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.StockController.GetAll">
+            <summary>
+            Get all products
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.StockController.Insert(Ecommerce.Application.ViewModels.StockViewModel)">
+            <summary>
+            Insert a new stock
+            </summary>
+            <param name="stock"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.StockController.Remove(System.Int32,System.Int32)">
+            <summary>
+            Remove a stock by storeId and productId
+            </summary>
+            <param name="storeId"></param>
+            <param name="productId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.StockController.Update(Ecommerce.Application.ViewModels.StockViewModel)">
+            <summary>
+            Update stock
+            </summary>
+            <param name="stock"></param>
+            <returns></returns>
+        </member>
         <member name="M:Ecommerce.Application.Extensions.DependencyInjection.DependencyInjectionServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
             <summary>
             Injeção de dependencia services
