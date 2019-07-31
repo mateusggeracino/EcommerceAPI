@@ -1,13 +1,8 @@
 ﻿using Ecommerce.Application.Controllers;
 using Ecommerce.Domain.Models;
-using Ecommerce.Services;
 using Ecommerce.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Castle.Core.Logging;
 using Ecommerce.Application.ViewModels;
 using Ecommerce.Tests.Config;
 using GenFu;
@@ -16,20 +11,21 @@ using Xunit;
 
 namespace Ecommerce.Tests
 {
-    public class ClienteControllerTeste
+    public class ClientControllerTeste
     {
         [Fact]
-        public void ControllerTest()
+        public void InsertSuccess()
         {
             var services = new Mock<IClientServices>();
             var logger = new Mock<ILogger<ClientController>>();
             var controller = new ClientController(services.Object, AutoMapperConfigTest.GetInstance(), logger.Object);
 
-            var client = A.New<ClientViewModel>();
+            var clientViewModel = A.New<ClientViewModel>();
+            var clientEntity = A.New<Client>();
 
-            services.Setup(x => x.Insert(It.IsAny<Client>()));
+            services.Setup(x => x.Insert(It.IsAny<Client>())).Returns(clientEntity);
 
-            var result = controller.Post(client);
+            var result = controller.Post(clientViewModel);
 
             Assert.NotNull(result);
 

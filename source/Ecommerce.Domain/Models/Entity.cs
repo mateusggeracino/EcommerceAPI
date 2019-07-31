@@ -5,6 +5,11 @@ namespace Ecommerce.Domain.Models
 {
     public abstract class Entity
     {
+        protected Entity()
+        {
+            ValidationResult = new ValidationResult();
+        }
+
         [Key]
         public int Id { get; set; }
 
