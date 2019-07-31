@@ -15,7 +15,7 @@ namespace Ecommerce.Services.Interfaces
 
         string Update(ShoppingCarts shoppingCarts);
 
-        Order InsertOrder(ShoppingCarts shoppingCarts, ShoppingCarts shoppingCartsView);
+        Order InsertOrder(ShoppingCarts shoppingCarts);
 
         List<ShoppingCarts> GetViewShoppingCarts(int shoppingCartId);
     }

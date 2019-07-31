@@ -5,10 +5,8 @@ using System.Text;
 
 namespace Ecommerce.Services.Interfaces
 {
-    public interface IPaymentServices
+    public interface IOrderServices
     {
-        void InsertPayment(Payment payment);
-
-        bool FinalyPaymant(int orderId);
+        Order InsertOrder(ShoppingCarts shoppingCartsView);
     }
 }

@@ -37,9 +37,9 @@ namespace Ecommerce.Services
             return ("sucess");
         }
 
-        public Order InsertOrder(ShoppingCarts shoppingCarts, ShoppingCarts shoppingCartsView)
+        public Order InsertOrder(ShoppingCarts shoppingCarts)
         {
-            return _shoppingCartsBusiness.InsertOrder(shoppingCarts, shoppingCartsView);
+            return _shoppingCartsBusiness.InsertOrder(shoppingCarts);
         }
 
         public List<ShoppingCarts> GetViewShoppingCarts(int shoppingCartId)

@@ -13,21 +13,14 @@ namespace Ecommerce.Business
             _paymentRepository = paymentRepository;
         }
 
-        public Payment Insert(int orderId, int paymentId)
+        public Payment Insert(Payment payment)
         {
             return _paymentRepository.Insert(new Payment
             {
-                PayPMId = paymentId,
-                OrderId = orderId,
+                PayPMId = payment.PayPMId,
+                OrderId = payment.OrderId,
                 PayStatus = 1
             }); 
         }
-
-        //public IRestResponse Api()
-        //{
-
-        //    IRestResponse iRestResponse = _authorizar.Send("CreditCardTransaction",new CreditCardTransaction());
-            
-        //}
     }
 }
