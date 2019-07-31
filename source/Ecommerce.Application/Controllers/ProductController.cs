@@ -26,13 +26,13 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Product>> Get()
+        public ActionResult<string> Get()
         {
             try
             {
-                _logger.LogInformation("Received get request");
-
-                return Ok(_productServices.GetAll());
+                _logger.LogInformation("Received get all product request");
+                var result = _productServices.GetAll();
+                return Ok(_mapper.Map<ProductViewModel>(result));
             }
             catch (Exception exception)
             {
@@ -42,9 +42,19 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpGet("{Id}")]
-        public ActionResult<List<Product>> GetId([FromRoute] string Id)
+        public ActionResult<List<ProductViewModel>> GetId([FromRoute] string Id)
         {
-            return _productServices.ExecuteQueryId(Id);
+            try
+            {
+                _logger.LogInformation("Received get by id product request");
+                var result = _productServices.ExecuteQueryId(Id);
+                return Ok(_mapper.Map<ProductViewModel>(result));
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, exception.Message);
+                return new StatusCodeResult(500);
+            }
         }
 
         [HttpGet("Description/{description}")]
