@@ -27,7 +27,7 @@ namespace Ecommerce.Repository
             return Conn.Get<vw_PaymentOrther>(orther);
         }
 
-        public void UpdadeStock(int obj)
+        public void UpdateStock(int obj)
         {
             var query = "update Products.Stock " +
                         "set RealStock = a.RealStock - b.Quantity " +
