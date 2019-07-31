@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using AutoMapper;
+using Ecommerce.Application.ViewModels;
 using Ecommerce.Domain.Models;
 using Ecommerce.Services.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -16,29 +15,41 @@ namespace Ecommerce.Application.Controllers
     {
         private readonly IPriceServices _priceServices;
         private readonly ILogger<PriceController> _logger;
-        public PriceController(IPriceServices productServices, ILogger<PriceController> logger)
+        private readonly IMapper _mapper;
+        public PriceController(IPriceServices productServices, ILogger<PriceController> logger, IMapper mapper)
         {
             _priceServices = productServices;
             _logger = logger;
+            _mapper = mapper;
         }
 
 
         [HttpGet("{productid}")]
-        public ActionResult<List<Price>> GetPrice([FromHeader] int storeid, int productid)
-        {
-            return _priceServices.ExecuteQuery(storeid, productid);
-        }
-
-        [HttpPost]
-        public ActionResult<Price> Post([FromBody] Price price)
+        public ActionResult<List<PriceViewModel>> GetPrice([FromHeader] int storeid, int productid)
         {
             try
             {
-                _logger.LogInformation("Received post request");
+                _logger.LogInformation("Received get list price request");
+                var result = _priceServices.ExecuteQuery(storeid, productid);
+                return Ok(_mapper.Map<PriceViewModel>(result));
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, exception.Message);
+                return new StatusCodeResult(500);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult<string> Post([FromBody] PriceViewModel price)
+        {
+            try
+            {
+                _logger.LogInformation("Received post price request");
 
                 if (!ModelState.IsValid) return BadRequest(price);
-
-                return _priceServices.Insert(price);
+                _priceServices.Insert(_mapper.Map<Price>(price));
+                return Ok("success");
             }
             catch (Exception exception)
             {
@@ -48,9 +59,19 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpPut("{id}")]
-        public Price Update(Price price)
+        public ActionResult<string> Update(PriceViewModel price)
         {
-            return _priceServices.Update(price);
+            try
+            {
+                _logger.LogInformation("Received put price request");
+                _priceServices.Update(_mapper.Map<Price>(price));
+                return Ok("success");
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, exception.Message);
+                return new StatusCodeResult(500);
+            }
         }
     }
 }

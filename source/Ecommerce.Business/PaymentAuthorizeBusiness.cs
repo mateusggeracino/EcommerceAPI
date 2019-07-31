@@ -1,8 +1,11 @@
 ﻿using System.Net;
 using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
+using Ecommerce.Integration.AuthorizarApi.Business;
 using Ecommerce.Integration.AuthorizarApi.Domain.Models.Request;
+using Ecommerce.Integration.AuthorizarApi.Domain.Models.Response;
 using Ecommerce.Repository.Interfaces;
+using EndPoint = Ecommerce.Integration.AuthorizarApi.Domain.ValueObject.EndPoint;
 
 namespace Ecommerce.Business
 {
@@ -59,6 +62,9 @@ namespace Ecommerce.Business
         }
         private HttpStatusCode AuthorizePayment(vw_PaymentOrder order)
         {
+            var integration = new Integration<CreditCardResponse>();
+            var result = integration.Post(EndPoint.CreditCardTransation, new CreditCardRequest());
+
             //var creditCard = new CreditCardRequest();
             //var restResponse = _authorizarPayment.Send(order.EndPointName, creditCard);
 

@@ -71,10 +71,10 @@ namespace Ecommerce.Application.Controllers
 
         // PUT api/client/5
         [HttpPut("{id}")]
-        public ActionResult<string> Put(int id, [FromBody] Client value)
+        public ActionResult<string> Put(int id, [FromBody] ClientViewModel client)
         {
-            value.Id = id;
-            _clientservices.Update(value);
+            client.Id = id;
+            _clientservices.Update(_mapper.Map<Client>(client));
             return Ok();
         }
     }
