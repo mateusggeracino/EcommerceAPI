@@ -31,5 +31,5 @@ Ao finalizar um pedido (exceto por expiração), será criado um novo pagamento 
 
 # Payment
 
-Os pagamentos devem ser autorizados por integração com empresa terceira.
+Os pagamentos devem ser autorizados por integração com empresa terceira.  
 Após a resposta da integração, é necessário alterar o status do pagamento e o status do pedido relacionado ao pagamento.
