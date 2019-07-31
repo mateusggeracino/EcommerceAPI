@@ -8,19 +8,21 @@ namespace Ecommerce.Domain.Validations
         public ProductValidation()
         {
             RuleFor(x => x.Brand)
-                .NotEmpty().WithMessage("Brand is required");
+                .MaximumLength(50).WithMessage("Brand max 50 characters");
 
             RuleFor(x => x.ProductDescription)
-                .NotEmpty().WithMessage("ProductDescription is required");
+                .NotEmpty().WithMessage("ProductDescription is required")
+                .MaximumLength(100).WithMessage("ProductDescription max 100 characters");
 
             RuleFor(x => x.ProductStatus)
                 .NotEmpty().WithMessage("Status is required");
 
             RuleFor(x => x.ProductType)
-                .NotEmpty().WithMessage("Type is required");
+                .MaximumLength(20).WithMessage("Type max 20 characters");
 
             RuleFor(x => x.Specs)
-                .NotEmpty().WithMessage("Specs is required");
+                .NotEmpty().WithMessage("Specs is required")
+                .MaximumLength(50).WithMessage("Specs max 50 characters");
         }
     }
 }

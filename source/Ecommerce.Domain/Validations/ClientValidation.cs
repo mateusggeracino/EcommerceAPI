@@ -8,25 +8,27 @@ namespace Ecommerce.Domain.Validations
         public ClientValidation()
         {
             RuleFor(x => x.CustomerName)
-                .NotEmpty().WithMessage("Name is required");
+                .NotEmpty().WithMessage("Name is required")
+                .MaximumLength(100).WithMessage("Name max 100 characters");
 
             RuleFor(x => x.CustomerDocument)
-                .NotEmpty().WithMessage("Document is required");
+                .NotEmpty().WithMessage("Document is required")
+                .MaximumLength(14).WithMessage("Document max 14 characters"); ;
 
             RuleFor(x => x.CustomerEmail)
-                .NotEmpty().WithMessage("Email is required");
+                .MaximumLength(100).WithMessage("Email max 100 characters");
 
             RuleFor(x => x.CustomerGender)
-                .NotEmpty().WithMessage("Gender is required");
+                .MaximumLength(2).WithMessage("Gender max 2 characters");
 
             RuleFor(x => x.CustomerAddress)
-                .NotEmpty().WithMessage("Address is required");
+                .MaximumLength(100).WithMessage("Address max 100 characters");
 
             RuleFor(x => x.CustomerType)
-                .NotEmpty().WithMessage("Type is required");
+                .MaximumLength(1).WithMessage("Type max 1 characters");
 
             RuleFor(x => x.CustomerTelephone)
-                .NotEmpty().WithMessage("Telephone is required");
+                .MaximumLength(12).WithMessage("Telephone max 12 characters");
         }
     }
 }
