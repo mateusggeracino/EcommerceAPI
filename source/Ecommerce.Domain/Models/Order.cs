@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace Ecommerce.Domain.Models
 {
@@ -12,8 +10,6 @@ namespace Ecommerce.Domain.Models
         public DateTime OrderCreation { get; set; }
         public DateTime OrderExpiring { get; set; }
         public int OrderStatus { get; set; }
-
         public Decimal OrderTotalValue { get; set; }
-
     }
 }
