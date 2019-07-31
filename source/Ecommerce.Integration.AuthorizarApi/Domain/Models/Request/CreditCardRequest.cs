@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Ecommerce.Integration.AuthorizarApi.Model
+namespace Ecommerce.Integration.AuthorizarApi.Domain.Models.Request
 {
-    public class CreditCardTransaction
+    public class CreditCardRequest
     {
         public string Reference { get; set; }
-        public Int64 AmountInCents { get; set; }
+        public long AmountInCents { get; set; }
         public string Branch { get; set; }
         public string Number { get; set; }
         public DateTime ExpirationDate { get; set; }

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using AutoMapper;
 using Ecommerce.Application.ViewModels;
 using Ecommerce.Domain.Models;
-using Ecommerce.Integration.AuthorizarApi.Interface;
-using Ecommerce.Integration.AuthorizarApi.Model;
 using Ecommerce.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -21,13 +19,11 @@ namespace Ecommerce.Application.Controllers
         private readonly IMapper _mapper;
         private readonly IStockServices _stockServices;
         private readonly ILogger<StockController> _logger;
-        private readonly IAuthorizar _authorizar;
-        public StockController(IMapper mapper, IStockServices stockServices, ILogger<StockController> logger, IAuthorizar authorizar)
+        public StockController(IMapper mapper, IStockServices stockServices, ILogger<StockController> logger)
         {
             _mapper = mapper;
             _stockServices = stockServices;
             _logger = logger;
-            _authorizar = authorizar;
         }
 
         /// <summary>
@@ -61,9 +57,6 @@ namespace Ecommerce.Application.Controllers
         {
             try
             {
-                var obj = new CreditCardTransaction();
-                var result = _authorizar.Send("CreditCardTransaction", obj);
-
                 _logger.LogInformation("Received post request");
                 var stockList = _stockServices.GetAll();
                 return Ok(_mapper.Map<List<StockViewModel>>(stockList));

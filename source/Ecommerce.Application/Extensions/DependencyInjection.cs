@@ -1,9 +1,6 @@
 ﻿using Ecommerce.Application.AutoMapper;
 using Ecommerce.Business;
 using Ecommerce.Business.Interfaces;
-using Ecommerce.Domain.Models;
-using Ecommerce.Integration.AuthorizarApi;
-using Ecommerce.Integration.AuthorizarApi.Interface;
 using Ecommerce.Repository;
 using Ecommerce.Repository.Interfaces;
 using Ecommerce.Services;
@@ -19,8 +16,6 @@ namespace Ecommerce.Application.Extensions
         {
             var mapperConfig = AutoMapperConfig.RegisterMappings( );
             services.AddSingleton( mapperConfig.CreateMapper( ) );
-
-            services.AddTransient<IAuthorizar, Authorizar>( );
 
             DependencyInjectionBusiness( services );
             DependencyInjectionServices( services );

@@ -1,11 +1,8 @@
 ﻿using System.Net;
-using System.Runtime.InteropServices.ComTypes;
 using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
-using Ecommerce.Integration.AuthorizarApi.Interface;
-using Ecommerce.Integration.AuthorizarApi.Model;
+using Ecommerce.Integration.AuthorizarApi.Domain.Models.Request;
 using Ecommerce.Repository.Interfaces;
-using RestSharp;
 
 namespace Ecommerce.Business
 {
@@ -14,15 +11,13 @@ namespace Ecommerce.Business
         private readonly IPaymentAuthorizeRepository _paymentRepository;
         private readonly IStockRepository _stockRepository;
         private readonly IShoppingCartsRepository _shoppingCartsRepository;
-        private readonly IAuthorizar _authorizarPayment;
         private readonly IOrderRepository _orderRepository;
 
-        public PaymentAuthorizeBusiness(IPaymentAuthorizeRepository paymentRepository, IStockRepository stockRepository, IShoppingCartsRepository shoppingCartsRepository, IAuthorizar authorizarPayment, IOrderRepository orderRepository)
+        public PaymentAuthorizeBusiness(IPaymentAuthorizeRepository paymentRepository, IStockRepository stockRepository, IShoppingCartsRepository shoppingCartsRepository, IOrderRepository orderRepository)
         {
             _paymentRepository = paymentRepository;
             _stockRepository = stockRepository;
             _shoppingCartsRepository = shoppingCartsRepository;
-            _authorizarPayment = authorizarPayment;
             _orderRepository = orderRepository;
         }
 
@@ -64,10 +59,11 @@ namespace Ecommerce.Business
         }
         private HttpStatusCode AuthorizePayment(vw_PaymentOrder order)
         {
-            var creditCard = new CreditCardTransaction();
-            var restResponse = _authorizarPayment.Send(order.EndPointName, creditCard);
+            //var creditCard = new CreditCardRequest();
+            //var restResponse = _authorizarPayment.Send(order.EndPointName, creditCard);
 
-            return restResponse.StatusCode;
+            //return restResponse.StatusCode;
+            return HttpStatusCode.Accepted;
         }
 
         private void UpdateStatusOrder(int orderId, int status)
