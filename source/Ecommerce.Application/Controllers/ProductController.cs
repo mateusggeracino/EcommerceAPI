@@ -41,8 +41,8 @@ namespace Ecommerce.Application.Controllers
             }
         }
 
-        [HttpGet("{Id}")]
-        public ActionResult<List<ProductViewModel>> GetId([FromRoute] int Id)
+        [HttpGet)]
+        public ActionResult<List<ProductViewModel>> GetId([FromHeader] int Id)
         {
             try
             {
