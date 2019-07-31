@@ -2,6 +2,7 @@
 {
     public class ClientViewModel
     {
+        public int Id { get; set; }
         public string CustomerType { get; set; }
         public string CustomerDocument { get; set; }
         public string CustomerName { get; set; }
