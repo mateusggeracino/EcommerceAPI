@@ -29,7 +29,6 @@ namespace Ecommerce.Business
             var payment = _paymentRepository.GetByPayment(order);
             if (payment != null)
             {
-                //Verica a aprovação do pagamento em Result
                 var result = AuthorizePayment(payment);
 
                 switch (result)
