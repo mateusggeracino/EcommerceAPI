@@ -30,6 +30,11 @@ namespace Ecommerce.Application.Controllers
             return _mapper.Map<List<PaymentMethodViewModel>>( paymentMethods );
         }
 
+        /// <summary>
+        /// Get Payment Method by Id
+        /// </summary>
+        /// <param name="id">Id Payment Method</param>
+        /// <returns>Payment Method</returns>
         [HttpGet( "{id}" )]
         public ActionResult<PaymentMethodViewModel> GetById( [FromRoute] int id )
         {
@@ -37,6 +42,11 @@ namespace Ecommerce.Application.Controllers
             return _mapper.Map<PaymentMethodViewModel>( paymentMethod );
         }
 
+        /// <summary>
+        /// Insert Ney Payment Method
+        /// </summary>
+        /// <param name="paymentMethodViewModel">Object Payment Method</param>
+        /// <returns>Success</returns>
         [HttpPost]
         public ActionResult<string> Post( [FromBody] PaymentMethodViewModel paymentMethodViewModel )
         {
@@ -47,6 +57,12 @@ namespace Ecommerce.Application.Controllers
             return Ok( "success" );
         }
 
+        /// <summary>
+        /// Update Payment Method
+        /// </summary>
+        /// <param name="id">Id Payment Method</param>
+        /// <param name="paymentMethodViewModel">Object Payment Method</param>
+        /// <returns>Success</returns>
         [HttpPut("{id}")]
         public ActionResult<string> Put([FromRoute] int id, [FromBody] PaymentMethodViewModel paymentMethodViewModel )
         {
@@ -59,6 +75,11 @@ namespace Ecommerce.Application.Controllers
             return Ok( "Sucess" );
         }
 
+        /// <summary>
+        /// Delete Payment Method
+        /// </summary>
+        /// <param name="id">Id Payment Method</param>
+        /// <returns>Success</returns>
         [HttpDelete("{id}")]
         public ActionResult<string> Delete([FromRoute] int id )
         {
