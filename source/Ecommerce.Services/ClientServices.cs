@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Ecommerce.Business;
+﻿using System.Collections.Generic;
 using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
-using Ecommerce.Repository.Interfaces;
 using Ecommerce.Services.Interfaces;
 
 namespace Ecommerce.Services

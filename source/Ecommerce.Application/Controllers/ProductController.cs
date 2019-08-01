@@ -42,6 +42,7 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpGet]
+        [Route("GetById")]
         public ActionResult<List<ProductViewModel>> GetId([FromHeader] int Id)
         {
             try
