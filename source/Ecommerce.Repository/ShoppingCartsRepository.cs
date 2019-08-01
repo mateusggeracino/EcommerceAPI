@@ -15,12 +15,12 @@ namespace Ecommerce.Repository
         {
         }
 
-        public void InsertShoppingCarts(ShoppingCarts shoppingCarts)
+        public ShoppingCarts InsertShoppingCarts(ShoppingCarts shoppingCarts)
         {
             try
             {
-                string sqlQuery = "INSERT INTO [Transactions].[ShoppingCarts]([CartCustomerId],[CartStoreId],[CartProductId],[Quantity],[CartCreation],[CartExpiring],[CartStatus]) " +
-                                "VALUES (@CartCustomerId,@CartStoreId,@CartProductId,@Quantity,@CartCreation,@CartExpiring,@CartStatus)";
+                string sqlQuery = "INSERT INTO [Transactions].[ShoppingCarts]([CartCustomerId],[CartStoreId],[CartProductId],[Quantity],[CartCreation],[CartExpiring],[CartStatus], [Id]) " +
+                                "VALUES (@CartCustomerId,@CartStoreId,@CartProductId,@Quantity,@CartCreation,@CartExpiring,@CartStatus, @Id)";
                 var parameters = new DynamicParameters();
                 parameters.Add("@CartCustomerId", shoppingCarts.CartCustomerId);
                 parameters.Add("@CartStoreId", shoppingCarts.CartStoreId);
@@ -29,6 +29,7 @@ namespace Ecommerce.Repository
                 parameters.Add("@CartCreation", shoppingCarts.CartCreation);
                 parameters.Add("@CartExpiring", shoppingCarts.CartExpiring);
                 parameters.Add("@CartStatus", shoppingCarts.CartStatus);
+                parameters.Add("@Id", shoppingCarts.Id);
                 ExecuteQuery(sqlQuery, parameters);
             }
             catch (Exception ex)
@@ -36,6 +37,7 @@ namespace Ecommerce.Repository
                 _logger.LogError(ex, ex.Message);
                 throw;
             }
+            return shoppingCarts;
         }
 
         public List<ShoppingCarts> GetByOrder(int orderId)

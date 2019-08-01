@@ -11,7 +11,7 @@ namespace Ecommerce.Business.Interfaces
         ShoppingCarts GetById(int id);
         ShoppingCarts InsertShoppingCarts(ShoppingCarts shoppingCarts);
 
-        void Update(ShoppingCarts shoppingCarts);
+        ShoppingCarts Update(ShoppingCarts shoppingCarts);
 
         Order InsertOrder(ShoppingCarts shoppingCartsView);
 

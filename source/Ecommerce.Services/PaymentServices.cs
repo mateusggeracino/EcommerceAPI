@@ -18,9 +18,9 @@ namespace Ecommerce.Services
             _paymentAuthorizeBusiness = paymentAuthorizeBusiness;
         }
 
-        public void InsertPayment(Payment payment)
+        public void InsertPayment(int orderId, int payMTId)
         {
-            _paymentCartsBusiness.Insert(payment);
+            _paymentCartsBusiness.Insert(orderId,payMTId);
         }
 
         public bool FinalyPaymant(int orderId)

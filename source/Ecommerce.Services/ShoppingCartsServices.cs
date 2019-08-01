@@ -20,21 +20,20 @@ namespace Ecommerce.Services
             return _shoppingCartsBusiness.List();
         }
 
+
         public ShoppingCarts GetById(int id)
         {
             return _shoppingCartsBusiness.GetById(id);
         }
 
-        public string Insert(ShoppingCarts shoppingCarts)
+        public ShoppingCarts Insert(ShoppingCarts shoppingCarts)
         {
-            _shoppingCartsBusiness.InsertShoppingCarts(shoppingCarts);
-            return ("sucess");
+            return _shoppingCartsBusiness.InsertShoppingCarts(shoppingCarts);
 
         }
-        public string Update(ShoppingCarts shoppingCarts)
+        public ShoppingCarts Update(ShoppingCarts shoppingCarts)
         {
-            _shoppingCartsBusiness.Update(shoppingCarts);
-            return ("sucess");
+            return _shoppingCartsBusiness.Update(shoppingCarts);
         }
 
         public Order InsertOrder(ShoppingCarts shoppingCarts)

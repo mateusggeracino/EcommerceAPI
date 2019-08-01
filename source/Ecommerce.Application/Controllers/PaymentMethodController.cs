@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using AutoMapper;
 using Ecommerce.Application.ViewModels;
 using Ecommerce.Domain.Models;
@@ -25,46 +26,107 @@ namespace Ecommerce.Application.Controllers
         [HttpGet]
         public ActionResult<List<PaymentMethodViewModel>> Get( )
         {
-            
-            var paymentMethods = _paymentMethodService.GetAll( );
-            return _mapper.Map<List<PaymentMethodViewModel>>( paymentMethods );
+            try
+            {
+                var paymentMethods = _paymentMethodService.GetAll( );
+                return _mapper.Map<List<PaymentMethodViewModel>>( paymentMethods );
+            }
+            catch ( Exception ex )
+            {
+                return BadRequest( ex.Message );
+            }
+
+
         }
 
+        /// <summary>
+        /// Get Payment Method by Id
+        /// </summary>
+        /// <param name="id">Id Payment Method</param>
+        /// <returns>Payment Method</returns>
         [HttpGet( "{id}" )]
         public ActionResult<PaymentMethodViewModel> GetById( [FromRoute] int id )
         {
-            var paymentMethod = _paymentMethodService.GetById( id );
-            return _mapper.Map<PaymentMethodViewModel>( paymentMethod );
+            try
+            {
+                var paymentMethod = _paymentMethodService.GetById( id );
+                return _mapper.Map<PaymentMethodViewModel>( paymentMethod );
+            }
+            catch ( Exception ex )
+            {
+                return BadRequest( ex.Message );
+            }
+
         }
 
+        /// <summary>
+        /// Insert Ney Payment Method
+        /// </summary>
+        /// <param name="paymentMethodViewModel">Object Payment Method</param>
+        /// <returns>Success</returns>
         [HttpPost]
         public ActionResult<string> Post( [FromBody] PaymentMethodViewModel paymentMethodViewModel )
         {
-            var paymentMethod = _mapper.Map<PaymentMethod>( paymentMethodViewModel );
+            try
+            {
+                var paymentMethod = _mapper.Map<PaymentMethod>( paymentMethodViewModel );
 
-            _paymentMethodService.Add( paymentMethod );
+                _paymentMethodService.Add( paymentMethod );
 
-            return Ok( "success" );
+                return Ok( "Success" );
+            }
+            catch ( Exception ex )
+            {
+                return BadRequest( ex.Message );
+            }
+
         }
 
-        [HttpPut("{id}")]
-        public ActionResult<string> Put([FromRoute] int id, [FromBody] PaymentMethodViewModel paymentMethodViewModel )
+        /// <summary>
+        /// Update Payment Method
+        /// </summary>
+        /// <param name="id">Id Payment Method</param>
+        /// <param name="paymentMethodViewModel">Object Payment Method</param>
+        /// <returns>Success</returns>
+        [HttpPut( "{id}" )]
+        public ActionResult<string> Put( [FromRoute] int id, [FromBody] PaymentMethodViewModel paymentMethodViewModel )
         {
-            var paymentMethod = _mapper.Map<PaymentMethod>( paymentMethodViewModel );
+            try
+            {
+                var paymentMethod = _mapper.Map<PaymentMethod>( paymentMethodViewModel );
 
-            paymentMethod.Id = id;
+                paymentMethod.Id = id;
 
-            _paymentMethodService.Update( paymentMethod );
+                _paymentMethodService.Update( paymentMethod );
 
-            return Ok( "Sucess" );
+                return Ok( "Sucess" );
+            }
+            catch ( Exception ex )
+            {
+                return BadRequest(ex.Message);
+            }
+
         }
 
-        [HttpDelete("{id}")]
-        public ActionResult<string> Delete([FromRoute] int id )
+        /// <summary>
+        /// Delete Payment Method
+        /// </summary>
+        /// <param name="id">Id Payment Method</param>
+        /// <returns>Success</returns>
+        [HttpDelete( "{id}" )]
+        public ActionResult<string> Delete( [FromRoute] int id )
         {
-            _paymentMethodService.Delete( id );
+            try
+            {
+                _paymentMethodService.Delete( id );
 
-            return Ok( "Sucess" );
+                return Ok( "Sucess" );
+            }
+            catch ( Exception ex )
+            {
+                return BadRequest( ex.Message );
+            }
+
         }
     }
 }

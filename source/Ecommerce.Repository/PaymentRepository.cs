@@ -8,9 +8,9 @@ using System.Text;
 
 namespace Ecommerce.Repository
 {
-    public class PaymentRepository : Repository<Payment>, IPaymentRepository
+    public class PaymentRepository : Repository<Payments>, IPaymentRepository
     {
-        public PaymentRepository(IConfiguration config, ILogger<Repository<Payment>> logger) : base(config, logger)
+        public PaymentRepository(IConfiguration config, ILogger<Repository<Payments>> logger) : base(config, logger)
         {
         }
     }

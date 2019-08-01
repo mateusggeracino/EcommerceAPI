@@ -7,7 +7,7 @@ namespace Ecommerce.Repository.Interfaces
 {
     public interface IShoppingCartsRepository : IRepository<ShoppingCarts>
     {
-        //void InsertShoppingCarts(ShoppingCarts shoppingCarts);
+        ShoppingCarts InsertShoppingCarts(ShoppingCarts shoppingCarts);
         List<ShoppingCarts> GetByOrder(int order);
 
         List<ShoppingCarts> GetViewShoppingCarts(int shoppingCartId);

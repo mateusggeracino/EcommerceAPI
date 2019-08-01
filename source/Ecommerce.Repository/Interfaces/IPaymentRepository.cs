@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Ecommerce.Repository.Interfaces
 {
-    public interface IPaymentRepository : IRepository<Payment>
+    public interface IPaymentRepository : IRepository<Payments>
     {
     }
 }
