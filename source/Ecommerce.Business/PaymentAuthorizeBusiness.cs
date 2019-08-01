@@ -1,8 +1,11 @@
 ﻿using System.Net;
 using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
+using Ecommerce.Integration.AuthorizarApi.Business;
 using Ecommerce.Integration.AuthorizarApi.Domain.Models.Request;
+using Ecommerce.Integration.AuthorizarApi.Domain.Models.Response;
 using Ecommerce.Repository.Interfaces;
+using EndPoint = Ecommerce.Integration.AuthorizarApi.Domain.ValueObject.EndPoint;
 
 namespace Ecommerce.Business
 {
@@ -31,39 +34,42 @@ namespace Ecommerce.Business
 
                 switch (result)
                 {
-                    case HttpStatusCode.OK:
+                    case "0":
                         {
                             UpdateStatusOrder(order, 3);
                             UpdadeStock(order);
                             break;
                         }
-                     
+                    case "1":
+                        {
+                            UpdateStatusOrder(order, 3);
+                            break;
+                        }
                 }
-
-                //if(result.)
-                // Pagamento aprovado Atualizar Status da Order para 3 e Stock
-
-
-
-                // Pagamento reprovado  Atualiza Status da Orther para 2
-
-
 
                 return true;
             }
-
             else
             {
                 return false;
             }
         }
-        private HttpStatusCode AuthorizePayment(vw_PaymentOrder order)
+        private string AuthorizePayment(vw_PaymentOrder order)
         {
-            //var creditCard = new CreditCardRequest();
-            //var restResponse = _authorizarPayment.Send(order.EndPointName, creditCard);
-
-            //return restResponse.StatusCode;
-            return HttpStatusCode.Accepted;
+            string finaly;
+            if(order.EndPointName == "CreditCardTransaction")
+            {
+                var integration = new Integration<CreditCardResponse>();
+                var result = integration.Post(order.EndPointName, new CreditCardRequest());
+                finaly = result.CreditCardTransaction.CreditCard.Status.ToString();
+            }
+            else
+            {
+                var integration = new Integration<CreditCardResponse>();
+                var result = integration.Post(order.EndPointName, new CreditCardRequest());
+                finaly = result.CreditCardTransaction.CreditCard.Status.ToString();
+            }
+            return finaly;
         }
 
         private void UpdateStatusOrder(int orderId, int status)

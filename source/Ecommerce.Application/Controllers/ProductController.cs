@@ -26,13 +26,13 @@ namespace Ecommerce.Application.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Product>> Get()
+        public ActionResult<string> Get()
         {
             try
             {
-                _logger.LogInformation("Received get request");
-
-                return Ok(_productServices.GetAll());
+                _logger.LogInformation("Received get all product request");
+                var result = _productServices.GetAll();
+                return Ok(_mapper.Map<List<ProductViewModel>>(result));
             }
             catch (Exception exception)
             {
@@ -41,22 +41,52 @@ namespace Ecommerce.Application.Controllers
             }
         }
 
-        [HttpGet("{Id}")]
-        public ActionResult<List<Product>> GetId([FromRoute] string Id)
+        [HttpGet]
+        public ActionResult<List<ProductViewModel>> GetId([FromHeader] int Id)
         {
-            return _productServices.ExecuteQueryId(Id);
+            try
+            {
+                _logger.LogInformation("Received get by id product request");
+                var result = _productServices.GetById(Id);
+                return Ok(_mapper.Map<ProductViewModel>(result));
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, exception.Message);
+                return new StatusCodeResult(500);
+            }
         }
 
         [HttpGet("Description/{description}")]
-        public ActionResult<List<Product>> GetDescription([FromRoute] string description)
+        public ActionResult<List<ProductViewModel>> GetDescription([FromRoute] string description)
         {
-            return _productServices.ExecuteQueryDescription(description);
+            try
+            {
+                _logger.LogInformation("Received get by description product request");
+                var result = _productServices.GetByDescription(description);
+                return Ok(_mapper.Map<List<ProductViewModel>>(result));
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, exception.Message);
+                return new StatusCodeResult(500);
+            }
         }
 
         [HttpGet("Brand/{brand}")]
-        public ActionResult<List<Product>> GetBrand([FromRoute] string brand)
+        public ActionResult<List<ProductViewModel>> GetBrand([FromRoute] string brand)
         {
-            return _productServices.ExecuteQueryBrand(brand);
+            try
+            {
+                _logger.LogInformation("Received get by brand product request");
+                var result = _productServices.GetByBrand(brand);
+                return Ok(_mapper.Map<List<ProductViewModel>>(result));
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, exception.Message);
+                return new StatusCodeResult(500);
+            }
         }
 
         [HttpPost]
@@ -64,7 +94,7 @@ namespace Ecommerce.Application.Controllers
         {
             try
             {
-                _logger.LogInformation("Received post request");
+                _logger.LogInformation("Received post product request");
 
                 if (!ModelState.IsValid) return BadRequest(product);
                 var result = _productServices.Insert(_mapper.Map<Product>(product));
@@ -79,10 +109,23 @@ namespace Ecommerce.Application.Controllers
             }
         }
 
-        [HttpPut("{id}")]
-        public Product Update(Product product)
+        [HttpPut]
+        public ActionResult<string> Update([FromHeader] int id, ProductViewModel product)
         {
-            return _productServices.Update(product);
+            try
+            {
+                _logger.LogInformation("Received put product request");
+                product.Id = id;
+                var result = _productServices.Update(_mapper.Map<Product>(product));
+                if (result.ValidationResult.Errors.Any()) return AddValidationErrors(result.ValidationResult.Errors);
+
+                return Ok("success");
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError(exception, exception.Message);
+                return new StatusCodeResult(500);
+            }
         }
     }
 }

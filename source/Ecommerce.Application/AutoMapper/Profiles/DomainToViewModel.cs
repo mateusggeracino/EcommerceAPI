@@ -13,6 +13,7 @@ namespace Ecommerce.Application.AutoMapper.Profiles
             CreateMap<Client, ClientViewModel>( );
             CreateMap<ShoppingCarts, ShoppingCartsViewModel>( );
             CreateMap<Product, ProductViewModel>( );
+            CreateMap<Price, PriceViewModel>( );
         }
     }
 }

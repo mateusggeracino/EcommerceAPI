@@ -4,23 +4,84 @@
         <name>Ecommerce.Application</name>
     </assembly>
     <members>
+        <member name="T:Ecommerce.Application.Controllers.OrderController">
+            <summary>
+            Clase responsável pelo comportamento do pedido (order)
+            </summary>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.OrderController.FinalizeOrder(Ecommerce.Domain.Models.Payment,System.Int32)">
+            <summary>
+            Método responsável por finalizar o pedido (order)
+            </summary>
+            <param name="paymentViewModel"></param>
+            <returns></returns>
+        </member>
         <member name="M:Ecommerce.Application.Controllers.PaymentMethodController.Get">
             <summary>
             Get All Payment Methods
             </summary>
             <returns>List payment methods</returns>
         </member>
-        <member name="M:Ecommerce.Application.Controllers.ShoppingCartsController.Patch(Ecommerce.Domain.Models.ShoppingCarts)">
+        <member name="T:Ecommerce.Application.Controllers.ShoppingCartsController">
             <summary>
-            Finalizar Carrinho de Compras
+            Esta classe é responsável por todos os comportamentos do
+            carrinho de compra
+            </summary>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.ShoppingCartsController.GetAll">
+            <summary>
+            Retorno de todos os carrinhos de compras
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.ShoppingCartsController.Get(System.Int32)">
+            <summary>
+            Retorno do carrinho de compras por id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.ShoppingCartsController.Post(Ecommerce.Application.ViewModels.ShoppingCartsViewModel)">
+            <summary>
+            Inserção do carrinho de compras
+            </summary>
+            <param name="shoppingCartsViewModel"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.ShoppingCartsController.Put(Ecommerce.Domain.Models.ShoppingCarts)">
+            <summary>
+            Atualização do Carrinho de Compras
+            </summary>
+            <param name="shoppingCarts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.ShoppingCartsController.FinalizeShoppingCarts(Ecommerce.Domain.Models.ShoppingCarts)">
+            <summary>
+            Finalização do Carrinho de Compras
             </summary>
             <param name="shoppingCarts"></param>
         </member>
-        <member name="M:Ecommerce.Application.Controllers.ShoppingCartsController.FinalizeOrder(Ecommerce.Domain.Models.ShoppingCarts)">
+        <member name="M:Ecommerce.Application.Controllers.ShoppingCartsController.InsertOrder(System.Int32)">
             <summary>
-            Finalizar Pedido
+            Método responsável por trazer dados do carrinho em uma view
+            e chamar orderServices para inserir
             </summary>
             <param name="shoppingCarts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.ShoppingCartsController.UpdateShoppingCarts(Ecommerce.Domain.Models.ShoppingCarts,System.Int32)">
+            <summary>
+            Método responsável por atualizar status
+            e carUnitPrice do carrinho
+            </summary>
+            <param name="shoppingCarts"></param>
+            <param name="orderId"></param>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.ShoppingCartsController.UpdateStockQuantityVirtual(Ecommerce.Domain.Models.ShoppingCarts)">
+            <summary>
+            Método responsável por atualizar a quantidade 
+            virtual em stock
+            </summary>
         </member>
         <member name="T:Ecommerce.Application.Controllers.StockController">
             <summary>

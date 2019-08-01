@@ -36,7 +36,8 @@ namespace Ecommerce.Application.Extensions
             services.AddTransient<IShoppingCartServices, ShoppingCartsServices>( );
             services.AddTransient<IProductServices, ProductServices>( );
             services.AddTransient<IPriceServices, PriceServices>( );
-            //services.AddTransient<IPaymentServices, PaymentServices>();
+            services.AddTransient<IPaymentServices, PaymentServices>();
+            services.AddTransient<IOrderServices, OrderServices>();
         }
 
         /// <summary>
@@ -55,6 +56,7 @@ namespace Ecommerce.Application.Extensions
             services.AddSingleton<IPaymentAuthorizeRepository, PaymentAuthorizeRepository>();
             services.AddSingleton<IPriceRepository, PriceRepository>();
             services.AddSingleton<IPaymentRepository, PaymentRepository>();
+            services.AddSingleton<IOrderRepository, OrderRepository>();
         }
 
         /// <summary>
@@ -72,7 +74,7 @@ namespace Ecommerce.Application.Extensions
             services.AddTransient<IPaymentAuthorizeBusiness, PaymentAuthorizeBusiness>( );
             services.AddTransient<IPriceBusiness, PriceBusiness>( );
             services.AddTransient<IPaymentBusiness, PaymentBusiness>();
+            services.AddTransient<IOrderBusiness, OrderBusiness>();
         }
-
     }
 }

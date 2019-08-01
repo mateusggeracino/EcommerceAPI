@@ -13,7 +13,7 @@ namespace Ecommerce.Business.Interfaces
 
         void Update(ShoppingCarts shoppingCarts);
 
-        Order InsertOrder(ShoppingCarts shoppingCarts, ShoppingCarts shoppingCartsView);
+        Order InsertOrder(ShoppingCarts shoppingCartsView);
 
         List<ShoppingCarts> GetViewShoppingCart(int shoppingCartId);
     }
