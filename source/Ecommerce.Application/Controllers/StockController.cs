@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using AutoMapper;
 using Ecommerce.Application.ViewModels;
+using Ecommerce.Business;
+using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
 using Ecommerce.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -19,11 +21,15 @@ namespace Ecommerce.Application.Controllers
         private readonly IMapper _mapper;
         private readonly IStockServices _stockServices;
         private readonly ILogger<StockController> _logger;
-        public StockController(IMapper mapper, IStockServices stockServices, ILogger<StockController> logger)
+
+        private readonly IPaymentAuthorizeBusiness _pay;
+        public StockController(IMapper mapper, IStockServices stockServices, ILogger<StockController> logger, IPaymentAuthorizeBusiness pay)
         {
             _mapper = mapper;
             _stockServices = stockServices;
             _logger = logger;
+
+            _pay = pay;
         }
 
         /// <summary>
@@ -55,6 +61,8 @@ namespace Ecommerce.Application.Controllers
         [HttpGet]
         public ActionResult<List<StockViewModel>> GetAll()
         {
+            _pay.FinalyPaymant(3);
+
             try
             {
                 _logger.LogInformation("Received post request");
