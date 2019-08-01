@@ -41,7 +41,7 @@ namespace Ecommerce.Application.Controllers
         public ActionResult<string> GetAll()
         {
             _shoppingCartServices.List();
-            return Ok("success");
+            return Ok("Success");
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace Ecommerce.Application.Controllers
         public ActionResult<ShoppingCarts> Get(int id)
         {
             _shoppingCartServices.GetById(id);
-            return Ok("success");
+            return Ok("Success");
         }
 
         /// <summary>
@@ -67,8 +67,10 @@ namespace Ecommerce.Application.Controllers
             var shoppingCarts = _shoppingCartServices
                 .Insert(_mapper.Map<ShoppingCarts>(shoppingCartsViewModel));
 
-            //if(shoppingCarts.)
-            return null;
+            if ( shoppingCarts != null )
+                return Ok( "Success" );
+            else
+                return BadRequest( );
         }
 
         /// <summary>
@@ -80,7 +82,7 @@ namespace Ecommerce.Application.Controllers
         public ActionResult<string> Put([FromBody] ShoppingCarts shoppingCarts)
         {
             _shoppingCartServices.Update(shoppingCarts);
-            return Ok("success");
+            return Ok("Success");
         }
 
         /// <summary>
