@@ -36,7 +36,7 @@ namespace Ecommerce.Application.Controllers
         public void FinalizeOrder(int orderId, int payMTId)
         {
             _paymentServices.InsertPayment(orderId, payMTId);
-            //_paymentServices.FinalyPaymant(orderId);
+            _paymentServices.FinalyPaymant(orderId);
         }
     }
 }

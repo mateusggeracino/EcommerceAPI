@@ -20,19 +20,19 @@ namespace Ecommerce.Services
             return _productBusiness.Insert(product);
         }
 
-        public List<Product> ExecuteQueryId(string query)
+        public Product GetById(int id)
         {
-            return _productBusiness.ExecuteQueryId(query);
+            return _productBusiness.GetById(id);
         }
 
-        public List<Product> ExecuteQueryDescription(string query)
+        public List<Product> GetByDescription(string query)
         {
-            return _productBusiness.ExecuteQueryDescription(query);
+            return _productBusiness.GetByDescription(query);
         }
 
-        public List<Product> ExecuteQueryBrand(string query)
+        public List<Product> GetByBrand(string query)
         {
-            return _productBusiness.ExecuteQueryBrand(query);
+            return _productBusiness.GetByBrand(query);
         }
 
         public List<Product> GetAll()

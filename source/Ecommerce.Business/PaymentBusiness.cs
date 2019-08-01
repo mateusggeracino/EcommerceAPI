@@ -19,7 +19,7 @@ namespace Ecommerce.Business
             {
                 PayPMId = payMTId,
                 OrderId = orderId,
-                PayStatus = 1
+                PayStatus = 0
             }); 
         }
     }

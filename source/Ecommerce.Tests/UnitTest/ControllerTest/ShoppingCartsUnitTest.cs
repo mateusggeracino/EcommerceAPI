@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Ecommerce.Application.Controllers;
+using Ecommerce.Application.ViewModels;
 using Ecommerce.Domain.Models;
 using Ecommerce.Services;
 using Ecommerce.Services.Interfaces;
@@ -15,102 +16,115 @@ using Xunit;
 
 namespace Ecommerce.Tests.UnitTest.ControllerTest
 {
+    [Trait("Unit", "Shopping Carts")]
     public class ShoppingCartsUnitTest
     {
 
-        [Fact]
-        public void InsertSuccess()
-        {
-            var shoppingCartsServices = new Mock<IShoppingCartServices>();
-            var stockServices = new Mock<IStockServices>();
-            //var shoppingCartsController = new ShoppingCartsController(shoppingCartsServices.Object, stockServices.Object);
+        //[Fact(DisplayName = "Insert success")]
+        //public void InsertSuccess( )
+        //{
+        //    var shoppingCartsServices = new Mock<IShoppingCartServices>( );
+        //    var stockServices = new Mock<IStockServices>( );
+        //    var mockOrderServices = new Mock<IOrderServices>( );
 
-            //shoppingCartsServices.Setup(x => x.Insert(It.IsAny<ShoppingCarts>())).Returns("success");
+        //    var shoppingCartsController = new ShoppingCartsController( shoppingCartsServices.Object, stockServices.Object, AutoMapperConfigTest.GetInstance( ), mockOrderServices.Object );
 
-            //var shoppingCarts = A.New<ShoppingCarts>();
+        //    shoppingCartsServices
+        //        .Setup( x => x.Insert( It.IsAny<ShoppingCarts>( ) ) )
+        //        .Returns( "Success" );
 
-            //var response = shoppingCartsController.Post(shoppingCarts);
-            //Assert.NotNull(response);
-            //Assert.IsType<OkObjectResult>(response.Result);
+        //    var shoppingCartsViewModel = A.New<ShoppingCartsViewModel>( );
 
-            //var httpObjResult = response.Result as OkObjectResult;
+        //    var response = shoppingCartsController.Post( shoppingCartsViewModel );
 
-            //Assert.NotNull(httpObjResult);
-            //Assert.True(httpObjResult.StatusCode == 200);
+        //    Assert.NotNull( response );
+        //    Assert.IsType<OkObjectResult>( response.Result );
 
-            //var value = httpObjResult.Value;
+        //    var httpObjResult = response.Result as OkObjectResult;
 
-            //Assert.NotNull(value);
-            //Assert.False(string.IsNullOrWhiteSpace(value.ToString()));
-            //Assert.Same("success", value);
-        }
+        //    Assert.NotNull( httpObjResult );
+        //    Assert.True( httpObjResult.StatusCode == 200 );
 
-        [Fact]
-        public void GetSuccess()
-        {
-            //var shoppingCartsServices = new Mock<IShoppingCartServices>();
-            //var stockServices = new Mock<IStockServices>();
-            //var shoppingCartsController = new ShoppingCartsController(shoppingCartsServices.Object, stockServices.Object);
+        //    var value = httpObjResult.Value;
 
-            //var shoppingCartsList = A.ListOf<ShoppingCarts>();
+        //    Assert.NotNull( value );
+        //    Assert.False( string.IsNullOrWhiteSpace( value.ToString( ) ) );
+        //    Assert.Same( "Success", value );
+        //}
 
-            //shoppingCartsServices.Setup(x => x.List()).Returns(shoppingCartsList);
+        //[Fact( DisplayName = "Get successs" )]
+        //public void GetSuccess( )
+        //{
+        //    var shoppingCartsServices = new Mock<IShoppingCartServices>( );
+        //    var stockServices = new Mock<IStockServices>( );
+        //    var mockOrderServices = new Mock<IOrderServices>( );
 
-            //var response = shoppingCartsController.Get();
-            //Assert.NotNull(response);
-            //Assert.IsType<OkObjectResult>(response.Result);
+        //    var shoppingCartsController = new ShoppingCartsController( shoppingCartsServices.Object, stockServices.Object, AutoMapperConfigTest.GetInstance( ), mockOrderServices.Object );
 
-            //var httpObjResult = response.Result as OkObjectResult;
+        //    var shoppingCartsList = A.ListOf<ShoppingCarts>( );
 
-            //Assert.NotNull(httpObjResult);
-            //Assert.True(httpObjResult.StatusCode == 200);
-        }
+        //    shoppingCartsServices.Setup( x => x.List( ) ).Returns( shoppingCartsList );
 
-        [Fact]
-        public void GetByIdSuccess()
-        {
-            //var shoppingCartsServices = new Mock<IShoppingCartServices>();
-            //var stockServices = new Mock<IStockServices>();
-            //var shoppingCartsController = new ShoppingCartsController(shoppingCartsServices.Object, stockServices.Object);
+        //    var response = shoppingCartsController.GetAll( );
+        //    Assert.NotNull( response );
+        //    Assert.IsType<OkObjectResult>( response.Result );
 
-            //var shoppingCarts = A.New<ShoppingCarts>();
+        //    var httpObjResult = response.Result as OkObjectResult;
 
-            //shoppingCartsServices.Setup(x => x.GetById(1)).Returns(shoppingCarts);
+        //    Assert.NotNull( httpObjResult );
+        //    Assert.True( httpObjResult.StatusCode == 200 );
+        //}
 
-            //var response = shoppingCartsController.Get(1);
-            //Assert.NotNull(response);
-            //Assert.IsType<OkObjectResult>(response.Result);
+        //[Fact( DisplayName = "Get by id success" )]
+        //public void GetByIdSuccess( )
+        //{
+        //    var shoppingCartsServices = new Mock<IShoppingCartServices>( );
+        //    var stockServices = new Mock<IStockServices>( );
+        //    var mockOrderServices = new Mock<IOrderServices>( );
 
-            //var httpObjResult = response.Result as OkObjectResult;
+        //    var shoppingCartsController = new ShoppingCartsController( shoppingCartsServices.Object, stockServices.Object, AutoMapperConfigTest.GetInstance( ), mockOrderServices.Object );
 
-            //Assert.NotNull(httpObjResult);
-            //Assert.True(httpObjResult.StatusCode == 200);
-        }
+        //    var shoppingCarts = A.New<ShoppingCarts>( );
 
-        [Fact]
-        public void UpdateSuccess()
-        {
-            //var shoppingCartsServices = new Mock<IShoppingCartServices>();
-            //var stockServices = new Mock<IStockServices>();
-            //var shoppingCartsController = new ShoppingCartsController(shoppingCartsServices.Object, stockServices.Object);
+        //    shoppingCartsServices.Setup( x => x.GetById( 1 ) ).Returns( shoppingCarts );
 
-            //var shoppingCarts = A.New<ShoppingCarts>();
-            //shoppingCartsServices.Setup(x => x.Update(It.IsAny<ShoppingCarts>())).Returns("success");
-            //var response = shoppingCartsController.Put(shoppingCarts);
+        //    var response = shoppingCartsController.Get( 1 );
+        //    Assert.NotNull( response );
+        //    Assert.IsType<OkObjectResult>( response.Result );
 
-            //Assert.NotNull(response);
-            //Assert.IsType<OkObjectResult>(response.Result);
+        //    var httpObjResult = response.Result as OkObjectResult;
 
-            //var httpObjResult = response.Result as OkObjectResult;
+        //    Assert.NotNull( httpObjResult );
+        //    Assert.True( httpObjResult.StatusCode == 200 );
+        //}
 
-            //Assert.NotNull(httpObjResult);
-            //Assert.Same("success", httpObjResult.Value);
+        //[Fact( DisplayName = "Update success" )]
+        //public void UpdateSuccess( )
+        //{
+        //    var shoppingCartsServices = new Mock<IShoppingCartServices>( );
+        //    var stockServices = new Mock<IStockServices>( );
+        //    var mockOrderServices = new Mock<IOrderServices>( );
 
-            //var value = httpObjResult.Value;
+        //    var shoppingCartsController = new ShoppingCartsController( shoppingCartsServices.Object, stockServices.Object, AutoMapperConfigTest.GetInstance( ), mockOrderServices.Object );
 
-            //Assert.NotNull(value);
-            //Assert.False(string.IsNullOrWhiteSpace(value.ToString()));
-            //Assert.Same("success", value);
-        }
+        //    var shoppingCarts = A.New<ShoppingCarts>( );
+        //    shoppingCartsServices.Setup( x => x.Update( It.IsAny<ShoppingCarts>( ) ) ).Returns( "success" );
+        //    var response = shoppingCartsController.Put( shoppingCarts );
+
+        //    Assert.NotNull( response );
+        //    Assert.IsType<OkObjectResult>( response.Result );
+
+        //    var httpObjResult = response.Result as OkObjectResult;
+
+        //    Assert.NotNull( httpObjResult );
+        //    Assert.Same( "Success", httpObjResult.Value );
+
+        //    var value = httpObjResult.Value;
+
+        //    Assert.NotNull( value );
+        //    Assert.False( string.IsNullOrWhiteSpace( value.ToString( ) ) );
+        //    Assert.Same( "Success", value );
+        //}
+        //}
     }
 }

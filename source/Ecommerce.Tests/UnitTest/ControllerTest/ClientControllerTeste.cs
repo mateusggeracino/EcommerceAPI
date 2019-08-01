@@ -9,11 +9,12 @@ using GenFu;
 using Microsoft.Extensions.Logging;
 using Xunit;
 
-namespace Ecommerce.Tests
+namespace Ecommerce.Tests.UnitTest.ControllerTest
 {
-    public class ClientControllerTeste
+    [Trait( "Unit", "Client" )]
+    public class ClientControllerUnitTest
     {
-        [Fact]
+        [Fact(DisplayName = "Insert Sucess")]
         public void InsertSuccess()
         {
             var services = new Mock<IClientServices>();

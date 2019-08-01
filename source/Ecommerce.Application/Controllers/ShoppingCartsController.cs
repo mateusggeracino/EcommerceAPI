@@ -99,7 +99,6 @@ namespace Ecommerce.Application.Controllers
         /// <param name="orderId"></param>
         private void UpdateShoppingCarts(ShoppingCarts shoppingCarts, int orderId)
         {
-            // ** problema aqui **
             shoppingCarts.CartStatus = orderId;
             var unitPrice = shoppingCartsList.Where(x => x.Id == shoppingCarts.Id && x.CartProductId == shoppingCarts.CartProductId).FirstOrDefault();
             shoppingCarts.CartUnitPrice = unitPrice?.CartUnitPrice;
@@ -112,7 +111,7 @@ namespace Ecommerce.Application.Controllers
         /// </summary>
         private void UpdateStockQuantityVirtual(ShoppingCarts shoppingCarts)
         {
-            Stock stock = _stockServices.GetByProduct(shoppingCarts.CartStoreId, shoppingCarts.CartProductId);
+            //Stock stock = _stockServices.GetByProduct(shoppingCarts.CartStoreId, shoppingCarts.CartProductId);
             _stockServices.RemoveQuantityVirtual(shoppingCarts);
         }
 
