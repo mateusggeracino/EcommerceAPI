@@ -52,7 +52,7 @@ NI - Não Informado
 
 [StockStoreId] - Código da loja relacionada ao estoque.  
 [StockProductId] - Código do produto relacionado ao estoque.  
-[RealStock] - Estoque físico da loja.
+[RealStock] - Estoque físico da loja.  
 [VirtualStock] - Estoque da loja decrescido dos itens vinculados à ordens ainda não finalizadas.
 
 ## Shopping Cart
