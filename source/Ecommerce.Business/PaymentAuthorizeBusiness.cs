@@ -1,74 +1,78 @@
-﻿using System.Net;
+﻿using System.Collections.Generic;
+using System.Net;
 using Ecommerce.Business.Interfaces;
 using Ecommerce.Domain.Models;
 using Ecommerce.Integration.AuthorizarApi.Business;
 using Ecommerce.Integration.AuthorizarApi.Domain.Models.Request;
 using Ecommerce.Integration.AuthorizarApi.Domain.Models.Response;
 using Ecommerce.Repository.Interfaces;
-using EndPoint = Ecommerce.Integration.AuthorizarApi.Domain.ValueObject.EndPoint;
 
 namespace Ecommerce.Business
 {
     public class PaymentAuthorizeBusiness : IPaymentAuthorizeBusiness
     {
-        private readonly IPaymentAuthorizeRepository _paymentRepository;
+        private readonly IPaymentAuthorizeRepository _paymentAuthorizerepository;
         private readonly IStockRepository _stockRepository;
         private readonly IShoppingCartsRepository _shoppingCartsRepository;
         private readonly IOrderRepository _orderRepository;
+        private readonly IPaymentRepository _paymentrepository;
 
-        public PaymentAuthorizeBusiness(IPaymentAuthorizeRepository paymentRepository, IStockRepository stockRepository, IShoppingCartsRepository shoppingCartsRepository, IOrderRepository orderRepository)
+        public PaymentAuthorizeBusiness(IPaymentRepository paymentrepository,IPaymentAuthorizeRepository paymentauthorizerepository, IStockRepository stockRepository, IShoppingCartsRepository shoppingCartsRepository, IOrderRepository orderRepository)
         {
-            _paymentRepository = paymentRepository;
+            _paymentAuthorizerepository = paymentauthorizerepository;
             _stockRepository = stockRepository;
             _shoppingCartsRepository = shoppingCartsRepository;
             _orderRepository = orderRepository;
+            _paymentrepository = paymentrepository;
         }
 
         public bool FinalyPaymant(int order)
         {
-            var payment = _paymentRepository.GetByPayment(order);
+            var payment = _paymentAuthorizerepository.GetByPayment(order);
             if (payment != null)
             {
                 var result = AuthorizePayment(payment);
 
-                switch (result)
+                switch (result.PayStatus)
                 {
-                    case "0":
+                    case 0:
                         {
-                            UpdateStatusOrder(order, 3);
+                            UpdateStatusOrder(order, 400);
+                            Updatepayment(result,400);
                             UpdadeStock(order);
                             break;
                         }
-                    case "1":
+                    case 1:
                         {
-                            UpdateStatusOrder(order, 3);
+                            UpdateStatusOrder(order, 500);
+                            Updatepayment(result, 500);
                             break;
                         }
                 }
-
                 return true;
             }
-            else
-            {
-                return false;
-            }
+            return false;          
         }
-        private string AuthorizePayment(vw_PaymentOrder order)
+        private Payment AuthorizePayment(vw_PaymentOrder order)
         {
-            string finaly;
+            Payment payment = new Payment();
+            payment.OrderId = order.Id;
+
             if(order.EndPointName == "CreditCardTransaction")
             {
                 var integration = new Integration<CreditCardResponse>();
-                var result = integration.Post(order.EndPointName, new CreditCardRequest());
-                finaly = result.CreditCardTransaction.CreditCard.Status.ToString();
+                var result = integration.Post(order.EndPointName, new CreditCardRequest());                
+                payment.PayTransactionId = result.CreditCardTransaction.CreditCard.Id;
+                payment.PayStatus = result.CreditCardTransaction.CreditCard.Status;
             }
             else
             {
-                var integration = new Integration<CreditCardResponse>();
-                var result = integration.Post(order.EndPointName, new CreditCardRequest());
-                finaly = result.CreditCardTransaction.CreditCard.Status.ToString();
+                var integration = new Integration<PaymentSlipResponse>();
+                var result = integration.Post(order.EndPointName, new PaymentSlipResponse());
+                payment.PayTransactionId = result.PaymentSlipTransaction.PaymentSlip.Id;
+                payment.PayStatus = result.PaymentSlipTransaction.PaymentSlip.Status;
             }
-            return finaly;
+            return payment;
         }
 
         private void UpdateStatusOrder(int orderId, int status)
@@ -90,6 +94,11 @@ namespace Ecommerce.Business
 
                 _stockRepository.Update(stockProduct);
             }
+        }
+
+        private void Updatepayment(Payment payment, int status)
+        {
+            _paymentrepository.ExecuteQuery($"update Transactions.Payments set PayPMId = {status}, PayStatus = {payment.PayStatus} where OrderId = {payment.OrderId}", null);
         }
     }
 }
