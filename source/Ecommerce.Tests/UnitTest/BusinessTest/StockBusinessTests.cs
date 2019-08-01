@@ -23,7 +23,7 @@ namespace Ecommerce.Tests.UnitTest.BusinessTest
             Assert.True( result.Id > 0 );
         }
 
-        [Fact]
+        [Fact(DisplayName = "Get all successs")]
         public void GetAllSuccess()
         {
             var stockRepository = new Mock<IStockRepository>();
@@ -36,7 +36,7 @@ namespace Ecommerce.Tests.UnitTest.BusinessTest
             Assert.True(result.Count > 0);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Get by id successs")]
         public void GetByIdSuccess()
         {
             var stockRepository = new Mock<IStockRepository>();
@@ -48,7 +48,7 @@ namespace Ecommerce.Tests.UnitTest.BusinessTest
             Assert.NotNull(result);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Update successs")]
         public void UpdateSuccess()
         {
             var stockRepository = new Mock<IStockRepository>();
@@ -60,7 +60,7 @@ namespace Ecommerce.Tests.UnitTest.BusinessTest
             Assert.NotNull(result);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Delete successs")]
         public void DeleteSuccess()
         {
             var stockRepository = new Mock<IStockRepository>();
@@ -72,7 +72,7 @@ namespace Ecommerce.Tests.UnitTest.BusinessTest
             Assert.True(result);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Get by store successs")]
         public void GetByStoreProductSuccess()
         {
             var stockRepository = new Mock<IStockRepository>();
@@ -84,7 +84,7 @@ namespace Ecommerce.Tests.UnitTest.BusinessTest
             Assert.NotNull(result);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Remove quantity virtual successs")]
         public void RemoveQuantityVirtualSuccess()
         {
             var stockRepository = new Mock<IStockRepository>();
@@ -100,7 +100,7 @@ namespace Ecommerce.Tests.UnitTest.BusinessTest
             Assert.True(stock.VirtualStock == quantity);
         }
 
-        [Fact]
+        [Fact(DisplayName = "Remove quantity real successs")]
         public void RemoveQuantityRealSuccess()
         {
             var stockRepository = new Mock<IStockRepository>();
