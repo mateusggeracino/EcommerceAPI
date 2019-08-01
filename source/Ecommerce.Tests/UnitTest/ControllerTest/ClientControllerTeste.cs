@@ -9,7 +9,7 @@ using GenFu;
 using Microsoft.Extensions.Logging;
 using Xunit;
 
-namespace Ecommerce.Tests
+namespace Ecommerce.Tests.UnitTest.ControllerTest
 {
     [Trait( "Unit", "Client" )]
     public class ClientControllerUnitTest
