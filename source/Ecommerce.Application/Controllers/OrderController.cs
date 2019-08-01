@@ -33,10 +33,10 @@ namespace Ecommerce.Application.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("finalize-order")]
-        public void FinalizeOrder([FromBody]Payment payment, int orderId)
+        public void FinalizeOrder(int orderId, int payMTId)
         {
-            _paymentServices.InsertPayment(payment);
-            _paymentServices.FinalyPaymant(orderId);
+            _paymentServices.InsertPayment(orderId, payMTId);
+            //_paymentServices.FinalyPaymant(orderId);
         }
     }
 }

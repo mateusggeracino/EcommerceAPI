@@ -7,6 +7,6 @@ namespace Ecommerce.Business.Interfaces
 {
     public interface IPaymentBusiness
     {
-        Payment Insert(Payment payment);
+        Payments Insert(int orderId, int payMTId);
     }
 }

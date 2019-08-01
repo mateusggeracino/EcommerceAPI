@@ -38,10 +38,10 @@ namespace Ecommerce.Application.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult<string> GetAll()
+        public ActionResult<List<ShoppingCarts>> GetAll()
         {
-            _shoppingCartServices.List();
-            return Ok("success");
+            return _shoppingCartServices.List();
+            //return Ok("success");
         }
 
         /// <summary>
@@ -52,8 +52,7 @@ namespace Ecommerce.Application.Controllers
         [HttpGet("{id}")]
         public ActionResult<ShoppingCarts> Get(int id)
         {
-            _shoppingCartServices.GetById(id);
-            return Ok("success");
+            return _shoppingCartServices.GetById(id);
         }
 
         /// <summary>
@@ -62,13 +61,9 @@ namespace Ecommerce.Application.Controllers
         /// <param name="shoppingCartsViewModel"></param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult<string> Post([FromBody] ShoppingCartsViewModel shoppingCartsViewModel)
+        public ActionResult<ShoppingCarts> Post([FromBody] ShoppingCartsViewModel shoppingCartsViewModel)
         {
-            var shoppingCarts = _shoppingCartServices
-                .Insert(_mapper.Map<ShoppingCarts>(shoppingCartsViewModel));
-
-            //if(shoppingCarts.)
-            return null;
+            return _shoppingCartServices.Insert(_mapper.Map<ShoppingCarts>(shoppingCartsViewModel));
         }
 
         /// <summary>
@@ -77,10 +72,9 @@ namespace Ecommerce.Application.Controllers
         /// <param name="shoppingCarts"></param>
         /// <returns></returns>
         [HttpPut]
-        public ActionResult<string> Put([FromBody] ShoppingCarts shoppingCarts)
+        public ActionResult<ShoppingCarts> Put([FromBody] ShoppingCarts shoppingCarts)
         {
-            _shoppingCartServices.Update(shoppingCarts);
-            return Ok("success");
+            return _shoppingCartServices.Update(shoppingCarts);
         }
 
         /// <summary>
@@ -90,23 +84,11 @@ namespace Ecommerce.Application.Controllers
         [HttpPatch]
         public void FinalizeShoppingCarts([FromBody] ShoppingCarts shoppingCarts)
         {
-            var orderId = InsertOrder(shoppingCarts.Id);
-            UpdateShoppingCarts(shoppingCarts, orderId);
-            UpdateStockQuantityVirtual(shoppingCarts);
-        }
-
-        /// <summary>
-        /// Método responsável por trazer dados do carrinho em uma view
-        /// e chamar orderServices para inserir
-        /// </summary>
-        /// <param name="shoppingCarts"></param>
-        /// <returns></returns>
-        private int InsertOrder(int shoppingCartsId)
-        {
-            shoppingCartsList = _shoppingCartServices.GetViewShoppingCarts(shoppingCartsId);
-            ShoppingCarts shoppingCartView = shoppingCartsList.Where(x => x.Id == shoppingCartsId).FirstOrDefault();
+            shoppingCartsList = _shoppingCartServices.GetViewShoppingCarts(shoppingCarts.Id);
+            ShoppingCarts shoppingCartView = shoppingCartsList.Where(x => x.Id == shoppingCarts.Id).FirstOrDefault();
             Order order = _orderServices.InsertOrder(shoppingCartView);
-            return order.Id;
+            UpdateShoppingCarts(shoppingCarts, order.Id);
+            UpdateStockQuantityVirtual(shoppingCarts);
         }
 
         /// <summary>
@@ -119,7 +101,8 @@ namespace Ecommerce.Application.Controllers
         {
             // ** problema aqui **
             shoppingCarts.CartStatus = orderId;
-            shoppingCarts.CartUnitPrice = shoppingCartsList.Where(x => x.Id == shoppingCarts.Id && x.CartProductId == shoppingCarts.CartProductId).FirstOrDefault().CartUnitPrice;
+            var unitPrice = shoppingCartsList.Where(x => x.Id == shoppingCarts.Id && x.CartProductId == shoppingCarts.CartProductId).FirstOrDefault();
+            shoppingCarts.CartUnitPrice = unitPrice?.CartUnitPrice;
             _shoppingCartServices.Update(shoppingCarts);
         }
 

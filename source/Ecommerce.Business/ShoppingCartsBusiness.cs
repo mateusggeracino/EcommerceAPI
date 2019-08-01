@@ -29,7 +29,7 @@ namespace Ecommerce.Business
 
         public ShoppingCarts InsertShoppingCarts(ShoppingCarts shoppingCarts)
         {
-            return _shoppingCartsRepository.Insert(shoppingCarts);
+            return _shoppingCartsRepository.InsertShoppingCarts(shoppingCarts);
         }
 
         public Order InsertOrder(ShoppingCarts shoppingCartsView)
@@ -44,9 +44,9 @@ namespace Ecommerce.Business
             }); ;
         }
 
-        public void Update(ShoppingCarts shoppingCarts)
+        public ShoppingCarts Update(ShoppingCarts shoppingCarts)
         {
-            _shoppingCartsRepository.Update(shoppingCarts);
+            return _shoppingCartsRepository.Update(shoppingCarts);
         }
 
         public List<ShoppingCarts> GetViewShoppingCart(int shoppingCartId)

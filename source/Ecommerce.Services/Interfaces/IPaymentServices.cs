@@ -7,7 +7,7 @@ namespace Ecommerce.Services.Interfaces
 {
     public interface IPaymentServices
     {
-        void InsertPayment(Payment payment);
+        void InsertPayment(int orderId, int payMTId);
 
         bool FinalyPaymant(int orderId);
     }
