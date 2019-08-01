@@ -1,4 +1,5 @@
-﻿using Ecommerce.Domain.Models;
+﻿using Dapper;
+using Ecommerce.Domain.Models;
 using Ecommerce.Repository.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -12,6 +13,17 @@ namespace Ecommerce.Repository
     {
         public PaymentRepository(IConfiguration config, ILogger<Repository<Payments>> logger) : base(config, logger)
         {
+
+        }
+
+        public void Updatestatus(Payments payment, int status)
+        {
+            var query = $"update Transactions.Payments set PayTransactionId = @status, PayStatus = @paystatus where OrderId = @payorder";
+            var parameters = new DynamicParameters();
+            parameters.Add("@status", status);
+            parameters.Add("@paystatus", payment.PayStatus);
+            parameters.Add("@payorder", payment.OrderId);
+            ExecuteQuery(query, parameters);
         }
     }
 }

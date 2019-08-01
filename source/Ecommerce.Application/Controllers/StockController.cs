@@ -22,14 +22,11 @@ namespace Ecommerce.Application.Controllers
         private readonly IStockServices _stockServices;
         private readonly ILogger<StockController> _logger;
 
-        private readonly IPaymentAuthorizeBusiness _pay;
-        public StockController(IMapper mapper, IStockServices stockServices, ILogger<StockController> logger, IPaymentAuthorizeBusiness pay)
+        public StockController(IMapper mapper, IStockServices stockServices, ILogger<StockController> logger)
         {
             _mapper = mapper;
             _stockServices = stockServices;
             _logger = logger;
-
-            _pay = pay;
         }
 
         /// <summary>
@@ -61,8 +58,6 @@ namespace Ecommerce.Application.Controllers
         [HttpGet]
         public ActionResult<List<StockViewModel>> GetAll()
         {
-            _pay.FinalyPaymant(3);
-
             try
             {
                 _logger.LogInformation("Received post request");

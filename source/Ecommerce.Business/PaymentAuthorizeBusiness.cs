@@ -38,7 +38,7 @@ namespace Ecommerce.Business
                     case 0:
                         {
                             UpdateStatusOrder(order, 400);
-                            Updatepayment(result,400);
+                            Updatepayment(result, 400);
                             UpdadeStock(order);
                             break;
                         }
@@ -53,9 +53,9 @@ namespace Ecommerce.Business
             }
             return false;          
         }
-        private Payment AuthorizePayment(vw_PaymentOrder order)
+        private Payments AuthorizePayment(vw_PaymentOrder order)
         {
-            Payment payment = new Payment();
+            Payments payment = new Payments();
             payment.OrderId = order.Id;
 
             if(order.EndPointName == "CreditCardTransaction")
@@ -96,9 +96,9 @@ namespace Ecommerce.Business
             }
         }
 
-        private void Updatepayment(Payment payment, int status)
+        private void Updatepayment(Payments payment, int status)
         {
-            _paymentrepository.ExecuteQuery($"update Transactions.Payments set PayPMId = {status}, PayStatus = {payment.PayStatus} where OrderId = {payment.OrderId}", null);
+            _paymentrepository.Updatestatus(payment, status);
         }
     }
 }

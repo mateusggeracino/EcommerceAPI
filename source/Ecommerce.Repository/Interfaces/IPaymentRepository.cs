@@ -7,5 +7,6 @@ namespace Ecommerce.Repository.Interfaces
 {
     public interface IPaymentRepository : IRepository<Payments>
     {
+        void Updatestatus(Payments obj,int status);
     }
 }
