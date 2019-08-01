@@ -22,6 +22,35 @@
             </summary>
             <returns>List payment methods</returns>
         </member>
+        <member name="M:Ecommerce.Application.Controllers.PaymentMethodController.GetById(System.Int32)">
+            <summary>
+            Get Payment Method by Id
+            </summary>
+            <param name="id">Id Payment Method</param>
+            <returns>Payment Method</returns>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.PaymentMethodController.Post(Ecommerce.Application.ViewModels.PaymentMethodViewModel)">
+            <summary>
+            Insert Ney Payment Method
+            </summary>
+            <param name="paymentMethodViewModel">Object Payment Method</param>
+            <returns>Success</returns>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.PaymentMethodController.Put(System.Int32,Ecommerce.Application.ViewModels.PaymentMethodViewModel)">
+            <summary>
+            Update Payment Method
+            </summary>
+            <param name="id">Id Payment Method</param>
+            <param name="paymentMethodViewModel">Object Payment Method</param>
+            <returns>Success</returns>
+        </member>
+        <member name="M:Ecommerce.Application.Controllers.PaymentMethodController.Delete(System.Int32)">
+            <summary>
+            Delete Payment Method
+            </summary>
+            <param name="id">Id Payment Method</param>
+            <returns>Success</returns>
+        </member>
         <member name="T:Ecommerce.Application.Controllers.ShoppingCartsController">
             <summary>
             Esta classe é responsável por todos os comportamentos do
