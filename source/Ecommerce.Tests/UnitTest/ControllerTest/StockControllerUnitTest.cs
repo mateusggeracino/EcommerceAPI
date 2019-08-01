@@ -14,6 +14,7 @@ using Xunit;
 
 namespace Ecommerce.Tests.UnitTest.ControllerTest
 {
+    [Trait( "Unit", "Stock" )]
     public class StockControllerUnitTest
     {
         [Fact]

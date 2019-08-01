@@ -11,9 +11,10 @@ using Xunit;
 
 namespace Ecommerce.Tests
 {
-    public class ClientControllerTeste
+    [Trait( "Unit", "Client" )]
+    public class ClientControllerUnitTest
     {
-        [Fact]
+        [Fact(DisplayName = "Insert Sucess")]
         public void InsertSuccess()
         {
             var services = new Mock<IClientServices>();

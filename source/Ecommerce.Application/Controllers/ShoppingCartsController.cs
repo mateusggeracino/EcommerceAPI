@@ -29,14 +29,14 @@ namespace Ecommerce.Application.Controllers
         public ActionResult<string> Get()
         {
             _shoppingCartServices.List();
-            return Ok("success");
+            return Ok("Success");
         }
 
         [HttpGet("{id}")]
         public ActionResult<ShoppingCarts> Get(int id)
         {
              _shoppingCartServices.GetById(id);
-            return Ok("success");
+            return Ok("Success");
         }
 
         [HttpPost]
@@ -45,15 +45,17 @@ namespace Ecommerce.Application.Controllers
              var shoppingCarts = _shoppingCartServices
                  .Insert(_mapper.Map<ShoppingCarts>(shoppingCartsViewModel));
 
-            //if(shoppingCarts.)
-            return null;
+            if ( shoppingCarts != null )
+                return Ok( "Success" );
+            else
+                return BadRequest( );
         }
 
         [HttpPut]
         public ActionResult<string> Put([FromBody] ShoppingCarts shoppingCarts)
         {
             _shoppingCartServices.Update(shoppingCarts);
-            return Ok("success");
+            return Ok("Success");
         }
 
         /// <summary>
@@ -68,6 +70,7 @@ namespace Ecommerce.Application.Controllers
 
             Order order = _shoppingCartServices.InsertOrder(shoppingCarts, shoppingCartView);
 
+            // todo: refatorar
             // ** problema aqui **
             //shoppingCarts.CartStatus = order.Id;
             //shoppingCarts.CartUnitPrice = shoppingCartsList.Where(x => x.Id == shoppingCarts.Id && x.CartProductId == shoppingCarts.CartProductId).FirstOrDefault().CartUnitPrice;
