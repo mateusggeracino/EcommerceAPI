@@ -7,19 +7,20 @@ using Xunit;
 
 namespace Ecommerce.Tests.UnitTest.BusinessTest
 {
+    [Trait( "Unit", "Stock Business" )]
     public class StockBusinessTests
     {
-        [Fact]
-        public void InsertSuccess()
+        [Fact( DisplayName = "Insert success" )]
+        public void InsertSuccess( )
         {
-            var stockRepository = new Mock<IStockRepository>();
-            var stockBusiness = new StockBusiness(stockRepository.Object);
-            var stock = A.New<Stock>();
-            stockRepository.Setup(x => x.Insert(It.IsAny<Stock>())).Returns(stock);
-            var result = stockBusiness.Insert(stock);
+            var stockRepository = new Mock<IStockRepository>( );
+            var stockBusiness = new StockBusiness( stockRepository.Object );
+            var stock = A.New<Stock>( );
+            stockRepository.Setup( x => x.Insert( It.IsAny<Stock>( ) ) ).Returns( stock );
+            var result = stockBusiness.Insert( stock );
 
-            Assert.NotNull(result);
-            Assert.True(result.Id > 0);
+            Assert.NotNull( result );
+            Assert.True( result.Id > 0 );
         }
     }
 }

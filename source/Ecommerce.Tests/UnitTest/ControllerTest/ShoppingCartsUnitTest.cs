@@ -20,13 +20,14 @@ namespace Ecommerce.Tests.UnitTest.ControllerTest
     public class ShoppingCartsUnitTest
     {
 
-        [Fact(DisplayName = "Insert success")]
-        public void InsertSuccess()
+        [Fact( DisplayName = "Insert success" )]
+        public void InsertSuccess( )
         {
-            var shoppingCartsServices = new Mock<IShoppingCartServices>();
-            var stockServices = new Mock<IStockServices>();
+            var shoppingCartsServices = new Mock<IShoppingCartServices>( );
+            var stockServices = new Mock<IStockServices>( );
+            var mockOrderServices = new Mock<IOrderServices>( );
 
-            var shoppingCartsController = new ShoppingCartsController( shoppingCartsServices.Object, stockServices.Object, AutoMapperConfigTest.GetInstance( ) );
+            var shoppingCartsController = new ShoppingCartsController( shoppingCartsServices.Object, stockServices.Object, AutoMapperConfigTest.GetInstance( ), mockOrderServices.Object );
 
             shoppingCartsServices
                 .Setup( x => x.Insert( It.IsAny<ShoppingCarts>( ) ) )
@@ -51,18 +52,20 @@ namespace Ecommerce.Tests.UnitTest.ControllerTest
             Assert.Same( "Success", value );
         }
 
-        [Fact(DisplayName = "Get successs")]
-        public void GetSuccess()
+        [Fact( DisplayName = "Get successs" )]
+        public void GetSuccess( )
         {
             var shoppingCartsServices = new Mock<IShoppingCartServices>( );
             var stockServices = new Mock<IStockServices>( );
-            var shoppingCartsController = new ShoppingCartsController( shoppingCartsServices.Object, stockServices.Object, AutoMapperConfigTest.GetInstance( ) );
+            var mockOrderServices = new Mock<IOrderServices>( );
+
+            var shoppingCartsController = new ShoppingCartsController( shoppingCartsServices.Object, stockServices.Object, AutoMapperConfigTest.GetInstance( ), mockOrderServices.Object );
 
             var shoppingCartsList = A.ListOf<ShoppingCarts>( );
 
             shoppingCartsServices.Setup( x => x.List( ) ).Returns( shoppingCartsList );
 
-            var response = shoppingCartsController.Get( );
+            var response = shoppingCartsController.GetAll( );
             Assert.NotNull( response );
             Assert.IsType<OkObjectResult>( response.Result );
 
@@ -72,12 +75,14 @@ namespace Ecommerce.Tests.UnitTest.ControllerTest
             Assert.True( httpObjResult.StatusCode == 200 );
         }
 
-        [Fact(DisplayName = "Get by id success")]
-        public void GetByIdSuccess()
+        [Fact( DisplayName = "Get by id success" )]
+        public void GetByIdSuccess( )
         {
             var shoppingCartsServices = new Mock<IShoppingCartServices>( );
             var stockServices = new Mock<IStockServices>( );
-            var shoppingCartsController = new ShoppingCartsController( shoppingCartsServices.Object, stockServices.Object, AutoMapperConfigTest.GetInstance( ) );
+            var mockOrderServices = new Mock<IOrderServices>( );
+
+            var shoppingCartsController = new ShoppingCartsController( shoppingCartsServices.Object, stockServices.Object, AutoMapperConfigTest.GetInstance( ), mockOrderServices.Object );
 
             var shoppingCarts = A.New<ShoppingCarts>( );
 
@@ -93,12 +98,14 @@ namespace Ecommerce.Tests.UnitTest.ControllerTest
             Assert.True( httpObjResult.StatusCode == 200 );
         }
 
-        [Fact(DisplayName = "Update success")]
-        public void UpdateSuccess()
+        [Fact( DisplayName = "Update success" )]
+        public void UpdateSuccess( )
         {
             var shoppingCartsServices = new Mock<IShoppingCartServices>( );
             var stockServices = new Mock<IStockServices>( );
-            var shoppingCartsController = new ShoppingCartsController( shoppingCartsServices.Object, stockServices.Object, AutoMapperConfigTest.GetInstance( ) );
+            var mockOrderServices = new Mock<IOrderServices>( );
+
+            var shoppingCartsController = new ShoppingCartsController( shoppingCartsServices.Object, stockServices.Object, AutoMapperConfigTest.GetInstance( ), mockOrderServices.Object );
 
             var shoppingCarts = A.New<ShoppingCarts>( );
             shoppingCartsServices.Setup( x => x.Update( It.IsAny<ShoppingCarts>( ) ) ).Returns( "success" );
